@@ -1,0 +1,94 @@
+/* Hallmark · genre: editorial · macrostructure: Catalogue · theme: Garden · enrichment: E8 existing café photography · nav: N6 Newspaper masthead · footer: Ft1 Mast-headed */
+@import url("https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700&f[]=general-sans@400,500,600&display=swap");
+
+:root {
+  --color-paper: oklch(96% 0.014 145);
+  --color-paper-2: oklch(92% 0.02 145);
+  --color-surface: oklch(88% 0.026 145);
+  --color-ink: oklch(22% 0.036 155);
+  --color-ink-soft: oklch(38% 0.03 155);
+  --color-muted: oklch(50% 0.026 155);
+  --color-rule: oklch(72% 0.026 150);
+  --color-rule-strong: oklch(52% 0.038 155);
+  --color-accent: oklch(58% 0.15 145);
+  --color-accent-soft: oklch(84% 0.075 145);
+  --color-focus: oklch(48% 0.17 145);
+  --color-photo-wash: oklch(28% 0.04 155 / 0.18);
+  --color-print: oklch(100% 0.001 145);
+
+  --font-display: "Cabinet Grotesk", "Malgun Gothic", sans-serif;
+  --font-body: "General Sans", "Malgun Gothic", sans-serif;
+  --font-outlier: "SFMono-Regular", "Cascadia Mono", monospace;
+
+  --text-xs: 0.72rem;
+  --text-sm: 0.86rem;
+  --text-base: 1rem;
+  --text-md: 1.25rem;
+  --text-lg: 1.563rem;
+  --text-xl: 1.953rem;
+  --text-2xl: 2.441rem;
+  --text-3xl: 3.052rem;
+  --text-display: clamp(2.1rem, 5vw + 0.8rem, 5rem);
+  --text-display-s: clamp(2.1rem, 3.6vw + 0.8rem, 3.7rem);
+
+  --space-3xs: 0.125rem;
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  --space-4xl: 9rem;
+
+  --page-gutter: clamp(1rem, 4vw, 4rem);
+  --content-max: 78rem;
+  --reading-max: 65ch;
+  --radius: 0.625rem;
+  --rule-hair: 1px;
+  --rule-double-gap: 0.35rem;
+
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long: 420ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --z-base: 1;
+  --z-raised: 10;
+  --z-sticky: 200;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-paper: oklch(17% 0.022 155);
+    --color-paper-2: oklch(21% 0.027 155);
+    --color-surface: oklch(25% 0.031 155);
+    --color-ink: oklch(93% 0.014 145);
+    --color-ink-soft: oklch(83% 0.018 145);
+    --color-muted: oklch(70% 0.021 145);
+    --color-rule: oklch(39% 0.028 155);
+    --color-rule-strong: oklch(58% 0.05 150);
+    --color-accent: oklch(74% 0.12 145);
+    --color-accent-soft: oklch(29% 0.053 150);
+    --color-focus: oklch(81% 0.13 145);
+    --color-photo-wash: oklch(10% 0.02 155 / 0.32);
+  }
+}
+
+@media print {
+  :root {
+    --color-paper: oklch(100% 0.001 145);
+    --color-paper-2: oklch(96% 0.008 145);
+    --color-surface: oklch(92% 0.012 145);
+    --color-ink: oklch(18% 0.018 155);
+    --color-ink-soft: oklch(32% 0.018 155);
+    --color-muted: oklch(44% 0.018 155);
+    --color-rule: oklch(72% 0.018 155);
+    --color-rule-strong: oklch(45% 0.028 155);
+    --color-accent: oklch(44% 0.11 145);
+    --color-accent-soft: oklch(90% 0.05 145);
+  }
+}

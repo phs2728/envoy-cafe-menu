@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="ENVOY CAFÉ opening menu draft and operating discussion document.">
+  <title>ENVOY CAFÉ | Opening Menu</title>
+  <link rel="stylesheet" href="tokens.css">
+  <style>
+    /* Hallmark · macrostructure: Catalogue · tone: editorial café document · anchor hue: forest green
+     * audience: Envoy investors and operating team · use: review the opening beverage menu and the questions behind it
+     * H2 knobs: ratio=7/5, right-side=photo, divider=negative-space · nav: N6 · footer: Ft1
+     * contrast: pass (40-41) · slop: pass (42-45) · honest: pass (46) · tokens: pass (48) · mobile: pass (34, 49-57)
+     * pre-emit critique: P5 H4 E5 S5 R5 V4 */
+    * { box-sizing: border-box; }
+
+    html, body { overflow-x: clip; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-width: 20rem;
+      margin: 0;
+      background: var(--color-paper);
+      color: var(--color-ink);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      font-weight: 400;
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:active { opacity: 0.74; }
+    a[aria-disabled="true"] { cursor: not-allowed; opacity: 0.55; pointer-events: none; }
+
+    p, li, h1, h2, h3 { overflow-wrap: anywhere; word-break: break-all; }
+
+    a:focus-visible {
+      outline: 3px solid var(--color-focus);
+      outline-offset: 4px;
+    }
+
+    .shell { width: min(100%, var(--content-max)); margin-inline: auto; padding-inline: var(--page-gutter); }
+
+    .masthead { padding-block: var(--space-lg) var(--space-sm); text-align: center; }
+
+    .mast-meta {
+      margin: 0;
+      color: var(--color-muted);
+      font-family: var(--font-outlier);
+      font-size: var(--text-xs);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .mast-name {
+      margin: var(--space-2xs) 0;
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      font-style: normal;
+      font-weight: 700;
+      letter-spacing: -0.055em;
+      line-height: 0.92;
+    }
+
+    .mast-subtitle { margin: 0; color: var(--color-ink-soft); font-size: var(--text-sm); }
+
+    .language-switch { display: flex; justify-content: center; gap: var(--space-2xs); margin-top: var(--space-sm); }
+
+    .language-switch button {
+      min-height: 2.25rem;
+      padding-inline: var(--space-sm);
+      border: var(--rule-hair) solid transparent;
+      background: transparent;
+      color: var(--color-muted);
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      white-space: nowrap;
+      transition: color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out);
+    }
+
+    .language-switch button:hover { color: var(--color-ink); }
+    .language-switch button:active { transform: translateY(1px); }
+    .language-switch button[aria-pressed="true"] { border-color: var(--color-accent); color: var(--color-ink); }
+    .language-switch button:disabled { cursor: not-allowed; opacity: 0.55; }
+
+    body[data-lang="ko"] .lang-en, body[data-lang="ko"] .bilingual .en { display: none; }
+    body[data-lang="en"] .lang-ko, body[data-lang="en"] .bilingual .ko { display: none; }
+
+    .mast-nav { margin-top: var(--space-md); }
+
+    .mast-nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-xs) var(--space-lg);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .mast-nav a {
+      display: inline-flex;
+      min-height: 2.75rem;
+      align-items: center;
+      border-bottom: var(--rule-hair) solid transparent;
+      color: var(--color-ink-soft);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out);
+    }
+
+    .mast-nav a:hover { border-color: var(--color-accent); color: var(--color-ink); }
+    .mast-nav a:active { transform: translateY(1px); }
+
+    .double-rule {
+      height: var(--rule-double-gap);
+      margin: var(--space-sm) 0 0;
+      border: 0;
+      border-top: var(--rule-hair) solid var(--color-rule-strong);
+      border-bottom: var(--rule-hair) solid var(--color-rule-strong);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-areas: "copy" "image";
+      gap: var(--space-xl);
+      padding-block: var(--space-xl);
+    }
+
+    .hero-copy { grid-area: copy; align-self: center; min-width: 0; }
+
+    .hero-label, .section-kicker {
+      margin: 0 0 var(--space-xs);
+      color: var(--color-accent);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      max-width: 12ch;
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: var(--text-display);
+      font-style: normal;
+      font-weight: 700;
+      letter-spacing: -0.055em;
+      line-height: 0.98;
+      overflow-wrap: anywhere;
+    }
+
+    .hero-lede { max-width: 48ch; margin: var(--space-lg) 0 0; color: var(--color-ink-soft); font-size: var(--text-md); overflow-wrap: anywhere; }
+
+    .hero-note { margin: var(--space-md) 0 0; color: var(--color-muted); font-size: var(--text-sm); overflow-wrap: anywhere; }
+
+    .hero-figure {
+      position: relative;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      grid-area: image;
+      height: clamp(22rem, 28vw, 25rem);
+      margin: 0;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .hero-figure::after {
+      position: absolute;
+      inset: 0;
+      background: var(--color-photo-wash);
+      content: "";
+      pointer-events: none;
+    }
+
+    .hero-figure img { display: block; width: 100%; height: 100%; min-height: 0; object-fit: cover; filter: saturate(0.82) contrast(1.04); }
+
+    .section { padding-block: var(--space-2xl); }
+
+    .section + .section { border-top: var(--rule-hair) solid var(--color-rule); }
+
+    .section-head { max-width: 50rem; margin-bottom: var(--space-xl); }
+
+    .section-head h2 {
+      max-width: 16ch;
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      font-style: normal;
+      font-weight: 700;
+      letter-spacing: -0.045em;
+      line-height: 1;
+      overflow-wrap: anywhere;
+    }
+
+    .section-summary { max-width: 60ch; margin: var(--space-sm) 0 0; color: var(--color-ink-soft); }
+
+    .menu-spread { display: grid; gap: var(--space-2xl); }
+
+    .menu-group { min-width: 0; }
+
+    .menu-group h3 {
+      margin: 0 0 var(--space-md);
+      color: var(--color-ink);
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-style: normal;
+      font-weight: 700;
+      letter-spacing: -0.028em;
+      line-height: 1.1;
+    }
+
+    .menu-list { display: grid; gap: var(--space-xs); margin: 0; padding: 0; list-style: none; }
+
+    .menu-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: var(--space-sm);
+      align-items: baseline;
+      padding-block: var(--space-xs);
+      border-bottom: var(--rule-hair) solid var(--color-rule);
+    }
+
+    .menu-item:last-child { border-bottom: 0; }
+
+    .item-name { display: block; min-width: 0; font-weight: 500; }
+
+    .bilingual { display: grid; gap: var(--space-3xs); }
+
+    .bilingual .ko { color: var(--color-ink); font-weight: 600; }
+
+    .bilingual .en { color: var(--color-ink-soft); font-size: var(--text-sm); font-weight: 400; line-height: 1.35; }
+
+    .item-desc { display: block; margin-top: var(--space-3xs); color: var(--color-muted); font-size: var(--text-sm); line-height: 1.45; }
+
+    .price {
+      color: var(--color-ink);
+      font-family: var(--font-outlier);
+      font-size: var(--text-sm);
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .feature-photo-grid { display: grid; gap: var(--space-md); margin: var(--space-2xl) 0 0; }
+
+    .feature-photo { margin: 0; min-width: 0; }
+
+    .feature-photo img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; filter: saturate(0.78) contrast(1.03); }
+
+    .breakfast {
+      display: grid;
+      gap: var(--space-xl);
+      padding: var(--space-xl);
+      background: var(--color-paper-2);
+    }
+
+    .breakfast h3, .brunch-note h3 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-style: normal;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+    }
+
+    .breakfast p, .brunch-note p { margin: var(--space-sm) 0 0; color: var(--color-ink-soft); }
+
+    .breakfast-menu { display: grid; gap: var(--space-sm); }
+
+    .breakfast-menu .menu-item { padding-block: var(--space-sm); }
+
+    .brunch-note { margin-top: var(--space-xl); }
+
+    .brunch-note strong { color: var(--color-ink); font-weight: 600; }
+
+    .brunch-menu { display: grid; gap: var(--space-xl); margin-top: var(--space-lg); }
+
+    .next-grid { display: grid; gap: var(--space-xl); }
+
+    .next-cluster { min-width: 0; padding: var(--space-lg); border: var(--rule-hair) solid var(--color-rule); }
+
+    .next-cluster h3 { margin: 0 0 var(--space-sm); font-family: var(--font-display); font-size: var(--text-lg); letter-spacing: -0.03em; }
+
+    .next-cluster p { margin: 0; color: var(--color-ink-soft); }
+
+    .concept-list { display: grid; gap: var(--space-xs); margin: var(--space-md) 0 0; padding: 0; list-style: none; }
+
+    .concept-list li { display: flex; justify-content: space-between; gap: var(--space-sm); color: var(--color-ink-soft); }
+
+    .concept-list span:last-child { color: var(--color-muted); font-size: var(--text-xs); white-space: nowrap; }
+
+    .why-grid { display: grid; gap: var(--space-xl); }
+
+    .why-item { padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule-strong); }
+
+    .why-item h3 { margin: 0; font-family: var(--font-display); font-size: var(--text-lg); letter-spacing: -0.025em; }
+
+    .why-item p { margin: var(--space-sm) 0 0; color: var(--color-ink-soft); }
+
+    .question-intro { max-width: 58ch; color: var(--color-ink-soft); font-size: var(--text-md); }
+
+    .question-list { display: grid; gap: var(--space-xl); margin: var(--space-xl) 0 0; padding: 0; list-style: none; counter-reset: questions; }
+
+    .question-list li { position: relative; padding-left: clamp(3rem, 7vw, 5rem); counter-increment: questions; }
+
+    .question-list li::before {
+      position: absolute;
+      inset: 0 auto auto 0;
+      color: var(--color-accent);
+      content: counter(questions, decimal-leading-zero);
+      font-size: var(--text-sm);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .question-list h3 { margin: 0; font-family: var(--font-display); font-size: var(--text-xl); letter-spacing: -0.035em; line-height: 1.1; }
+
+    .question-list p { max-width: var(--reading-max); margin: var(--space-xs) 0 0; color: var(--color-ink-soft); }
+
+    .closing {
+      margin-top: var(--space-3xl);
+      padding-block: var(--space-2xl);
+      border-block: var(--rule-hair) solid var(--color-rule-strong);
+    }
+
+    .closing p { max-width: 22ch; margin: 0; font-family: var(--font-display); font-size: var(--text-2xl); font-style: normal; font-weight: 700; letter-spacing: -0.045em; line-height: 1.05; }
+
+    .closing small { display: block; max-width: var(--reading-max); margin-top: var(--space-lg); color: var(--color-muted); font-size: var(--text-sm); }
+
+    .foot-mast { display: grid; gap: var(--space-xs); padding-block: var(--space-2xl); }
+
+    .foot-wordmark { margin: 0; font-family: var(--font-display); font-size: var(--text-xl); font-weight: 700; letter-spacing: -0.04em; }
+
+    .foot-copy { max-width: 58ch; margin: 0; color: var(--color-muted); font-size: var(--text-sm); }
+
+    .foot-links { display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-lg); margin: var(--space-xs) 0 0; padding: 0; list-style: none; }
+
+    .foot-links a { color: var(--color-ink-soft); font-size: var(--text-sm); text-decoration-thickness: var(--rule-hair); text-underline-offset: var(--space-2xs); white-space: nowrap; }
+
+    .foot-links a:hover { color: var(--color-accent); }
+
+    @media (min-width: 40rem) {
+      .feature-photo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .brunch-menu { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-3xl); }
+      .next-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-2xl); }
+    }
+
+    @media (max-width: 39.99rem) {
+      .mast-nav ul { display: grid; grid-template-columns: repeat(2, minmax(0, max-content)); justify-content: center; column-gap: var(--space-lg); row-gap: 0; }
+      .mast-nav a { min-height: 2.5rem; font-size: var(--text-xs); }
+    }
+
+    @media (min-width: 60rem) {
+      .hero { grid-template-areas: "copy image"; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-3xl); }
+      .menu-spread { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-3xl); }
+      .menu-spread .menu-group:last-child:nth-child(odd) { grid-column: span 2; max-width: calc((100% - var(--space-3xl)) / 2); }
+      .breakfast { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: start; }
+      .next-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-md); }
+      .why-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-lg); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 150ms !important; animation-iteration-count: 1 !important; transition-duration: 150ms !important; }
+    }
+
+    @media print {
+      .mast-nav { display: none; }
+      .section, .breakfast, .next-cluster, .closing { break-inside: avoid; }
+      .hero { padding-top: var(--space-xl); }
+      .hero-figure::after { display: none; }
+      a { text-decoration: none; }
+    }
+  </style>
+</head>
+<body data-lang="ko">
+  <header class="masthead shell">
+    <p class="mast-meta localized" data-ko="오픈 메뉴 초안" data-en="Opening Menu Draft">오픈 메뉴 초안</p>
+    <p class="mast-name">ENVOY CAFÉ</p>
+    <p class="mast-subtitle">Tbilisi Old Town</p>
+    <div class="language-switch" role="group" aria-label="Language selection">
+      <button type="button" data-language="ko" aria-pressed="true">한국어</button>
+      <button type="button" data-language="en" aria-pressed="false">English</button>
+    </div>
+    <nav class="mast-nav" aria-label="문서 목차">
+      <ul>
+        <li><a href="#menu"><span class="lang-ko">메뉴</span><span class="lang-en">Menu</span></a></li>
+        <li><a href="#breakfast"><span class="lang-ko">조식과 브런치</span><span class="lang-en">Breakfast and Brunch</span></a></li>
+        <li><a href="#next"><span class="lang-ko">다음 메뉴</span><span class="lang-en">Next Menu</span></a></li>
+        <li><a href="#questions"><span class="lang-ko">함께 풀 숙제</span><span class="lang-en">Questions</span></a></li>
+      </ul>
+    </nav>
+    <hr class="double-rule" aria-hidden="true">
+  </header>
+
+  <main class="shell">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="hero-label localized" data-ko="커피부터" data-en="Coffee First">커피부터</p>
+        <h1 id="page-title" class="localized" data-ko="음료는 첫 번째 약속입니다." data-en="Drinks make the first promise.">음료는 첫 번째 약속입니다.</h1>
+        <p class="hero-lede localized" data-ko="현지에서 익숙하게 주문할 수 있는 커피에, 한국의 감각과 조지아의 재료를 한 잔씩 더합니다." data-en="We begin with familiar coffee, then add a little Korean sensibility and Georgian ingredients to each cup.">현지에서 익숙하게 주문할 수 있는 커피에, 한국의 감각과 조지아의 재료를 한 잔씩 더합니다.</p>
+        <p class="hero-note localized" data-ko="가격은 GEL 기준 예상 판매가입니다. 실제 원가와 공급 조건을 확인한 뒤 오픈 전 확정합니다." data-en="Prices are expected selling prices in GEL. We will confirm them before opening after cost and supply checks.">가격은 GEL 기준 예상 판매가입니다. 실제 원가와 공급 조건을 확인한 뒤 오픈 전 확정합니다.</p>
+      </div>
+      <figure class="hero-figure">
+        <img src="tbilisi_cafe_menu/images/walnut_cream_latte_1787049406991.jpg" width="1200" height="1440" fetchpriority="high" alt="꿀과 호두를 올린 크림 라떼">
+      </figure>
+    </section>
+
+    <section class="section" id="menu" aria-labelledby="menu-title">
+      <div class="section-head">
+        <p class="section-kicker localized" data-ko="오픈 메뉴" data-en="Opening Menu">오픈 메뉴</p>
+        <h2 id="menu-title" class="localized" data-ko="커피 메뉴" data-en="Coffee Menu">커피 메뉴</h2>
+        <p class="section-summary localized" data-ko="기본 커피는 현지 고객이 바로 이해할 수 있게 단순하게 두고, 시그니처는 엔보이만의 기억으로 남게 합니다." data-en="Keep everyday coffee simple and easy to understand. Let the signatures create a memory that belongs only to Envoy.">기본 커피는 현지 고객이 바로 이해할 수 있게 단순하게 두고, 시그니처는 엔보이만의 기억으로 남게 합니다.</p>
+      </div>
+
+      <div class="menu-spread">
+        <section class="menu-group" aria-labelledby="hot-coffee">
+          <h3 id="hot-coffee" class="localized" data-ko="따뜻한 커피" data-en="Hot Coffee">따뜻한 커피</h3>
+          <ul class="menu-list">
+            <li class="menu-item"><span class="bilingual"><span class="ko">에스프레소</span><span class="en">Espresso</span></span><span class="price">6 GEL</span></li>
+            <li class="menu-item"><span class="bilingual"><span class="ko">아메리카노</span><span class="en">Americano</span></span><span class="price">8 GEL</span></li>
+            <li class="menu-item"><span class="bilingual"><span class="ko">카푸치노</span><span class="en">Cappuccino</span></span><span class="price">10 GEL</span></li>
+            <li class="menu-item"><span class="bilingual"><span class="ko">플랫 화이트</span><span class="en">Flat White</span></span><span class="price">11 GEL</span></li>
+            <li class="menu-item"><span class="bilingual"><span class="ko">카페 라떼</span><span class="en">Latte</span></span><span class="price">10 GEL</span></li>
+          </ul>
+        </section>
+
+        <section class="menu-group" aria-labelledby="iced-coffee">
+          <h3 id="iced-coffee" class="localized" data-ko="차가운 커피와 시그니처" data-en="Iced Coffee and Signatures">차가운 커피와 시그니처</h3>
+          <ul class="menu-list">
+            <li class="menu-item"><span class="bilingual"><span class="ko">아이스 라떼</span><span class="en">Iced Latte</span></span><span class="price">11 GEL</span></li>
+            <li class="menu-item"><span class="bilingual"><span class="ko">에스프레소 토닉</span><span class="en">Espresso Tonic</span></span><span class="price">12 GEL</span></li>
+            <li class="menu-item"><span><span class="bilingual"><span class="ko">서울 라떼</span><span class="en">Seoul Latte</span></span><span class="item-desc"><span class="lang-ko">한국식 달고나 라떼 스타일</span><span class="lang-en">Korean-style dalgona latte</span></span></span><span class="price">12 GEL</span></li>
+            <li class="menu-item"><span><span class="bilingual"><span class="ko">트빌리시 라떼</span><span class="en">Tbilisi Latte</span></span><span class="item-desc"><span class="lang-ko">에스프레소, 우유, 스페셜 크림, 조지아 꿀, 호두 분태</span><span class="lang-en">Espresso, milk, special cream, Georgian honey, walnut</span></span></span><span class="price">14 GEL</span></li>
+            <li class="menu-item"><span><span class="bilingual"><span class="ko">엔보이 라프</span><span class="en">Envoy RAF</span></span><span class="item-desc"><span class="lang-ko">크림 베이스의 부드러운 커피</span><span class="lang-en">Cream-based coffee</span></span></span><span class="price">14 GEL</span></li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="feature-photo-grid" aria-label="시그니처 음료 이미지">
+        <figure class="feature-photo"><img src="tbilisi_cafe_menu/images/tarkhun_fizz_1787049441477.jpg" width="900" height="675" loading="lazy" alt="타르훈 시트러스 피즈"></figure>
+        <figure class="feature-photo"><img src="tbilisi_cafe_menu/images/honey_matsoni_latte_1787049460231.jpg" width="900" height="675" loading="lazy" alt="크림을 올린 꿀 라떼"></figure>
+        <figure class="feature-photo"><img src="tbilisi_cafe_menu/images/saperavi_coldbrew_1787049425675.jpg" width="900" height="675" loading="lazy" alt="사페라비 톤의 콜드브루"></figure>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="non-coffee-title">
+      <div class="section-head">
+        <p class="section-kicker localized" data-ko="넌커피" data-en="Non-coffee">넌커피</p>
+        <h2 id="non-coffee-title" class="localized" data-ko="넌커피 메뉴" data-en="Non-coffee Menu">넌커피 메뉴</h2>
+        <p class="section-summary localized" data-ko="커피를 마시지 않는 고객도 한 번의 방문 안에서 선택할 수 있게, 따뜻한 메뉴와 차가운 메뉴를 같은 무게로 둡니다." data-en="Give non-coffee drinkers equal choice, with both warm alternatives and cold refreshers.">커피를 마시지 않는 고객도 한 번의 방문 안에서 선택할 수 있게, 따뜻한 메뉴와 차가운 메뉴를 같은 무게로 둡니다.</p>
+      </div>
+
+      <div class="menu-spread">
+        <section class="menu-group" aria-labelledby="noncoffee-hot">
+          <h3 id="noncoffee-hot" class="localized" data-ko="따뜻한 음료" data-en="Hot">따뜻한 음료</h3>
+          <ul class="menu-list">
+            <li class="menu-item"><span class="bilingual"><span class="ko">말차 라떼</span><span class="en">Matcha Latte</span></span><span class="price">12 GEL</span></li>
+            <li class="menu-item"><span class="bilingual"><span class="ko">핫 초콜릿</span><span class="en">Hot Chocolate</span></span><span class="price">10 GEL</span></li>
+            <li class="menu-item"><span class="bilingual"><span class="ko">루즈 리프 티</span><span class="en">Loose Leaf Tea</span></span><span class="price">7 GEL</span></li>
+            <li class="menu-item"><span><span class="bilingual"><span class="ko">티벳 차</span><span class="en">Tibet Tea</span></span><span class="item-desc"><span class="lang-ko">시판 티백과 뜨거운 물</span><span class="lang-en">Packaged tea bag served with hot water</span></span></span><span class="price">6 GEL</span></li>
+          </ul>
+        </section>
+
+        <section class="menu-group" aria-labelledby="noncoffee-cold">
+          <h3 id="noncoffee-cold" class="localized" data-ko="차가운 음료" data-en="Iced">차가운 음료</h3>
+          <ul class="menu-list">
+            <li class="menu-item"><span class="bilingual"><span class="ko">아이스 말차 라떼</span><span class="en">Iced Matcha Latte</span></span><span class="price">13 GEL</span></li>
+            <li class="menu-item"><span class="bilingual"><span class="ko">생오렌지 주스</span><span class="en">Fresh Orange Juice</span></span><span class="price">12 GEL</span></li>
+          </ul>
+          <p class="item-desc localized" data-ko="생수, 탄산수, 시판 음료와 에너지 드링크는 카운터 리테일 상품으로 별도 운영합니다." data-en="Still water, sparkling water, packaged drinks, and energy drinks are offered separately as counter retail items.">생수, 탄산수, 시판 음료와 에너지 드링크는 카운터 리테일 상품으로 별도 운영합니다.</p>
+        </section>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="sweet-title">
+      <div class="section-head">
+        <p class="section-kicker localized" data-ko="카운터 셀렉션" data-en="Counter Selection">카운터 셀렉션</p>
+        <h2 id="sweet-title" class="localized" data-ko="디저트와 베이커리" data-en="Dessert and Bakery">디저트와 베이커리</h2>
+        <p class="section-summary localized" data-ko="디저트는 손님이 음료 한 잔에 머무를 이유를 보태는 구성입니다. 당일 공급처와 판매량에 따라 품목을 정리합니다." data-en="Dessert gives guests one more reason to stay with their drink. The range will be adjusted according to suppliers and daily sales.">디저트는 손님이 음료 한 잔에 머무를 이유를 보태는 구성입니다. 당일 공급처와 판매량에 따라 품목을 정리합니다.</p>
+      </div>
+      <div class="menu-spread">
+        <section class="menu-group" aria-label="케이크와 쿠키">
+          <h3 class="localized" data-ko="케이크와 쿠키" data-en="Cake and Cookie">케이크와 쿠키</h3>
+          <ul class="menu-list">
+            <li class="menu-item"><span class="bilingual"><span class="ko">바스크 치즈케이크</span><span class="en">Basque Cheesecake</span></span><span class="price">15 GEL</span></li>
+            <li class="menu-item"><span class="bilingual"><span class="ko">조지아 허니 월넛 케이크</span><span class="en">Georgian Honey Walnut Cake</span></span><span class="price">10 GEL</span></li>
+            <li class="menu-item"><span class="bilingual"><span class="ko">호두 초콜릿 브라우니</span><span class="en">Walnut Chocolate Brownie</span></span><span class="price">8 GEL</span></li>
+            <li class="menu-item"><span class="bilingual"><span class="ko">청키 초콜릿 쿠키</span><span class="en">Chunky Chocolate Cookie</span></span><span class="price">6 GEL</span></li>
+          </ul>
+        </section>
+        <section class="menu-group" aria-label="페이스트리와 도넛">
+          <h3 class="localized" data-ko="페이스트리와 도넛" data-en="Pastry and Donut">페이스트리와 도넛</h3>
+          <ul class="menu-list">
+            <li class="menu-item"><span class="bilingual"><span class="ko">버터 크루아상</span><span class="en">Butter Croissant</span></span><span class="price">6 GEL</span></li>
+            <li class="menu-item"><span class="bilingual"><span class="ko">아몬드 크루아상</span><span class="en">Almond Croissant</span></span><span class="price">12 GEL</span></li>
+            <li class="menu-item"><span class="bilingual"><span class="ko">글레이즈드 도넛</span><span class="en">Glazed Donut</span></span><span class="price">6 GEL</span></li>
+          </ul>
+        </section>
+      </div>
+    </section>
+
+    <section class="section" id="breakfast" aria-labelledby="breakfast-title">
+      <div class="section-head">
+        <p class="section-kicker localized" data-ko="엔보이 투숙객" data-en="For Envoy Guests">엔보이 투숙객</p>
+        <h2 id="breakfast-title" class="localized" data-ko="조식은 숙소 서비스로 둡니다." data-en="Breakfast is a guest service.">조식은 숙소 서비스로 둡니다.</h2>
+      </div>
+      <div class="breakfast">
+        <div>
+          <h3 class="localized" data-ko="엔보이 조식" data-en="Breakfast at Envoy">엔보이 조식</h3>
+          <p class="localized" data-ko="조식은 외부 유입을 전제로 하지 않습니다. 호스텔 고객의 아침 만족도와 카페의 첫 접점을 만드는 서비스로 운영합니다." data-en="Breakfast is not based on expected outside traffic. It serves hostel guest satisfaction and creates the first touchpoint with the café.">조식은 외부 유입을 전제로 하지 않습니다. 호스텔 고객의 아침 만족도와 카페의 첫 접점을 만드는 서비스로 운영합니다.</p>
+        </div>
+        <div class="breakfast-menu">
+          <div class="menu-item"><span><span class="bilingual"><span class="ko">조지아식 조식</span><span class="en">Georgian Breakfast</span></span><span class="item-desc"><span class="lang-ko">조지아 브레드, 조지아식 에그, 술구니, 마초니, 꿀, 호두, 채소</span><span class="lang-en">Georgian bread, eggs, sulguni, matsoni, honey, walnut, vegetables</span></span></span><span class="price">22 GEL</span></div>
+          <div class="menu-item"><span><span class="bilingual"><span class="ko">유러피안 조식</span><span class="en">European Breakfast</span></span><span class="item-desc"><span class="lang-ko">토스트, 스크램블 에그, 햄, 치즈, 버터와 잼, 채소와 제철 과일</span><span class="lang-en">Toast, scrambled eggs, ham, cheese, butter and jam, vegetables and seasonal fruit</span></span></span><span class="price">20 GEL</span></div>
+          <div class="menu-item"><span><span class="bilingual"><span class="ko">베지테리언 조식</span><span class="en">Vegetarian Breakfast</span></span><span class="item-desc"><span class="lang-ko">토스트, 스크램블 에그, 치즈, 요거트, 호두와 꿀, 채소와 제철 과일</span><span class="lang-en">Toast, scrambled eggs, cheese, yogurt, honey and walnut, vegetables and seasonal fruit</span></span></span><span class="price">20 GEL</span></div>
+        </div>
+      </div>
+      <div class="brunch-note">
+        <h3 class="localized" data-ko="브런치 메뉴" data-en="Brunch Menu">브런치 메뉴</h3>
+        <p class="localized" data-ko="아래 메뉴는 엔보이 팀의 현재 제안입니다. 오픈 전 최종 구성과 운영 방식을 함께 확정합니다." data-en="The list below is the current Envoy team proposal. Final selection and service workflow will be confirmed before opening.">아래 메뉴는 엔보이 팀의 현재 제안입니다. 오픈 전 최종 구성과 운영 방식을 함께 확정합니다.</p>
+        <div class="brunch-menu">
+          <div class="menu-list" role="list" aria-label="브런치 메뉴 1">
+            <div class="menu-item" role="listitem"><span class="bilingual"><span class="ko">에그 온 토스트</span><span class="en">Egg on Toast</span></span><span class="price">12 GEL</span></div>
+            <div class="menu-item" role="listitem"><span class="bilingual"><span class="ko">감자와 페타 로스티, 훈제연어</span><span class="en">Potato &amp; Feta Rosti with Smoked Salmon</span></span><span class="price">22 GEL</span></div>
+            <div class="menu-item" role="listitem"><span class="bilingual"><span class="ko">아보카도와 완두 토스트</span><span class="en">Avocado &amp; Peas Toast</span></span><span class="price">16 GEL</span></div>
+            <div class="menu-item" role="listitem"><span class="bilingual"><span class="ko">미소 버터 버섯과 휘핑 두부</span><span class="en">Miso Butter Mushroom with Whipped Tofu</span></span><span class="price">17 GEL</span></div>
+            <div class="menu-item" role="listitem"><span class="bilingual"><span class="ko">비프, 아보카도, 보리 샐러드</span><span class="en">Beef, Avocado &amp; Barley Salad</span></span><span class="price">20 GEL</span></div>
+            <div class="menu-item" role="listitem"><span class="bilingual"><span class="ko">고추장 에그마요 베이글</span><span class="en">Gochujang Egg Mayo Bagel</span></span><span class="price">13 GEL</span></div>
+          </div>
+          <div class="menu-list" role="list" aria-label="브런치 메뉴 2">
+            <div class="menu-item" role="listitem"><span class="bilingual"><span class="ko">불고기 필리 스테이크 롤</span><span class="en">Philly Steak Roll</span></span><span class="price">18 GEL</span></div>
+            <div class="menu-item" role="listitem"><span class="bilingual"><span class="ko">더블 데커 치즈버거</span><span class="en">Double Decker Cheeseburger</span></span><span class="price">24 GEL</span></div>
+            <div class="menu-item" role="listitem"><span class="bilingual"><span class="ko">구운 호박, 호두, 곡물</span><span class="en">Roasted Pumpkin, Walnut &amp; Grains</span></span><span class="price">15 GEL</span></div>
+            <div class="menu-item" role="listitem"><span class="bilingual"><span class="ko">두부와 버섯 칠리 토마토 스튜</span><span class="en">Braised Tofu &amp; Mushroom in Chilli Tomato Sauce</span></span><span class="price">16 GEL</span></div>
+            <div class="menu-item" role="listitem"><span class="bilingual"><span class="ko">고추장 치킨 파히타 랩</span><span class="en">Gochujang Chicken Fajita Wrap</span></span><span class="price">17 GEL</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="next" aria-labelledby="next-title">
+      <div class="section-head">
+        <p class="section-kicker localized" data-ko="오픈 후" data-en="After Opening">오픈 후</p>
+        <h2 id="next-title" class="localized" data-ko="다음으로 검증할 메뉴" data-en="Next Menu Ideas to Validate">다음으로 검증할 메뉴</h2>
+        <p class="section-summary localized" data-ko="아래 메뉴는 초기 판매와 제조 데이터를 확인한 뒤 소수부터 시험할 후보입니다. 한 번에 늘리지 않습니다." data-en="These are candidates to test in small numbers after reviewing early sales and production data. We will not add them all at once.">아래 메뉴는 초기 판매와 제조 데이터를 확인한 뒤 소수부터 시험할 후보입니다. 한 번에 늘리지 않습니다.</p>
+      </div>
+      <div class="next-grid">
+        <article class="next-cluster">
+          <h3 class="localized" data-ko="차가운 커피" data-en="Cold Coffee">차가운 커피</h3>
+          <ul class="concept-list">
+            <li><span><span class="lang-ko">범블 커피</span><span class="lang-en">Bumble Coffee</span></span><span>15 GEL</span></li>
+            <li><span><span class="lang-ko">프레시 오렌지 범블</span><span class="lang-en">Fresh Orange Bumble</span></span><span>16 GEL</span></li>
+            <li><span><span class="lang-ko">사페라비 벨벳 콜드브루</span><span class="lang-en">Saperavi Velvet Cold Brew</span></span><span>15 GEL</span></li>
+            <li><span><span class="lang-ko">와일드 허니 마초니 아인슈패너</span><span class="lang-en">Wild Honey Matsoni Einspänner</span></span><span>14.5 GEL</span></li>
+          </ul>
+        </article>
+        <article class="next-cluster">
+          <h3 class="localized" data-ko="블렌디드 음료" data-en="Blended Drinks">블렌디드 음료</h3>
+          <ul class="concept-list">
+            <li><span><span class="lang-ko">에스프레소 모카 프라페</span><span class="lang-en">Espresso Mocha Frappe</span></span><span>14 GEL</span></li>
+            <li><span><span class="lang-ko">말차 바닐라 프라페</span><span class="lang-en">Matcha Vanilla Frappe</span></span><span>15 GEL</span></li>
+            <li><span><span class="lang-ko">추르치헬라 너티 프라페</span><span class="lang-en">Churchkhela Nutty Frappe</span></span><span>16 GEL</span></li>
+          </ul>
+        </article>
+        <article class="next-cluster">
+          <h3 class="localized" data-ko="차이" data-en="Chai">차이</h3>
+          <ul class="concept-list">
+            <li><span><span class="lang-ko">스파이스 차이 라떼</span><span class="lang-en">Spiced Chai Latte</span></span><span>11 GEL</span></li>
+            <li><span><span class="lang-ko">아이스 차이 라떼</span><span class="lang-en">Iced Chai Latte</span></span><span>12 GEL</span></li>
+            <li><span><span class="lang-ko">더티 차이</span><span class="lang-en">Dirty Chai</span></span><span>13 GEL</span></li>
+          </ul>
+        </article>
+        <article class="next-cluster">
+          <h3 class="localized" data-ko="지역 리프레셔" data-en="Local Refresher">지역 리프레셔</h3>
+          <ul class="concept-list">
+            <li><span><span class="lang-ko">타르훈 시트러스 피즈</span><span class="lang-en">Tarkhun Citrus Fizz</span></span><span>12 GEL</span></li>
+            <li><span><span class="lang-ko">조지아 타라곤 레모네이드</span><span class="lang-en">Georgian Tarragon Lemonade</span></span><span>10 GEL</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="why-title">
+      <div class="section-head">
+        <p class="section-kicker localized" data-ko="음료부터 시작하는 이유" data-en="Why This Starts with Drinks">음료부터 시작하는 이유</p>
+        <h2 id="why-title" class="localized" data-ko="메뉴를 이렇게 시작하는 이유" data-en="Why We Start with This Menu">메뉴를 이렇게 시작하는 이유</h2>
+      </div>
+      <div class="why-grid">
+        <article class="why-item"><h3 class="localized" data-ko="익숙함부터" data-en="Start with familiarity">익숙함부터</h3><p class="localized" data-ko="아메리카노, 라떼, 카푸치노와 같은 기본 메뉴는 현지 손님이 즉시 이해하고 가격을 비교할 수 있는 기준입니다." data-en="Everyday coffee such as Americano, latte, and cappuccino gives local guests an immediate, comparable baseline.">아메리카노, 라떼, 카푸치노와 같은 기본 메뉴는 현지 손님이 즉시 이해하고 가격을 비교할 수 있는 기준입니다.</p></article>
+        <article class="why-item"><h3 class="localized" data-ko="차이는 한 잔씩" data-en="Difference, one cup at a time">차이는 한 잔씩</h3><p class="localized" data-ko="서울 라떼와 트빌리시 라떼는 한국적 감각과 조지아의 꿀, 호두를 직접 경험하게 하는 작은 이유입니다." data-en="The Seoul Latte and Tbilisi Latte give guests a direct experience of Korean sensibility with Georgian honey and walnut.">서울 라떼와 트빌리시 라떼는 한국적 감각과 조지아의 꿀, 호두를 직접 경험하게 하는 작은 이유입니다.</p></article>
+        <article class="why-item"><h3 class="localized" data-ko="운영은 가볍게" data-en="Keep operations light">운영은 가볍게</h3><p class="localized" data-ko="초기 메뉴는 제조와 재고를 복잡하게 만들지 않는 범위에서 시작합니다. 판매를 보고 다음 메뉴를 더합니다." data-en="The opening menu stays within a manageable production and inventory range. We add the next item after learning from sales.">초기 메뉴는 제조와 재고를 복잡하게 만들지 않는 범위에서 시작합니다. 판매를 보고 다음 메뉴를 더합니다.</p></article>
+        <article class="why-item"><h3 class="localized" data-ko="한계도 분명히" data-en="Name the limit clearly">한계도 분명히</h3><p class="localized" data-ko="음료 메뉴만으로 입지의 약점을 해결할 수는 없습니다. 메뉴는 첫 방문을 돕는 언어이고, 재방문은 공간과 관계가 만듭니다." data-en="A drinks menu alone cannot solve a weak location. The menu helps the first visit, but return visits come from the space and the relationships it creates.">음료 메뉴만으로 입지의 약점을 해결할 수는 없습니다. 메뉴는 첫 방문을 돕는 언어이고, 재방문은 공간과 관계가 만듭니다.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="questions" aria-labelledby="questions-title">
+      <div class="section-head">
+        <p class="section-kicker localized" data-ko="메뉴 밖의 과제" data-en="The Work Beyond the Menu">메뉴 밖의 과제</p>
+        <h2 id="questions-title" class="localized" data-ko="우리가 함께 풀 숙제" data-en="Questions We Need to Answer Together">우리가 함께 풀 숙제</h2>
+      </div>
+      <p class="question-intro localized" data-ko="엔보이가 경쟁 카페와 달라지는 이유는 더 많은 음료가 아닙니다. 입지가 자동으로 손님을 데려오지 않는다면, 고객이 일부러 찾아오고 머물고 추천하게 만드는 공간의 이유를 만들어야 합니다." data-en="Envoy will not differ from competitors by carrying more drinks. If the location does not bring people automatically, the space must give them a reason to seek it out, stay, and recommend it.">엔보이가 경쟁 카페와 달라지는 이유는 더 많은 음료가 아닙니다. 입지가 자동으로 손님을 데려오지 않는다면, 고객이 일부러 찾아오고 머물고 추천하게 만드는 공간의 이유를 만들어야 합니다.</p>
+      <ol class="question-list">
+        <li><h3 class="localized" data-ko="누구의 커뮤니티가 먼저 올 것인가?" data-en="Whose community comes first?">누구의 커뮤니티가 먼저 올 것인가?</h3><p class="localized" data-ko="모든 고객을 동시에 잡으려 하지 않고, 가장 먼저 관계를 만들 사람과 그들이 이곳에서 얻을 장면을 정해야 합니다." data-en="Rather than trying to reach everyone at once, choose who to build a relationship with first and what moment they can gain here.">모든 고객을 동시에 잡으려 하지 않고, 가장 먼저 관계를 만들 사람과 그들이 이곳에서 얻을 장면을 정해야 합니다.</p></li>
+        <li><h3 class="localized" data-ko="다시 올 이유는 무엇인가?" data-en="What brings people back?">다시 올 이유는 무엇인가?</h3><p class="localized" data-ko="음료가 아닌 반복되는 만남, 교류, 작은 프로그램, 편안한 작업과 대화 중 무엇이 엔보이의 리듬이 될지 선택해야 합니다." data-en="We need to decide whether recurring gatherings, exchanges, small programs, focused work, or conversation will become Envoy's rhythm.">음료가 아닌 반복되는 만남, 교류, 작은 프로그램, 편안한 작업과 대화 중 무엇이 엔보이의 리듬이 될지 선택해야 합니다.</p></li>
+        <li><h3 class="localized" data-ko="한국인이 운영한다는 말은 어떻게 경험이 되는가?" data-en="How does Korean operation become an experience?">한국인이 운영한다는 말은 어떻게 경험이 되는가?</h3><p class="localized" data-ko="국적 표기가 아니라 환대, 메뉴의 한 가지 터치, 큐레이션, 커뮤니케이션으로 고객이 실제로 느끼는 정체성이 되어야 합니다." data-en="It must become an identity customers feel through hospitality, one touch in the menu, curation, and communication, not simply a national label.">국적 표기가 아니라 환대, 메뉴의 한 가지 터치, 큐레이션, 커뮤니케이션으로 고객이 실제로 느끼는 정체성이 되어야 합니다.</p></li>
+        <li><h3 class="localized" data-ko="첫 방문의 길은 어떻게 만들 것인가?" data-en="How do we create the path to a first visit?">첫 방문의 길은 어떻게 만들 것인가?</h3><p class="localized" data-ko="간판, 지도 정보, 호스텔의 안내, 주변 파트너와의 연결이 고객이 엔보이를 발견하고 언덕길을 선택하는 과정을 도와야 합니다." data-en="Signage, map information, hostel guidance, and nearby partners must help guests discover Envoy and choose the uphill route.">간판, 지도 정보, 호스텔의 안내, 주변 파트너와의 연결이 고객이 엔보이를 발견하고 언덕길을 선택하는 과정을 도와야 합니다.</p></li>
+        <li><h3 class="localized" data-ko="무엇을 보고 계속하거나 바꿀 것인가?" data-en="What tells us to continue or change?">무엇을 보고 계속하거나 바꿀 것인가?</h3><p class="localized" data-ko="외부 고객의 재방문, 시그니처 선택, 체류 방식, 프로그램 반응을 관찰하고, 잘되지 않는 가정은 빠르게 수정하는 운영 기준이 필요합니다." data-en="We need operating criteria that observe outside-guest returns, signature choices, ways of staying, and program response, then quickly revise assumptions that do not work.">외부 고객의 재방문, 시그니처 선택, 체류 방식, 프로그램 반응을 관찰하고, 잘되지 않는 가정은 빠르게 수정하는 운영 기준이 필요합니다.</p></li>
+      </ol>
+
+      <div class="closing">
+        <p class="localized" data-ko="메뉴는 답이 아니라, 엔보이가 말하기 시작하는 첫 번째 언어입니다." data-en="The menu is not the answer. It is Envoy's first language.">메뉴는 답이 아니라, 엔보이가 말하기 시작하는 첫 번째 언어입니다.</p>
+        <small class="localized" data-ko="조식은 숙소 고객을 위한 환대입니다. 외부 고객에게는 음료, 브런치, 그리고 그보다 더 중요한 공간의 이유를 함께 만들어 가야 합니다." data-en="Breakfast is hospitality for hostel guests. For outside guests, we still need to build the reasons for drinks, brunch, and above all, the space itself.">조식은 숙소 고객을 위한 환대입니다. 외부 고객에게는 음료, 브런치, 그리고 그보다 더 중요한 공간의 이유를 함께 만들어 가야 합니다.</small>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot-mast shell">
+    <p class="foot-wordmark">ENVOY CAFÉ</p>
+    <p class="foot-copy localized" data-ko="오픈 메뉴 논의를 위한 초안입니다. 가격과 구성은 원가, 공급, 운영 검증 후 확정합니다." data-en="Opening menu draft for discussion. Prices and product selection will be confirmed after cost, supply, and operating validation.">오픈 메뉴 논의를 위한 초안입니다. 가격과 구성은 원가, 공급, 운영 검증 후 확정합니다.</p>
+    <ul class="foot-links" aria-label="문서 링크">
+      <li><a href="#menu"><span class="lang-ko">메뉴로 이동</span><span class="lang-en">Back to Menu</span></a></li>
+      <li><a href="#questions"><span class="lang-ko">함께 풀 숙제로 이동</span><span class="lang-en">Back to Questions</span></a></li>
+    </ul>
+  </footer>
+  <script>
+    (() => {
+      const body = document.body;
+      const controls = [...document.querySelectorAll('[data-language]')];
+      const localized = [...document.querySelectorAll('.localized[data-ko][data-en]')];
+
+      const setLanguage = (language) => {
+        body.dataset.lang = language;
+        document.documentElement.lang = language;
+        document.title = language === 'ko' ? 'ENVOY CAFÉ | 오픈 메뉴' : 'ENVOY CAFÉ | Opening Menu';
+        localized.forEach((element) => { element.textContent = element.dataset[language]; });
+        controls.forEach((control) => { control.setAttribute('aria-pressed', String(control.dataset.language === language)); });
+        try { localStorage.setItem('envoy-cafe-language', language); } catch (error) { /* File previews can block storage. */ }
+      };
+
+      controls.forEach((control) => { control.addEventListener('click', () => setLanguage(control.dataset.language)); });
+
+      try {
+        const saved = localStorage.getItem('envoy-cafe-language');
+        if (saved === 'ko' || saved === 'en') setLanguage(saved);
+      } catch (error) { setLanguage('ko'); }
+    })();
+  </script>
+</body>
+</html>
