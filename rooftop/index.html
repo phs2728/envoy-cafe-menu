@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="ENVOY Rooftop provisional menu concept and operations discussion document.">
+  <title>ENVOY Rooftop | Menu Concept</title>
+  <link rel="stylesheet" href="rooftop-tokens.css">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { overflow-x: clip; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-base); line-height: 1.65; }
+    a { color: inherit; }
+    button { font: inherit; }
+    p, h1, h2, h3, li { overflow-wrap: anywhere; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 4px; }
+    .shell { width: min(100%, var(--content-max)); margin-inline: auto; padding-inline: var(--page-gutter); }
+    .lang-toggle { display: inline-flex; border: 1px solid var(--color-rule); border-radius: 999px; padding: var(--space-3xs); }
+    .lang-toggle button { border: 0; border-radius: 999px; padding: var(--space-2xs) var(--space-sm); background: transparent; color: var(--color-muted); cursor: pointer; font-size: var(--text-xs); font-weight: 700; transition: color var(--dur-micro) var(--ease-out), background var(--dur-micro) var(--ease-out); }
+    .lang-toggle button[aria-pressed="true"] { background: var(--color-accent); color: var(--color-paper); }
+    body[data-lang="ko"] .lang-en, body[data-lang="ko"] .bilingual .en { display: none; }
+    body[data-lang="en"] .lang-ko, body[data-lang="en"] .bilingual .ko { display: none; }
+    .mast { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-lg); border-bottom: 1px solid var(--color-rule); }
+    .wordmark { margin: 0; font-family: var(--font-display); font-size: var(--text-lg); font-weight: 700; letter-spacing: -0.04em; }
+    .mast nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--space-md); }
+    .mast nav a { color: var(--color-muted); font-size: var(--text-xs); font-weight: 700; text-decoration: none; white-space: nowrap; }
+    .mast nav a:hover { color: var(--color-accent); }
+    .hero { min-height: min(44rem, 84svh); display: grid; align-items: end; padding-block: var(--space-3xl) var(--space-2xl); border-bottom: 1px solid var(--color-rule); }
+    .eyebrow { margin: 0 0 var(--space-lg); color: var(--color-accent); font-family: var(--font-mono); font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    h1, h2, h3 { margin: 0; font-family: var(--font-display); font-style: normal; letter-spacing: -0.045em; line-height: 0.96; }
+    h1 { max-width: 16ch; font-size: var(--text-hero); }
+    .hero-copy { max-width: var(--reading-max); margin: var(--space-xl) 0 0; color: var(--color-ink-soft); font-size: var(--text-md); }
+    .hero-copy strong { color: var(--color-ink); }
+    .roof-photo { position: relative; margin: var(--space-2xl) 0 0; overflow: hidden; background: var(--color-paper-2); }
+    .roof-photo img { display: block; width: 100%; height: clamp(14rem, 28vw, 25rem); object-fit: cover; object-position: center; filter: saturate(0.9) contrast(0.98); }
+    .roof-photo figcaption { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding: var(--space-sm) var(--space-md); color: var(--color-muted); font-size: var(--text-xs); }
+    .roof-photo a { color: var(--color-accent); font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 0.2em; white-space: nowrap; }
+    .hero-foot { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-md); margin-top: var(--space-3xl); }
+    .hero-foot div { min-width: 0; padding-top: var(--space-sm); border-top: 1px solid var(--color-rule-strong); }
+    .hero-foot span { display: block; color: var(--color-muted); font-size: var(--text-xs); }
+    .hero-foot b { display: block; margin-top: var(--space-2xs); font-size: var(--text-sm); }
+    .section { padding-block: var(--space-3xl); border-bottom: 1px solid var(--color-rule); }
+    .section-heading { max-width: 30rem; font-size: var(--text-display-s); }
+    .section-intro { max-width: var(--reading-max); margin: var(--space-lg) 0 0; color: var(--color-ink-soft); font-size: var(--text-md); }
+    .manifest { display: grid; grid-template-columns: 5fr 7fr; gap: var(--space-xl); margin-top: var(--space-2xl); }
+    .manifest h3 { color: var(--color-accent); font-size: var(--text-lg); }
+    .manifest p { margin: 0; color: var(--color-ink-soft); }
+    .principle { padding: var(--space-lg) 0; border-top: 1px solid var(--color-rule); }
+    .principle:last-child { border-bottom: 1px solid var(--color-rule); }
+    .menu-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2xl); margin-top: var(--space-2xl); }
+    .menu-group { min-width: 0; }
+    .menu-group h3 { font-size: var(--text-xl); }
+    .menu-group p { margin: var(--space-xs) 0 var(--space-md); color: var(--color-muted); font-size: var(--text-sm); }
+    .menu-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--color-rule); }
+    .menu-list li { display: flex; justify-content: space-between; gap: var(--space-md); padding: var(--space-sm) 0; border-bottom: 1px solid var(--color-rule); }
+    .menu-list span:first-child { min-width: 0; font-weight: 700; }
+    .menu-list .price { flex: 0 0 auto; color: var(--color-accent); font-family: var(--font-mono); font-size: var(--text-sm); white-space: nowrap; }
+    .menu-list .tbc { color: var(--color-muted); }
+    .menu-note { margin-top: var(--space-xl); padding: var(--space-lg); border-left: 3px solid var(--color-accent); background: var(--color-paper-2); color: var(--color-ink-soft); }
+    .menu-note p { margin: 0; }
+    .flow { margin-top: var(--space-2xl); padding: var(--space-xl); background: var(--color-surface); }
+    .flow h3 { font-size: var(--text-xl); }
+    .flow-track { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-sm); margin-top: var(--space-xl); }
+    .flow-step { min-width: 0; padding-top: var(--space-sm); border-top: 2px solid var(--color-accent); }
+    .flow-step b { display: block; font-size: var(--text-sm); }
+    .flow-step span { display: block; margin-top: var(--space-2xs); color: var(--color-muted); font-size: var(--text-xs); }
+    .issues { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md); margin-top: var(--space-2xl); }
+    .issue { min-width: 0; padding: var(--space-xl); border: 1px solid var(--color-rule); background: var(--color-paper-2); }
+    .issue h3 { font-size: var(--text-lg); }
+    .issue p { margin: var(--space-sm) 0 0; color: var(--color-ink-soft); }
+    .issue .risk { display: block; margin-top: var(--space-md); color: var(--color-danger); font-size: var(--text-xs); font-weight: 700; }
+    .questions { counter-reset: question; display: grid; gap: var(--space-xl); margin: var(--space-2xl) 0 0; padding: 0; list-style: none; }
+    .questions li { display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: var(--space-md); padding-bottom: var(--space-xl); border-bottom: 1px solid var(--color-rule); font-size: var(--text-md); }
+    .questions li::before { counter-increment: question; content: counter(question, decimal-leading-zero); color: var(--color-accent); font-family: var(--font-mono); font-size: var(--text-sm); font-weight: 700; }
+    .questions b { display: block; font-family: var(--font-display); font-size: var(--text-xl); letter-spacing: -0.03em; line-height: 1.05; }
+    .questions p { margin: var(--space-xs) 0 0; color: var(--color-ink-soft); font-size: var(--text-base); }
+    .closing { padding-block: var(--space-3xl); }
+    .closing p { max-width: 25ch; margin: 0; font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 600; letter-spacing: -0.04em; line-height: 1.05; }
+    .footer { display: flex; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-lg); border-top: 1px solid var(--color-rule); color: var(--color-muted); font-size: var(--text-xs); }
+    @media (max-width: 46rem) { .mast { align-items: flex-start; } .mast nav { display: none; } .hero { min-height: auto; } .roof-photo figcaption { display: block; } .roof-photo a { display: inline-block; margin-top: var(--space-2xs); } .hero-foot, .manifest, .menu-columns, .issues, .flow-track { grid-template-columns: 1fr; } .hero-foot { margin-top: var(--space-2xl); } .section { padding-block: var(--space-2xl); } .questions li { grid-template-columns: 2.5rem minmax(0, 1fr); } .footer { display: block; } .footer span + span { display: block; margin-top: var(--space-xs); } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: 0.01ms !important; } }
+    @media print { .lang-toggle { display: none; } .hero { min-height: auto; padding-block: var(--space-xl); } .section { padding-block: var(--space-xl); } .flow, .issue, .menu-note { break-inside: avoid; } }
+  </style>
+</head>
+<body data-lang="ko">
+  <header class="shell mast">
+    <p class="wordmark">ENVOY ROOFTOP</p>
+    <nav aria-label="Page sections">
+      <a href="#idea"><span class="lang-ko">방향</span><span class="lang-en">Direction</span></a>
+      <a href="#menu"><span class="lang-ko">가안 메뉴</span><span class="lang-en">Draft Menu</span></a>
+      <a href="#operations"><span class="lang-ko">운영 과제</span><span class="lang-en">Operations</span></a>
+    </nav>
+    <div class="lang-toggle" aria-label="Language">
+      <button type="button" data-language="ko" aria-pressed="true">한국어</button>
+      <button type="button" data-language="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="shell hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow localized" data-ko="가안 메뉴와 운영 논의" data-en="Provisional menu and operating discussion">가안 메뉴와 운영 논의</p>
+        <h1 id="page-title" class="localized" data-ko="루프탑은 전망만이 아니라, 함께 건배하는 테이블을 팔아야 합니다." data-en="A rooftop must offer more than a view. It must invite people to raise a glass together.">루프탑은 전망만이 아니라, 함께 건배하는 테이블을 팔아야 합니다.</h1>
+        <p class="hero-copy localized" data-ko="조지아의 와인과 차차, 그리고 건배의 문화는 루프탑에 분명한 출발점을 줍니다. 엔보이는 빠른 테이블 회전이 아니라, 한 테이블이 오래 머물며 다음 잔과 다음 접시를 주문하는 구조로 수익을 만들어야 합니다. 이 문서는 그 문화에 맞는 음식과 음료의 가안을 제시하는 동시에, 언덕 입지와 3층 주방이 요구하는 물류·인력의 결정을 먼저 꺼내 놓습니다." data-en="Georgia's wine, chacha, and toast culture give the rooftop a clear starting point. Envoy should not depend on fast table turns; it should earn when a table stays longer and orders the next drink and the next plate. This document proposes food and drink for that setting while putting the logistics and staffing decisions of a hilltop, third-floor kitchen on the table first.">조지아의 와인과 차차, 그리고 건배의 문화는 루프탑에 분명한 출발점을 줍니다. 엔보이는 빠른 테이블 회전이 아니라, 한 테이블이 오래 머물며 다음 잔과 다음 접시를 주문하는 구조로 수익을 만들어야 합니다. 이 문서는 그 문화에 맞는 음식과 음료의 가안을 제시하는 동시에, 언덕 입지와 3층 주방이 요구하는 물류·인력의 결정을 먼저 꺼내 놓습니다.</p>
+        <figure class="roof-photo">
+          <img src="https://www.envoyhostel.com/wp-content/uploads/2018/01/photo-1038x576.jpeg" alt="엔보이 트빌리시 호스텔 루프탑에서 바라본 올드타운과 나리칼라 방향의 전망" width="1038" height="576" fetchpriority="high">
+          <figcaption>
+            <span class="localized" data-ko="엔보이 트빌리시 호스텔 루프탑의 기존 전망 사진" data-en="Existing rooftop view at Envoy Hostel Tbilisi">엔보이 트빌리시 호스텔 루프탑의 기존 전망 사진</span>
+            <a href="https://www.envoyhostel.com/about-georgia/terrific-tbilisi-view/" target="_blank" rel="noopener noreferrer"><span class="lang-ko">공식 사진 출처</span><span class="lang-en">Official photo source</span></a>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="hero-foot" aria-label="Core assumptions">
+        <div><span class="localized" data-ko="방향" data-en="Direction">방향</span><b class="localized" data-ko="선셋 다이닝과 건배" data-en="Sunset dining and toasts">선셋 다이닝과 건배</b></div>
+        <div><span class="localized" data-ko="고객" data-en="Guests">고객</span><b class="localized" data-ko="관광객과 현지인" data-en="Visitors and locals">관광객과 현지인</b></div>
+        <div><span class="localized" data-ko="상태" data-en="Status">상태</span><b class="localized" data-ko="주방 확정 전 가안" data-en="Draft before kitchen decisions">주방 확정 전 가안</b></div>
+      </div>
+    </section>
+
+    <section class="shell section" id="idea" aria-labelledby="idea-title">
+      <h2 id="idea-title" class="section-heading localized" data-ko="한 병의 와인과 다음 주문을 부르는 메뉴" data-en="A menu that calls for a bottle and the next order">한 병의 와인과 다음 주문을 부르는 메뉴</h2>
+      <p class="section-intro localized" data-ko="루프탑은 관광객에게는 조지아의 밤을 경험하는 자리, 현지인에게는 부담 없이 다시 올 수 있는 저녁 자리여야 합니다. 수익의 핵심은 테이블을 빨리 비우는 것이 아니라, 좋은 체류시간 안에 음료와 공유 메뉴의 두 번째 주문을 만드는 것입니다." data-en="The rooftop should give visitors a Georgian evening and give locals a place they can return to without hesitation. The revenue engine is not clearing a table quickly, but creating a second drink and a second shared plate during a good, unhurried stay.">루프탑은 관광객에게는 조지아의 밤을 경험하는 자리, 현지인에게는 부담 없이 다시 올 수 있는 저녁 자리여야 합니다. 수익의 핵심은 테이블을 빨리 비우는 것이 아니라, 좋은 체류시간 안에 음료와 공유 메뉴의 두 번째 주문을 만드는 것입니다.</p>
+      <div class="manifest">
+        <h3 class="localized" data-ko="우리는 회전율이 아니라, 오래 머무는 한 테이블의 다음 주문으로 수익을 만듭니다." data-en="We earn not through table turns, but through the next order from a table that chooses to stay.">우리는 회전율이 아니라, 오래 머무는 한 테이블의 다음 주문으로 수익을 만듭니다.</h3>
+        <div>
+          <div class="principle"><p class="localized" data-ko="와인과 차차에는 공유하기 좋은 치즈, 고기, 채소, 따뜻한 감자와 빵이 자연스럽게 따라야 합니다." data-en="Wine and chacha naturally call for shareable cheese, meat, vegetables, warm potatoes, and bread.">와인과 차차에는 공유하기 좋은 치즈, 고기, 채소, 따뜻한 감자와 빵이 자연스럽게 따라야 합니다.</p></div>
+          <div class="principle"><p class="localized" data-ko="첫 주문은 치킨·킨칼리·와인으로 시작하고, 다음 주문은 공유 접시·추가 잔·디저트로 이어져야 합니다. 메뉴와 서비스는 손님을 재촉하지 않고 이 흐름을 만들어야 합니다." data-en="The first order can begin with chicken, khinkali, and wine; the next should lead to a sharing plate, another glass, or dessert. Menu and service should create this sequence without rushing the guest.">첫 주문은 치킨·킨칼리·와인으로 시작하고, 다음 주문은 공유 접시·추가 잔·디저트로 이어져야 합니다. 메뉴와 서비스는 손님을 재촉하지 않고 이 흐름을 만들어야 합니다.</p></div>
+          <div class="principle"><p class="localized" data-ko="현지 손님이 다시 오려면 뷰 프리미엄만이 아니라, 친구와 나눌 수 있는 가격대와 익숙한 선택지가 필요합니다." data-en="For locals to return, the offer needs familiar choices and shareable price points, not a view premium alone.">현지 손님이 다시 오려면 뷰 프리미엄만이 아니라, 친구와 나눌 수 있는 가격대와 익숙한 선택지가 필요합니다.</p></div>
+          <div class="principle"><p class="localized" data-ko="메뉴 수는 주방의 실제 설비와 운반 방식이 확정되기 전까지 늘리지 않습니다. 처음에는 적게, 같은 재료를 여러 접시에 쓰는 방식으로 시작합니다." data-en="The menu should not expand before the kitchen equipment and carrying system are confirmed. Start small and use the same ingredients across multiple plates.">메뉴 수는 주방의 실제 설비와 운반 방식이 확정되기 전까지 늘리지 않습니다. 처음에는 적게, 같은 재료를 여러 접시에 쓰는 방식으로 시작합니다.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell section" id="menu" aria-labelledby="menu-title">
+      <h2 id="menu-title" class="section-heading localized" data-ko="루프탑 오픈 메뉴 가안" data-en="Provisional rooftop opening menu">루프탑 오픈 메뉴 가안</h2>
+      <p class="section-intro localized" data-ko="초기 메뉴는 튀김기, 컨벡션 오븐, 킨칼리 삶는 냄비, 냉장 보관만으로 운영합니다. 가격은 작업용 가안이며 실제 레시피·포션·주방 동선과 원가 계산 뒤에 확정합니다." data-en="The opening menu is designed around one fryer, a convection oven, a khinkali pot, and cold storage. Prices are working estimates and will be confirmed after recipe, portion, kitchen-flow, and food-cost work.">초기 메뉴는 튀김기, 컨벡션 오븐, 킨칼리 삶는 냄비, 냉장 보관만으로 운영합니다. 가격은 작업용 가안이며 실제 레시피·포션·주방 동선과 원가 계산 뒤에 확정합니다.</p>
+      <div class="menu-columns">
+        <section class="menu-group" aria-labelledby="share-title"><h3 id="share-title" class="localized" data-ko="건배를 위한 접시" data-en="Plates for a Toast">건배를 위한 접시</h3><p class="localized" data-ko="와인, 차차, 맥주와 함께 나누는 조지아식 안주" data-en="Georgian sharing plates for wine, chacha, and beer">와인, 차차, 맥주와 함께 나누는 조지아식 안주</p><ul class="menu-list"><li><span class="bilingual"><span class="ko">술구니, 훈제 술구니, 호두, 절임채소 보드</span><span class="en">Sulguni, Smoked Sulguni, Walnut and Pickle Board</span></span><span class="price">29 GEL</span></li><li><span class="bilingual"><span class="ko">프할리 3종과 옥수수빵</span><span class="en">Pkhali Trio with Corn Bread</span></span><span class="price">18 GEL</span></li><li><span class="bilingual"><span class="ko">마초니 고추장 딥과 로스트 감자</span><span class="en">Roast Potatoes with Matsoni Gochujang Dip</span></span><span class="price">13 GEL</span></li><li><span class="bilingual"><span class="ko">토마토, 오이, 허브, 호두 샐러드</span><span class="en">Tomato, Cucumber, Herb and Walnut Salad</span></span><span class="price">16 GEL</span></li><li><span class="bilingual"><span class="ko">마초니, 조지아 꿀, 호두, 제철 과일</span><span class="en">Matsoni, Georgian Honey, Walnut and Seasonal Fruit</span></span><span class="price">14 GEL</span></li></ul></section>
+        <section class="menu-group" aria-labelledby="chicken-title"><h3 id="chicken-title" class="localized" data-ko="프라이드와 로스트" data-en="Fried and Roasted">프라이드와 로스트</h3><p class="localized" data-ko="치킨과 돼지고기만으로 시작하는 한국식 안주 축" data-en="A Korean drinking-food core built only around chicken and pork">치킨과 돼지고기만으로 시작하는 한국식 안주 축</p><ul class="menu-list"><li><span class="bilingual"><span class="ko">한국식 프라이드 치킨</span><span class="en">Korean Fried Chicken</span></span><span class="price">27 GEL</span></li><li><span class="bilingual"><span class="ko">간장마늘 또는 고추장 트케말리 소스</span><span class="en">Soy Garlic or Gochujang Tkemali Sauce</span></span><span class="price tbc"><span class="lang-ko">소스 선택</span><span class="lang-en">Choose a Sauce</span></span></li><li><span class="bilingual"><span class="ko">허브 로스트 치킨</span><span class="en">Herb Roasted Chicken</span></span><span class="price">29 GEL</span></li><li><span class="bilingual"><span class="ko">고추장 트케말리 로스트 포크</span><span class="en">Gochujang Tkemali Roasted Pork</span></span><span class="price">29 GEL</span></li></ul></section>
+        <section class="menu-group" aria-labelledby="khinkali-title"><h3 id="khinkali-title" class="localized" data-ko="킨칼리와 콤보" data-en="Khinkali and Combos">킨칼리와 콤보</h3><p class="localized" data-ko="납품 킨칼리로 만드는 가장 쉬운 조지아 입문 메뉴" data-en="The simplest Georgian introduction, made with supplied khinkali">납품 킨칼리로 만드는 가장 쉬운 조지아 입문 메뉴</p><ul class="menu-list"><li><span class="bilingual"><span class="ko">삶은 킨칼리 5개, 고기 또는 버섯</span><span class="en">Boiled Khinkali, 5 Pieces, Meat or Mushroom</span></span><span class="price">16 GEL</span></li><li><span class="bilingual"><span class="ko">바삭한 튀김 킨칼리 5개와 고추장 트케말리 딥</span><span class="en">Crispy Fried Khinkali, 5 Pieces, with Gochujang Tkemali Dip</span></span><span class="price">18 GEL</span></li><li><span class="bilingual"><span class="ko">치맥 세트, 프라이드 치킨과 로컬 맥주 2병</span><span class="en">Chimaek Set, Fried Chicken and Two Local Beers</span></span><span class="price tbc"><span class="lang-ko">원가 확인 후</span><span class="lang-en">After Costing</span></span></li><li><span class="bilingual"><span class="ko">와인과 킨칼리 세트, 킨칼리 5개와 글라스 와인 2잔</span><span class="en">Wine and Khinkali Set, 5 Khinkali and Two Glasses of Wine</span></span><span class="price tbc"><span class="lang-ko">원가 확인 후</span><span class="lang-en">After Costing</span></span></li></ul></section>
+        <section class="menu-group" aria-labelledby="bar-title"><h3 id="bar-title" class="localized" data-ko="와인, 차차, 맥주" data-en="Wine, Chacha and Beer">와인, 차차, 맥주</h3><p class="localized" data-ko="처음에는 와인 3종과 소수의 주류로 시작하고, 판매 데이터를 보고 넓힙니다." data-en="Start with three wines and a small alcohol list, then expand from sales data.">처음에는 와인 3종과 소수의 주류로 시작하고, 판매 데이터를 보고 넓힙니다.</p><ul class="menu-list"><li><span class="bilingual"><span class="ko">하우스 화이트, 앰버, 레드 와인</span><span class="en">House White, Amber and Red Wine</span></span><span class="price">12-15 GEL</span></li><li><span class="bilingual"><span class="ko">하우스 와인 보틀</span><span class="en">House Wine Bottle</span></span><span class="price">50-65 GEL</span></li><li><span class="bilingual"><span class="ko">차차, 40ml</span><span class="en">Chacha, 40 ml</span></span><span class="price tbc"><span class="lang-ko">공급 확인 후</span><span class="lang-en">After Sourcing</span></span></li><li><span class="bilingual"><span class="ko">로컬 크래프트 맥주</span><span class="en">Local Craft Beer</span></span><span class="price">8-10 GEL</span></li><li><span class="bilingual"><span class="ko">시그니처 선셋 칵테일</span><span class="en">Signature Sunset Cocktail</span></span><span class="price">25 GEL</span></li></ul></section>
+        <section class="menu-group" aria-labelledby="soft-title"><h3 id="soft-title" class="localized" data-ko="물과 조지아식 피즈" data-en="Water and Georgian Fizz">물과 조지아식 피즈</h3><p class="localized" data-ko="주류를 마시지 않는 손님에게도 루프탑의 정체성을 주는 음료" data-en="Drinks that give non-drinkers the rooftop's own identity">주류를 마시지 않는 손님에게도 루프탑의 정체성을 주는 음료</p><ul class="menu-list"><li><span class="bilingual"><span class="ko">생수</span><span class="en">Still Water</span></span><span class="price">3 GEL</span></li><li><span class="bilingual"><span class="ko">탄산수, 보르조미 또는 나베글라비</span><span class="en">Sparkling Water, Borjomi or Nabeglavi</span></span><span class="price">4 GEL</span></li><li><span class="bilingual"><span class="ko">코카콜라, 제로, 환타, 스프라이트</span><span class="en">Coca-Cola, Zero, Fanta or Sprite</span></span><span class="price">5 GEL</span></li><li><span class="bilingual"><span class="ko">타르훈 시트러스 에이드</span><span class="en">Tarkhun Citrus Fizz</span></span><span class="price">15 GEL</span></li><li><span class="bilingual"><span class="ko">제철 과일 조지아 에이드</span><span class="en">Seasonal Georgian Fruit Fizz</span></span><span class="price tbc"><span class="lang-ko">개발 중</span><span class="lang-en">In Development</span></span></li></ul></section>
+      </div>
+      <aside class="menu-note"><p class="localized" data-ko="소고기와 그릴 메뉴는 2차 출시 후보입니다. 튀김기가 한 대라면 프라이드 치킨을 우선하고, 튀김 킨칼리는 한정 또는 후속 메뉴로 운영합니다. 타르훈 시트러스 에이드는 조지아식 타르훈 레모네이드에서 출발한 루프탑 전용 개발 메뉴입니다." data-en="Beef and grill dishes are candidates for the second release. With one fryer, fried chicken comes first and fried khinkali should be limited or follow later. Tarkhun Citrus Fizz is a rooftop-only development that begins with Georgian tarragon lemonade.">소고기와 그릴 메뉴는 2차 출시 후보입니다. 튀김기가 한 대라면 프라이드 치킨을 우선하고, 튀김 킨칼리는 한정 또는 후속 메뉴로 운영합니다. 타르훈 시트러스 에이드는 조지아식 타르훈 레모네이드에서 출발한 루프탑 전용 개발 메뉴입니다.</p></aside>
+    </section>
+
+    <section class="shell section" id="operations" aria-labelledby="operations-title">
+      <h2 id="operations-title" class="section-heading localized" data-ko="메뉴보다 먼저 풀어야 할 운영의 질문" data-en="Operating questions to solve before the menu">메뉴보다 먼저 풀어야 할 운영의 질문</h2>
+      <p class="section-intro localized" data-ko="언덕 위 건물과 3층 주방은 메뉴의 개성과 동시에 운영의 한계도 만듭니다. 이 문제를 사람의 힘으로 덮으면, 매일의 피로가 직원 스트레스와 이직으로 돌아옵니다." data-en="A hilltop building and third-floor kitchen create both character and operational limits. If those limits are covered by human effort alone, daily fatigue returns as staff stress and turnover.">언덕 위 건물과 3층 주방은 메뉴의 개성과 동시에 운영의 한계도 만듭니다. 이 문제를 사람의 힘으로 덮으면, 매일의 피로가 직원 스트레스와 이직으로 돌아옵니다.</p>
+      <div class="flow"><h3 class="localized" data-ko="물류는 메뉴의 보이지 않는 레시피입니다." data-en="Logistics are the menu's invisible recipe.">물류는 메뉴의 보이지 않는 레시피입니다.</h3><div class="flow-track"><div class="flow-step"><b class="localized" data-ko="언덕 아래 도착" data-en="Arrival below the hill">언덕 아래 도착</b><span class="localized" data-ko="차량 종류와 겨울 접근성" data-en="Vehicle type and winter access">차량 종류와 겨울 접근성</span></div><div class="flow-step"><b class="localized" data-ko="지상 수령·검수" data-en="Ground receiving">지상 수령·검수</b><span class="localized" data-ko="병, 얼음, 식재료의 구분" data-en="Separate bottles, ice, and food">병, 얼음, 식재료의 구분</span></div><div class="flow-step"><b class="localized" data-ko="수직 운반" data-en="Vertical transfer">수직 운반</b><span class="localized" data-ko="계단, 리프트, 카트의 실제 용량" data-en="Real capacity of stairs, lift, and cart">계단, 리프트, 카트의 실제 용량</span></div><div class="flow-step"><b class="localized" data-ko="루프탑 보관·준비" data-en="Rooftop storage and prep">루프탑 보관·준비</b><span class="localized" data-ko="서비스 전 재고와 보충 기준" data-en="Pre-service stock and replenishment rules">서비스 전 재고와 보충 기준</span></div></div></div>
+      <div class="issues">
+        <article class="issue"><h3 class="localized" data-ko="겨울 배송" data-en="Winter delivery">겨울 배송</h3><p class="localized" data-ko="눈이 오면 큰 차량이 가파른 언덕을 오르지 못할 수 있습니다. 배송 가능 차량, 하차 지점, 제설 책임, 대체 배송일과 필수 재고일을 사전에 시험해야 합니다." data-en="Snow may prevent large vehicles from climbing the steep hill. Test delivery vehicles, the unloading point, snow-clearing responsibility, alternative delivery days, and essential stock cover in advance.">눈이 오면 큰 차량이 가파른 언덕을 오르지 못할 수 있습니다. 배송 가능 차량, 하차 지점, 제설 책임, 대체 배송일과 필수 재고일을 사전에 시험해야 합니다.</p><span class="risk localized" data-ko="결정 전에는 대용량 병입·냉동 재고 중심 메뉴를 확장하지 않음" data-en="Do not expand bottle-heavy or frozen-stock menus before this is decided">결정 전에는 대용량 병입·냉동 재고 중심 메뉴를 확장하지 않음</span></article>
+        <article class="issue"><h3 class="localized" data-ko="무거운 물품의 수직 이동" data-en="Vertical movement of heavy goods">무거운 물품의 수직 이동</h3><p class="localized" data-ko="와인 상자, 차차 병, 얼음, 고기와 음료 재고를 직원이 계단으로 반복 운반하는 방식은 지속가능하지 않습니다. 성별이나 체력에 기대지 않고, 카트·리프트·분할 납품·재고 기준으로 부담을 설계해야 합니다." data-en="Repeated stair-carrying of wine cases, chacha bottles, ice, meat, and beverage stock is not sustainable. Do not depend on gender or individual strength; design the load with carts, lifts, split deliveries, and stock rules.">와인 상자, 차차 병, 얼음, 고기와 음료 재고를 직원이 계단으로 반복 운반하는 방식은 지속가능하지 않습니다. 성별이나 체력에 기대지 않고, 카트·리프트·분할 납품·재고 기준으로 부담을 설계해야 합니다.</p><span class="risk localized" data-ko="운반 장비와 역할이 없으면 이 메뉴는 직원에게 비용을 전가함" data-en="Without equipment and roles, the menu transfers its cost to staff">운반 장비와 역할이 없으면 이 메뉴는 직원에게 비용을 전가함</span></article>
+        <article class="issue"><h3 class="localized" data-ko="주방의 크기와 열원" data-en="Kitchen size and heat source">주방의 크기와 열원</h3><p class="localized" data-ko="그릴, 튀김, 냉장·냉동, 설거지, 바 보관이 동시에 가능한지 확인되지 않았습니다. 설비가 확정되기 전에는 불 메뉴와 플래터를 모두 오픈 메뉴로 약속하지 않습니다." data-en="It is not yet known whether grilling, frying, cold storage, dishwashing, and bar storage can run together. Do not promise every fire dish and platter for opening before the equipment is confirmed.">그릴, 튀김, 냉장·냉동, 설거지, 바 보관이 동시에 가능한지 확인되지 않았습니다. 설비가 확정되기 전에는 불 메뉴와 플래터를 모두 오픈 메뉴로 약속하지 않습니다.</p><span class="risk localized" data-ko="주방 도면과 배기·전기·배수 확인이 메뉴 확정의 선행 조건" data-en="Kitchen plan and ventilation, power, and drainage checks come before menu lock">주방 도면과 배기·전기·배수 확인이 메뉴 확정의 선행 조건</span></article>
+        <article class="issue"><h3 class="localized" data-ko="현지인 재방문" data-en="Local return visits">현지인 재방문</h3><p class="localized" data-ko="관광객만으로는 비수기를 버티기 어렵습니다. 현지 고객이 친구와 다시 올 이유는 조지아 와인과 건배에 어울리는 음식, 합리적인 공유 선택지, 그리고 편안한 서비스 경험에서 만들어져야 합니다." data-en="Tourists alone cannot carry the low season. A reason for locals to return with friends must come from food that belongs with Georgian wine and toasts, sensible sharing choices, and an easy service experience.">관광객만으로는 비수기를 버티기 어렵습니다. 현지 고객이 친구와 다시 올 이유는 조지아 와인과 건배에 어울리는 음식, 합리적인 공유 선택지, 그리고 편안한 서비스 경험에서 만들어져야 합니다.</p><span class="risk localized" data-ko="현지 시식과 가격 테스트 없이 뷰만으로 가격을 올리지 않음" data-en="Do not raise prices for the view alone without local tastings and price tests">현지 시식과 가격 테스트 없이 뷰만으로 가격을 올리지 않음</span></article>
+      </div>
+    </section>
+
+    <section class="shell section" aria-labelledby="questions-title">
+      <h2 id="questions-title" class="section-heading localized" data-ko="메뉴를 확정하기 전에 함께 답할 다섯 가지" data-en="Five answers needed before locking the menu">메뉴를 확정하기 전에 함께 답할 다섯 가지</h2>
+      <ol class="questions">
+        <li><div><b class="localized" data-ko="3층 주방에서 실제로 가능한 조리 방식은 무엇인가?" data-en="What cooking methods are actually possible in the third-floor kitchen?">3층 주방에서 실제로 가능한 조리 방식은 무엇인가?</b><p class="localized" data-ko="그릴, 튀김, 배기, 냉장·냉동, 세척과 바 보관을 도면과 설비 목록으로 확인한다." data-en="Confirm grilling, frying, ventilation, cold storage, washing, and bar storage with a plan and equipment list.">그릴, 튀김, 배기, 냉장·냉동, 세척과 바 보관을 도면과 설비 목록으로 확인한다.</p></div></li>
+        <li><div><b class="localized" data-ko="눈 오는 날에도 식재료와 주류가 어디까지, 어떻게 도착하는가?" data-en="How far can food and alcohol reliably arrive on a snowy day?">눈 오는 날에도 식재료와 주류가 어디까지, 어떻게 도착하는가?</b><p class="localized" data-ko="공급업체와 실제 차량으로 언덕 접근, 하차, 대체 경로를 겨울 전에 시험한다." data-en="Test hill access, unloading, and alternate routes with suppliers and actual vehicles before winter.">공급업체와 실제 차량으로 언덕 접근, 하차, 대체 경로를 겨울 전에 시험한다.</p></div></li>
+        <li><div><b class="localized" data-ko="무거운 물품은 직원이 아닌 시스템으로 어떻게 위로 올리는가?" data-en="How will heavy goods move upward through a system rather than through staff?">무거운 물품은 직원이 아닌 시스템으로 어떻게 위로 올리는가?</b><p class="localized" data-ko="리프트 설치 가능성, 카트 경로, 분할 납품, 보관 위치와 보충 빈도를 함께 결정한다." data-en="Decide lift feasibility, cart routes, split deliveries, storage locations, and replenishment frequency together.">리프트 설치 가능성, 카트 경로, 분할 납품, 보관 위치와 보충 빈도를 함께 결정한다.</p></div></li>
+        <li><div><b class="localized" data-ko="우리는 어느 순간에 관광객용 경험에서 현지인의 단골집이 되는가?" data-en="At what point does a visitor experience become a local regular's place?">우리는 어느 순간에 관광객용 경험에서 현지인의 단골집이 되는가?</b><p class="localized" data-ko="와인과 음식의 가격, 공유 메뉴, 서비스, 주중 프로그램을 현지 시식과 반복 방문 데이터로 검증한다." data-en="Validate wine and food pricing, sharing plates, service, and weekday programming through local tastings and return-visit data.">와인과 음식의 가격, 공유 메뉴, 서비스, 주중 프로그램을 현지 시식과 반복 방문 데이터로 검증한다.</p></div></li>
+        <li><div><b class="localized" data-ko="오픈 메뉴에서 무엇을 과감히 빼야 하는가?" data-en="What should be removed decisively from the opening menu?">오픈 메뉴에서 무엇을 과감히 빼야 하는가?</b><p class="localized" data-ko="작은 주방과 어려운 물류에서 품질을 지키기 위해, 재료·장비·인력이 겹치지 않는 메뉴는 2차 출시로 보낸다." data-en="To protect quality in a small kitchen with difficult logistics, move dishes that do not share ingredients, equipment, or staffing into a second release.">작은 주방과 어려운 물류에서 품질을 지키기 위해, 재료·장비·인력이 겹치지 않는 메뉴는 2차 출시로 보낸다.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="shell closing"><p class="localized" data-ko="좋은 루프탑 메뉴는 전망에서 시작하지만, 안전하게 도착하고 무리 없이 운영되는 시스템에서 완성됩니다." data-en="A good rooftop menu begins with the view, but is completed by a system that arrives safely and operates without overburdening people.">좋은 루프탑 메뉴는 전망에서 시작하지만, 안전하게 도착하고 무리 없이 운영되는 시스템에서 완성됩니다.</p></section>
+  </main>
+  <footer class="shell footer"><span>ENVOY Rooftop</span><span class="localized" data-ko="가안 문서 · 메뉴 및 운영 논의용" data-en="Provisional document · for menu and operations discussion">가안 문서 · 메뉴 및 운영 논의용</span></footer>
+  <script>
+    (() => {
+      const body = document.body;
+      const buttons = document.querySelectorAll('[data-language]');
+      const localized = document.querySelectorAll('.localized');
+      const setLanguage = (language) => {
+        body.dataset.lang = language;
+        document.documentElement.lang = language;
+        document.title = language === 'ko' ? 'ENVOY Rooftop | 메뉴 구상' : 'ENVOY Rooftop | Menu Concept';
+        localized.forEach((element) => { element.textContent = element.dataset[language]; });
+        buttons.forEach((button) => { button.setAttribute('aria-pressed', String(button.dataset.language === language)); });
+        localStorage.setItem('envoy-rooftop-language', language);
+      };
+      const saved = localStorage.getItem('envoy-rooftop-language');
+      if (saved === 'ko' || saved === 'en') setLanguage(saved);
+      buttons.forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.language)));
+    })();
+  </script>
+</body>
+</html>
