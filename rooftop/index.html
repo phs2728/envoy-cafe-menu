@@ -48,6 +48,11 @@
     .manifest p { margin: 0; color: var(--color-ink-soft); }
     .principle { padding: var(--space-lg) 0; border-top: 1px solid var(--color-rule); }
     .principle:last-child { border-bottom: 1px solid var(--color-rule); }
+    .criteria-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md); margin-top: var(--space-2xl); }
+    .criteria-card { min-width: 0; padding: var(--space-xl); border: 1px solid var(--color-rule); background: var(--color-paper-2); }
+    .criteria-card .criterion-number { display: block; color: var(--color-accent); font-family: var(--font-mono); font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.08em; }
+    .criteria-card h3 { margin-top: var(--space-md); font-size: var(--text-xl); }
+    .criteria-card p { margin: var(--space-sm) 0 0; color: var(--color-ink-soft); }
     .menu-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2xl); margin-top: var(--space-2xl); }
     .menu-group { min-width: 0; }
     .menu-group h3 { font-size: var(--text-xl); }
@@ -88,7 +93,7 @@
     .closing { padding-block: var(--space-3xl); }
     .closing p { max-width: 25ch; margin: 0; font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 600; letter-spacing: -0.04em; line-height: 1.05; }
     .footer { display: flex; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-lg); border-top: 1px solid var(--color-rule); color: var(--color-muted); font-size: var(--text-xs); }
-    @media (max-width: 46rem) { .mast { align-items: flex-start; } .mast nav { display: none; } .hero { min-height: auto; } .roof-photo figcaption { display: block; } .roof-photo a { display: inline-block; margin-top: var(--space-2xs); } .hero-foot, .manifest, .menu-columns, .reservation-grid, .reservation-rules, .issues, .flow-track { grid-template-columns: 1fr; } .hero-foot { margin-top: var(--space-2xl); } .section { padding-block: var(--space-2xl); } .questions li { grid-template-columns: 2.5rem minmax(0, 1fr); } .footer { display: block; } .footer span + span { display: block; margin-top: var(--space-xs); } }
+    @media (max-width: 46rem) { .mast { align-items: flex-start; } .mast nav { display: none; } .hero { min-height: auto; } .roof-photo figcaption { display: block; } .roof-photo a { display: inline-block; margin-top: var(--space-2xs); } .hero-foot, .manifest, .criteria-grid, .menu-columns, .reservation-grid, .reservation-rules, .issues, .flow-track { grid-template-columns: 1fr; } .hero-foot { margin-top: var(--space-2xl); } .section { padding-block: var(--space-2xl); } .questions li { grid-template-columns: 2.5rem minmax(0, 1fr); } .footer { display: block; } .footer span + span { display: block; margin-top: var(--space-xs); } }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: 0.01ms !important; } }
     @media print { .lang-toggle { display: none; } .hero { min-height: auto; padding-block: var(--space-xl); } .section { padding-block: var(--space-xl); } .flow, .issue, .menu-note { break-inside: avoid; } }
   </style>
@@ -98,6 +103,7 @@
     <p class="wordmark">ENVOY ROOFTOP</p>
     <nav aria-label="Page sections">
       <a href="#idea"><span class="lang-ko">방향</span><span class="lang-en">Direction</span></a>
+      <a href="#criteria"><span class="lang-ko">메뉴 기준</span><span class="lang-en">Menu Criteria</span></a>
       <a href="#menu"><span class="lang-ko">가안 메뉴</span><span class="lang-en">Draft Menu</span></a>
       <a href="#group-dining"><span class="lang-ko">예약 한식</span><span class="lang-en">Group Dining</span></a>
       <a href="#operations"><span class="lang-ko">운영 과제</span><span class="lang-en">Operations</span></a>
@@ -141,6 +147,18 @@
           <div class="principle"><p class="localized" data-ko="메뉴 수는 주방의 실제 설비와 운반 방식이 확정되기 전까지 늘리지 않습니다. 처음에는 적게, 같은 재료를 여러 접시에 쓰는 방식으로 시작합니다." data-en="The menu should not expand before the kitchen equipment and carrying system are confirmed. Start small and use the same ingredients across multiple plates.">메뉴 수는 주방의 실제 설비와 운반 방식이 확정되기 전까지 늘리지 않습니다. 처음에는 적게, 같은 재료를 여러 접시에 쓰는 방식으로 시작합니다.</p></div>
         </div>
       </div>
+    </section>
+
+    <section class="shell section" id="criteria" aria-labelledby="criteria-title">
+      <h2 id="criteria-title" class="section-heading localized" data-ko="메뉴를 고르는 네 가지 기준" data-en="Four criteria for choosing the menu">메뉴를 고르는 네 가지 기준</h2>
+      <p class="section-intro localized" data-ko="이 문서는 메뉴를 확정하는 판이 아니라, 무엇을 오픈 메뉴에 넣을지 함께 판단하는 기준입니다. 맛있고 매력적인 메뉴라도 아래 네 가지 질문을 통과하지 못하면 초기 메뉴에 넣지 않습니다." data-en="This is not a menu lock. It is a shared test for deciding what belongs on the opening menu. Even an attractive dish does not enter the first menu unless it passes these four questions.">이 문서는 메뉴를 확정하는 판이 아니라, 무엇을 오픈 메뉴에 넣을지 함께 판단하는 기준입니다. 맛있고 매력적인 메뉴라도 아래 네 가지 질문을 통과하지 못하면 초기 메뉴에 넣지 않습니다.</p>
+      <div class="criteria-grid">
+        <article class="criteria-card"><span class="criterion-number">01</span><h3 class="localized" data-ko="가스 없이, 전기로 가능한가" data-en="Can it be made without gas?">가스 없이, 전기로 가능한가</h3><p class="localized" data-ko="루프탑은 가스를 사용하지 못합니다. 튀김기, 컨벡션 오븐, 인덕션·전기 장비에서 안전하고 일관되게 조리할 수 있는 메뉴만 검토합니다." data-en="The rooftop cannot use gas. We consider only dishes that can be cooked safely and consistently with a fryer, convection oven, induction, and other electric equipment.">루프탑은 가스를 사용하지 못합니다. 튀김기, 컨벡션 오븐, 인덕션·전기 장비에서 안전하고 일관되게 조리할 수 있는 메뉴만 검토합니다.</p></article>
+        <article class="criteria-card"><span class="criterion-number">02</span><h3 class="localized" data-ko="한 재료를 여러 접시에 쓸 수 있는가" data-en="Can one ingredient work across several plates?">한 재료를 여러 접시에 쓸 수 있는가</h3><p class="localized" data-ko="같은 핵심 식재료와 소스를 공유 접시, 메인, 콤보에 교차 활용합니다. 식품 안전 기준 안에서 재고를 단순화해 로스와 발주 부담을 낮춥니다." data-en="Core ingredients and sauces should work across sharing plates, mains, and combos. Within food-safety rules, this keeps inventory simple and reduces waste and ordering pressure.">같은 핵심 식재료와 소스를 공유 접시, 메인, 콤보에 교차 활용합니다. 식품 안전 기준 안에서 재고를 단순화해 로스와 발주 부담을 낮춥니다.</p></article>
+        <article class="criteria-card"><span class="criterion-number">03</span><h3 class="localized" data-ko="작은 팀이 반복해서 잘 만들 수 있는가" data-en="Can a small team make it well, repeatedly?">작은 팀이 반복해서 잘 만들 수 있는가</h3><p class="localized" data-ko="초기 직원 수와 숙련도에 맞춰 조리 단계, 대기 시간, 플레이팅을 제한합니다. 한 사람의 특별한 손기술에 의존하지 않고 교육과 서비스가 반복 가능한 메뉴여야 합니다." data-en="Opening staffing and skill levels set limits on steps, wait time, and plating. A dish must be teachable and repeatable in service, rather than depend on one person’s exceptional technique.">초기 직원 수와 숙련도에 맞춰 조리 단계, 대기 시간, 플레이팅을 제한합니다. 한 사람의 특별한 손기술에 의존하지 않고 교육과 서비스가 반복 가능한 메뉴여야 합니다.</p></article>
+        <article class="criteria-card"><span class="criterion-number">04</span><h3 class="localized" data-ko="체류시간과 다음 주문을 만드는가" data-en="Does it create time to stay and a next order?">체류시간과 다음 주문을 만드는가</h3><p class="localized" data-ko="조지아의 건배 문화에서는 빠른 테이블 회전보다 주류와 함께 머무는 시간이 중요합니다. 공유하기 좋고 와인·차차·맥주와 자연스럽게 이어져 추가 음료와 다음 접시를 부르는 메뉴를 우선합니다." data-en="In Georgia’s toast culture, time spent with drinks matters more than rapid turns. We prioritize shareable dishes that naturally lead to wine, chacha, beer, another drink, and the next plate.">조지아의 건배 문화에서는 빠른 테이블 회전보다 주류와 함께 머무는 시간이 중요합니다. 공유하기 좋고 와인·차차·맥주와 자연스럽게 이어져 추가 음료와 다음 접시를 부르는 메뉴를 우선합니다.</p></article>
+      </div>
+      <div class="menu-note"><p class="localized" data-ko="새 메뉴 제안은 네 기준에 대한 답과 함께 검토합니다. ‘맛있어 보인다’는 시작점일 뿐, 전기 조리·재료 공용·작은 팀의 실행력·체류 매출까지 설명할 수 있어야 합니다." data-en="Every new menu proposal is reviewed with an answer to all four criteria. “It looks delicious” is only a starting point; it must also explain electric cooking, ingredient sharing, small-team execution, and dwell-time revenue.">새 메뉴 제안은 네 기준에 대한 답과 함께 검토합니다. ‘맛있어 보인다’는 시작점일 뿐, 전기 조리·재료 공용·작은 팀의 실행력·체류 매출까지 설명할 수 있어야 합니다.</p></div>
     </section>
 
     <section class="shell section" id="menu" aria-labelledby="menu-title">
