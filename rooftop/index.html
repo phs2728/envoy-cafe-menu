@@ -59,6 +59,16 @@
     .menu-list .tbc { color: var(--color-muted); }
     .menu-note { margin-top: var(--space-xl); padding: var(--space-lg); border-left: 3px solid var(--color-accent); background: var(--color-paper-2); color: var(--color-ink-soft); }
     .menu-note p { margin: 0; }
+    .reservation-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-md); margin-top: var(--space-2xl); }
+    .reservation-card { min-width: 0; padding: var(--space-xl); background: var(--color-paper-2); border-top: 3px solid var(--color-accent); }
+    .reservation-card h3 { font-size: var(--text-xl); }
+    .reservation-card p { margin: var(--space-sm) 0 0; color: var(--color-ink-soft); }
+    .reservation-card .price { display: block; margin-top: var(--space-xl); color: var(--color-accent); font-family: var(--font-mono); font-size: var(--text-lg); font-weight: 700; }
+    .reservation-rules { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-md); margin-top: var(--space-xl); }
+    .reservation-rule { padding-top: var(--space-sm); border-top: 1px solid var(--color-rule-strong); }
+    .reservation-rule b, .reservation-rule span { display: block; }
+    .reservation-rule b { font-size: var(--text-sm); }
+    .reservation-rule span { margin-top: var(--space-2xs); color: var(--color-muted); font-size: var(--text-xs); }
     .flow { margin-top: var(--space-2xl); padding: var(--space-xl); background: var(--color-surface); }
     .flow h3 { font-size: var(--text-xl); }
     .flow-track { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-sm); margin-top: var(--space-xl); }
@@ -78,7 +88,7 @@
     .closing { padding-block: var(--space-3xl); }
     .closing p { max-width: 25ch; margin: 0; font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 600; letter-spacing: -0.04em; line-height: 1.05; }
     .footer { display: flex; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-lg); border-top: 1px solid var(--color-rule); color: var(--color-muted); font-size: var(--text-xs); }
-    @media (max-width: 46rem) { .mast { align-items: flex-start; } .mast nav { display: none; } .hero { min-height: auto; } .roof-photo figcaption { display: block; } .roof-photo a { display: inline-block; margin-top: var(--space-2xs); } .hero-foot, .manifest, .menu-columns, .issues, .flow-track { grid-template-columns: 1fr; } .hero-foot { margin-top: var(--space-2xl); } .section { padding-block: var(--space-2xl); } .questions li { grid-template-columns: 2.5rem minmax(0, 1fr); } .footer { display: block; } .footer span + span { display: block; margin-top: var(--space-xs); } }
+    @media (max-width: 46rem) { .mast { align-items: flex-start; } .mast nav { display: none; } .hero { min-height: auto; } .roof-photo figcaption { display: block; } .roof-photo a { display: inline-block; margin-top: var(--space-2xs); } .hero-foot, .manifest, .menu-columns, .reservation-grid, .reservation-rules, .issues, .flow-track { grid-template-columns: 1fr; } .hero-foot { margin-top: var(--space-2xl); } .section { padding-block: var(--space-2xl); } .questions li { grid-template-columns: 2.5rem minmax(0, 1fr); } .footer { display: block; } .footer span + span { display: block; margin-top: var(--space-xs); } }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: 0.01ms !important; } }
     @media print { .lang-toggle { display: none; } .hero { min-height: auto; padding-block: var(--space-xl); } .section { padding-block: var(--space-xl); } .flow, .issue, .menu-note { break-inside: avoid; } }
   </style>
@@ -89,6 +99,7 @@
     <nav aria-label="Page sections">
       <a href="#idea"><span class="lang-ko">방향</span><span class="lang-en">Direction</span></a>
       <a href="#menu"><span class="lang-ko">가안 메뉴</span><span class="lang-en">Draft Menu</span></a>
+      <a href="#group-dining"><span class="lang-ko">예약 한식</span><span class="lang-en">Group Dining</span></a>
       <a href="#operations"><span class="lang-ko">운영 과제</span><span class="lang-en">Operations</span></a>
     </nav>
     <div class="lang-toggle" aria-label="Language">
@@ -143,6 +154,23 @@
         <section class="menu-group" aria-labelledby="soft-title"><h3 id="soft-title" class="localized" data-ko="물과 조지아식 피즈" data-en="Water and Georgian Fizz">물과 조지아식 피즈</h3><p class="localized" data-ko="주류를 마시지 않는 손님에게도 루프탑의 정체성을 주는 음료" data-en="Drinks that give non-drinkers the rooftop's own identity">주류를 마시지 않는 손님에게도 루프탑의 정체성을 주는 음료</p><ul class="menu-list"><li><span class="bilingual"><span class="ko">생수</span><span class="en">Still Water</span></span><span class="price">3 GEL</span></li><li><span class="bilingual"><span class="ko">탄산수, 보르조미 또는 나베글라비</span><span class="en">Sparkling Water, Borjomi or Nabeglavi</span></span><span class="price">4 GEL</span></li><li><span class="bilingual"><span class="ko">코카콜라, 제로, 환타, 스프라이트</span><span class="en">Coca-Cola, Zero, Fanta or Sprite</span></span><span class="price">5 GEL</span></li><li><span class="bilingual"><span class="ko">타르훈 시트러스 에이드</span><span class="en">Tarkhun Citrus Fizz</span></span><span class="price">15 GEL</span></li><li><span class="bilingual"><span class="ko">제철 과일 조지아 에이드</span><span class="en">Seasonal Georgian Fruit Fizz</span></span><span class="price tbc"><span class="lang-ko">개발 중</span><span class="lang-en">In Development</span></span></li></ul></section>
       </div>
       <aside class="menu-note"><p class="localized" data-ko="소고기와 그릴 메뉴는 2차 출시 후보입니다. 튀김기가 한 대라면 프라이드 치킨을 우선하고, 튀김 킨칼리는 한정 또는 후속 메뉴로 운영합니다. 타르훈 시트러스 에이드는 조지아식 타르훈 레모네이드에서 출발한 루프탑 전용 개발 메뉴입니다." data-en="Beef and grill dishes are candidates for the second release. With one fryer, fried chicken comes first and fried khinkali should be limited or follow later. Tarkhun Citrus Fizz is a rooftop-only development that begins with Georgian tarragon lemonade.">소고기와 그릴 메뉴는 2차 출시 후보입니다. 튀김기가 한 대라면 프라이드 치킨을 우선하고, 튀김 킨칼리는 한정 또는 후속 메뉴로 운영합니다. 타르훈 시트러스 에이드는 조지아식 타르훈 레모네이드에서 출발한 루프탑 전용 개발 메뉴입니다.</p></aside>
+    </section>
+
+    <section class="shell section" id="group-dining" aria-labelledby="group-dining-title">
+      <h2 id="group-dining-title" class="section-heading localized" data-ko="투어와 단체를 위한 예약 한식 상차림" data-en="Reservation-only Korean Tables for Tours and Groups">투어와 단체를 위한 예약 한식 상차림</h2>
+      <p class="section-intro localized" data-ko="일반 루프탑 메뉴와 별도로, 성수기 투어와 단체 예약에는 따뜻한 밥·메인·반찬을 갖춘 한식 상차림을 제공합니다. 매일 한식당처럼 운영하지 않고, 사전 선택과 고정 구성으로 주방의 예측 가능성을 지킵니다." data-en="Separate from the everyday rooftop menu, peak-season tours and group reservations can be served a Korean table with warm rice, a main dish, and side dishes. This is not a daily Korean restaurant operation: advance choices and fixed formats protect kitchen predictability.">일반 루프탑 메뉴와 별도로, 성수기 투어와 단체 예약에는 따뜻한 밥·메인·반찬을 갖춘 한식 상차림을 제공합니다. 매일 한식당처럼 운영하지 않고, 사전 선택과 고정 구성으로 주방의 예측 가능성을 지킵니다.</p>
+      <div class="reservation-grid">
+        <article class="reservation-card"><h3 class="localized" data-ko="한국식 환영 상차림" data-en="Korean Welcome Table">한국식 환영 상차림</h3><p class="localized" data-ko="밥, 고추장 트케말리 치킨 또는 로스트 포크, 김치·절임·감자 등 반찬 3종, 국 또는 찌개, 제철 과일" data-en="Rice, gochujang-tkemali chicken or roast pork, three side dishes such as kimchi, pickles and potatoes, soup or stew, and seasonal fruit">밥, 고추장 트케말리 치킨 또는 로스트 포크, 김치·절임·감자 등 반찬 3종, 국 또는 찌개, 제철 과일</p><span class="price">42–48 GEL / <span class="lang-ko">인</span><span class="lang-en">person</span></span></article>
+        <article class="reservation-card"><h3 class="localized" data-ko="한국식 치맥 상차림" data-en="Korean Chimaek Table">한국식 치맥 상차림</h3><p class="localized" data-ko="한국식 프라이드 치킨, 감자 또는 떡, 반찬 3종, 밥 소량. 맥주 또는 하이볼을 별도 페어링으로 추가" data-en="Korean fried chicken, potatoes or rice cakes, three side dishes, and a small rice portion. Beer or highball can be added as a separate pairing">한국식 프라이드 치킨, 감자 또는 떡, 반찬 3종, 밥 소량. 맥주 또는 하이볼을 별도 페어링으로 추가</p><span class="price">38–42 GEL / <span class="lang-ko">인</span><span class="lang-en">person</span></span></article>
+        <article class="reservation-card"><h3 class="localized" data-ko="조지아-한국 건배 상차림" data-en="Georgian–Korean Toast Table">조지아-한국 건배 상차림</h3><p class="localized" data-ko="로스트 치킨 또는 포크, 프할리·킨칼리, 한국식 반찬, 밥. 조지아 와인 또는 차차 페어링 선택" data-en="Roast chicken or pork, pkhali, khinkali, Korean side dishes, and rice. Choose a Georgian wine or chacha pairing">로스트 치킨 또는 포크, 프할리·킨칼리, 한국식 반찬, 밥. 조지아 와인 또는 차차 페어링 선택</p><span class="price">45–55 GEL / <span class="lang-ko">인</span><span class="lang-en">person</span></span></article>
+      </div>
+      <div class="reservation-rules" aria-label="Reservation conditions">
+        <div class="reservation-rule"><b class="localized" data-ko="최소 인원" data-en="Minimum group">최소 인원</b><span class="localized" data-ko="6–8명부터" data-en="6–8 guests">6–8명부터</span></div>
+        <div class="reservation-rule"><b class="localized" data-ko="예약 시점" data-en="Lead time">예약 시점</b><span class="localized" data-ko="최소 48시간 전" data-en="At least 48 hours ahead">최소 48시간 전</span></div>
+        <div class="reservation-rule"><b class="localized" data-ko="메인 선택" data-en="Main selection">메인 선택</b><span class="localized" data-ko="그룹당 1–2종 사전 확정" data-en="Confirm 1–2 choices per group">그룹당 1–2종 사전 확정</span></div>
+        <div class="reservation-rule"><b class="localized" data-ko="주류" data-en="Drinks">주류</b><span class="localized" data-ko="와인·차차·맥주 별도 페어링" data-en="Wine, chacha, and beer as add-on pairings">와인·차차·맥주 별도 페어링</span></div>
+      </div>
+      <aside class="menu-note"><p class="localized" data-ko="예약 한식 상차림은 투어의 마지막 일정이자 엔보이만의 저녁 경험입니다. 실제 운영 전에는 예약금 정책, 알레르기·식단 확인, 서비스 시간, 밥·국·반찬의 사전 준비 동선을 확정해야 합니다." data-en="The reservation table is both the final stop of a tour and an Envoy-only evening experience. Before operation, set the booking-deposit policy, allergy and diet checks, service timing, and the prep flow for rice, soup, and side dishes.">예약 한식 상차림은 투어의 마지막 일정이자 엔보이만의 저녁 경험입니다. 실제 운영 전에는 예약금 정책, 알레르기·식단 확인, 서비스 시간, 밥·국·반찬의 사전 준비 동선을 확정해야 합니다.</p></aside>
     </section>
 
     <section class="shell section" id="operations" aria-labelledby="operations-title">
