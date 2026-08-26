@@ -66,6 +66,11 @@
     .menu-list .tbc { color: var(--color-muted); }
     .menu-note { margin-top: var(--space-xl); padding: var(--space-lg); border-left: 3px solid var(--color-accent); background: var(--color-paper-2); color: var(--color-ink-soft); }
     .menu-note p { margin: 0; }
+    .research-gallery { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-sm); margin-top: var(--space-2xl); }
+    .research-photo { grid-column: span 4; min-width: 0; margin: 0; overflow: hidden; background: var(--color-paper-2); }
+    .research-photo:nth-child(1), .research-photo:nth-child(6) { grid-column: span 6; }
+    .research-photo img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; filter: saturate(0.86) contrast(1.03); transition: transform 220ms ease; }
+    .research-photo a:hover img { transform: scale(1.025); }
     .reservation-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-md); margin-top: var(--space-2xl); }
     .reservation-card { min-width: 0; padding: var(--space-xl); background: var(--color-paper-2); border-top: 3px solid var(--color-accent); }
     .reservation-card h3 { font-size: var(--text-xl); }
@@ -95,7 +100,7 @@
     .closing { padding-block: var(--space-3xl); }
     .closing p { max-width: 25ch; margin: 0; font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 600; letter-spacing: -0.04em; line-height: 1.05; }
     .footer { display: flex; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-lg); border-top: 1px solid var(--color-rule); color: var(--color-muted); font-size: var(--text-xs); }
-    @media (max-width: 46rem) { .mast { align-items: flex-start; } .mast nav { display: none; } .hero { min-height: auto; } .roof-photo figcaption { display: block; } .roof-photo a { display: inline-block; margin-top: var(--space-2xs); } .hero-foot, .manifest, .criteria-grid, .menu-columns, .reservation-grid, .reservation-rules, .issues, .flow-track { grid-template-columns: 1fr; } .hero-foot { margin-top: var(--space-2xl); } .section { padding-block: var(--space-2xl); } .questions li { grid-template-columns: 2.5rem minmax(0, 1fr); } .footer { display: block; } .footer span + span { display: block; margin-top: var(--space-xs); } }
+    @media (max-width: 46rem) { .mast { align-items: flex-start; } .mast nav { display: none; } .hero { min-height: auto; } .roof-photo figcaption { display: block; } .roof-photo a { display: inline-block; margin-top: var(--space-2xs); } .hero-foot, .manifest, .criteria-grid, .menu-columns, .reservation-grid, .reservation-rules, .issues, .flow-track { grid-template-columns: 1fr; } .research-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); } .research-photo, .research-photo:nth-child(1), .research-photo:nth-child(6) { grid-column: span 1; } .hero-foot { margin-top: var(--space-2xl); } .section { padding-block: var(--space-2xl); } .questions li { grid-template-columns: 2.5rem minmax(0, 1fr); } .footer { display: block; } .footer span + span { display: block; margin-top: var(--space-xs); } }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: 0.01ms !important; } }
     @media print { .lang-toggle { display: none; } .hero { min-height: auto; padding-block: var(--space-xl); } .section { padding-block: var(--space-xl); } .flow, .issue, .menu-note { break-inside: avoid; } }
   </style>
@@ -107,6 +112,7 @@
       <a href="#idea"><span class="lang-ko">방향</span><span class="lang-en">Direction</span></a>
       <a href="#criteria"><span class="lang-ko">메뉴 기준</span><span class="lang-en">Menu Criteria</span></a>
       <a href="#menu"><span class="lang-ko">가안 메뉴</span><span class="lang-en">Draft Menu</span></a>
+      <a href="#research"><span class="lang-ko">리서치 사진</span><span class="lang-en">Research Photos</span></a>
       <a href="strategy/"><span class="lang-ko">전략 검토</span><span class="lang-en">Strategy Review</span></a>
       <a href="#group-dining"><span class="lang-ko">예약 한식</span><span class="lang-en">Group Dining</span></a>
       <a href="#operations"><span class="lang-ko">운영 과제</span><span class="lang-en">Operations</span></a>
@@ -175,6 +181,25 @@
         <section class="menu-group" aria-labelledby="soft-title"><h3 id="soft-title" class="localized" data-ko="물과 조지아식 피즈" data-en="Water and Georgian Fizz">물과 조지아식 피즈</h3><p class="localized" data-ko="주류를 마시지 않는 손님에게도 루프탑의 정체성을 주는 음료" data-en="Drinks that give non-drinkers the rooftop's own identity">주류를 마시지 않는 손님에게도 루프탑의 정체성을 주는 음료</p><ul class="menu-list"><li><span class="bilingual"><span class="ko">생수</span><span class="en">Still Water</span></span><span class="price">3 GEL</span></li><li><span class="bilingual"><span class="ko">탄산수, 보르조미 또는 나베글라비</span><span class="en">Sparkling Water, Borjomi or Nabeglavi</span></span><span class="price">4 GEL</span></li><li><span class="bilingual"><span class="ko">코카콜라, 제로, 환타, 스프라이트</span><span class="en">Coca-Cola, Zero, Fanta or Sprite</span></span><span class="price">5 GEL</span></li><li><span class="bilingual"><span class="ko">타르훈 시트러스 에이드</span><span class="en">Tarkhun Citrus Fizz</span></span><span class="price">15 GEL</span></li><li><span class="bilingual"><span class="ko">제철 과일 조지아 에이드</span><span class="en">Seasonal Georgian Fruit Fizz</span></span><span class="price tbc"><span class="lang-ko">개발 중</span><span class="lang-en">In Development</span></span></li></ul></section>
       </div>
       <aside class="menu-note"><p class="localized" data-ko="라면은 카페나 24시간 메뉴가 아니라 17:00 이후 루프탑 저녁 전용으로 운영합니다. 전용 조리기 사용·화상 안전·음주 고객 안내를 먼저 확정해야 합니다. 소고기와 그릴 메뉴는 2차 출시 후보이며, 튀김기가 한 대라면 프라이드 치킨을 우선하고 튀김 킨칼리는 한정 또는 후속 메뉴로 둡니다." data-en="Ramen is a rooftop evening item after 17:00, not a café or 24-hour menu. Dedicated cooker use, burn safety, and guidance for drinking guests must be set first. Beef and grill dishes remain second-release candidates; with one fryer, fried chicken comes first and fried khinkali should be limited or follow later.">라면은 카페나 24시간 메뉴가 아니라 17:00 이후 루프탑 저녁 전용으로 운영합니다. 전용 조리기 사용·화상 안전·음주 고객 안내를 먼저 확정해야 합니다. 소고기와 그릴 메뉴는 2차 출시 후보이며, 튀김기가 한 대라면 프라이드 치킨을 우선하고 튀김 킨칼리는 한정 또는 후속 메뉴로 둡니다.</p></aside>
+    </section>
+
+    <section class="shell section" id="research" aria-labelledby="research-title">
+      <h2 id="research-title" class="section-heading localized" data-ko="식당 리서치 사진" data-en="Restaurant Research Photos">식당 리서치 사진</h2>
+      <p class="section-intro localized" data-ko="현지 식당의 메뉴 구성, 공유 접시, 가격 표기, 플레이팅과 체류 경험을 관찰하며 수집한 사진입니다. 특정 식당을 그대로 따라 하려는 자료가 아니라, 엔보이 루프탑의 메뉴 범위와 운영 난이도를 판단하기 위한 현장 기록입니다." data-en="These field photos document local menus, sharing plates, price displays, plating, and dining dwell time. They are not material for copying any restaurant; they help judge Envoy Rooftop's menu range and operating complexity.">현지 식당의 메뉴 구성, 공유 접시, 가격 표기, 플레이팅과 체류 경험을 관찰하며 수집한 사진입니다. 특정 식당을 그대로 따라 하려는 자료가 아니라, 엔보이 루프탑의 메뉴 범위와 운영 난이도를 판단하기 위한 현장 기록입니다.</p>
+      <div class="research-gallery" aria-label="식당 현장 리서치 사진 모음">
+        <figure class="research-photo"><a href="research/20260804_185836.jpg" target="_blank" rel="noopener"><img src="research/20260804_185836.jpg" alt="현지 식당의 공유 메뉴와 가격표" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/20260820_140841.jpg" target="_blank" rel="noopener"><img src="research/20260820_140841.jpg" alt="식당 현장 리서치 사진 2" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/20260820_135230%20(1).jpg" target="_blank" rel="noopener"><img src="research/20260820_135230%20(1).jpg" alt="식당 현장 리서치 사진 3" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/20260820_133334.jpg" target="_blank" rel="noopener"><img src="research/20260820_133334.jpg" alt="식당 현장 리서치 사진 4" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/20260820_133325.jpg" target="_blank" rel="noopener"><img src="research/20260820_133325.jpg" alt="식당 현장 리서치 사진 5" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/20260811_115933.jpg" target="_blank" rel="noopener"><img src="research/20260811_115933.jpg" alt="식당 현장 리서치 사진 6" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/Scan_20260810_191922.jpg" target="_blank" rel="noopener"><img src="research/Scan_20260810_191922.jpg" alt="현지 식당의 공유 음식과 허브" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/20260810_191645.jpg" target="_blank" rel="noopener"><img src="research/20260810_191645.jpg" alt="식당 현장 리서치 사진 8" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/20260810_191618.jpg" target="_blank" rel="noopener"><img src="research/20260810_191618.jpg" alt="식당 현장 리서치 사진 9" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/Scan_20260807_084030.jpg" target="_blank" rel="noopener"><img src="research/Scan_20260807_084030.jpg" alt="피자 메뉴 구성과 가격 표기 예시" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/20260804_193753.jpg" target="_blank" rel="noopener"><img src="research/20260804_193753.jpg" alt="현지 식당의 조리 음식" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/20260804_191248.jpg" target="_blank" rel="noopener"><img src="research/20260804_191248.jpg" alt="현지 식당의 스튜 요리" loading="lazy"></a></figure>
+      </div>
     </section>
 
     <section class="shell section" id="group-dining" aria-labelledby="group-dining-title">
