@@ -201,6 +201,33 @@
 
     .section-summary { max-width: 60ch; margin: var(--space-sm) 0 0; color: var(--color-ink-soft); }
 
+    .research-gallery {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: var(--space-sm);
+    }
+
+    .research-photo {
+      grid-column: span 4;
+      min-width: 0;
+      margin: 0;
+      overflow: hidden;
+      background: var(--color-paper-2);
+    }
+
+    .research-photo:nth-child(1), .research-photo:nth-child(7) { grid-column: span 6; }
+
+    .research-photo img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      filter: saturate(0.86) contrast(1.03);
+      transition: transform 220ms ease;
+    }
+
+    .research-photo a:hover img { transform: scale(1.025); }
+
     .menu-spread { display: grid; gap: var(--space-2xl); }
 
     .menu-group { min-width: 0; }
@@ -355,6 +382,8 @@
     @media (max-width: 39.99rem) {
       .mast-nav ul { display: grid; grid-template-columns: repeat(2, minmax(0, max-content)); justify-content: center; column-gap: var(--space-lg); row-gap: 0; }
       .mast-nav a { min-height: 2.5rem; font-size: var(--text-xs); }
+      .research-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .research-photo, .research-photo:nth-child(1), .research-photo:nth-child(7) { grid-column: span 1; }
     }
 
     @media (min-width: 60rem) {
@@ -394,6 +423,7 @@
         <li><a href="#menu"><span class="lang-ko">메뉴</span><span class="lang-en">Menu</span></a></li>
         <li><a href="#breakfast"><span class="lang-ko">조식과 브런치</span><span class="lang-en">Breakfast and Brunch</span></a></li>
         <li><a href="#next"><span class="lang-ko">다음 메뉴</span><span class="lang-en">Next Menu</span></a></li>
+        <li><a href="#research"><span class="lang-ko">리서치 사진</span><span class="lang-en">Research Photos</span></a></li>
         <li><a href="#questions"><span class="lang-ko">함께 풀 숙제</span><span class="lang-en">Questions</span></a></li>
       </ul>
     </nav>
@@ -619,6 +649,32 @@
             <li><span><span class="lang-ko">조지아 타라곤 레모네이드</span><span class="lang-en">Georgian Tarragon Lemonade</span></span><span>10 GEL</span></li>
           </ul>
         </article>
+      </div>
+    </section>
+
+    <section class="section" id="research" aria-labelledby="research-title">
+      <div class="section-head">
+        <p class="section-kicker localized" data-ko="현장 관찰" data-en="Field Observation">현장 관찰</p>
+        <h2 id="research-title" class="localized" data-ko="트빌리시 카페 리서치 사진" data-en="Tbilisi Café Research Photos">트빌리시 카페 리서치 사진</h2>
+        <p class="section-summary localized" data-ko="메뉴·가격·카운터·공간 사용을 관찰하며 수집한 사진입니다. 개별 카페의 제품이나 브랜드를 그대로 적용한다는 뜻이 아니라, 엔보이의 메뉴와 공간을 판단하기 위한 현장 기록입니다." data-en="These are field notes collected while observing menus, prices, counters, and space use. They are not a proposal to copy any café or brand; they are evidence for judging Envoy's menu and space.">메뉴·가격·카운터·공간 사용을 관찰하며 수집한 사진입니다. 개별 카페의 제품이나 브랜드를 그대로 적용한다는 뜻이 아니라, 엔보이의 메뉴와 공간을 판단하기 위한 현장 기록입니다.</p>
+      </div>
+      <div class="research-gallery" aria-label="카페 현장 리서치 사진 모음">
+        <figure class="research-photo"><a href="research/20260821_191510.jpg" target="_blank" rel="noopener"><img src="research/20260821_191510.jpg" alt="페이스트리와 크루아상이 진열된 카페 카운터" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/20260821_191500.jpg" target="_blank" rel="noopener"><img src="research/20260821_191500.jpg" alt="카페 현장 리서치 사진 2" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/20260821_191446.jpg" target="_blank" rel="noopener"><img src="research/20260821_191446.jpg" alt="카페 현장 리서치 사진 3" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/20260821_191434.jpg" target="_blank" rel="noopener"><img src="research/20260821_191434.jpg" alt="카페 현장 리서치 사진 4" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/20260814_140030.jpg" target="_blank" rel="noopener"><img src="research/20260814_140030.jpg" alt="카페에서 체스와 함께 머무는 손님들" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/20260814_140014.jpg" target="_blank" rel="noopener"><img src="research/20260814_140014.jpg" alt="카페 현장 리서치 사진 6" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/20260814_140002.jpg" target="_blank" rel="noopener"><img src="research/20260814_140002.jpg" alt="카페 현장 리서치 사진 7" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/20260814_135958.jpg" target="_blank" rel="noopener"><img src="research/20260814_135958.jpg" alt="카페 현장 리서치 사진 8" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/20260804_172843.jpg" target="_blank" rel="noopener"><img src="research/20260804_172843.jpg" alt="카페 현장 리서치 사진 9" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/20260804_172834.jpg" target="_blank" rel="noopener"><img src="research/20260804_172834.jpg" alt="카페 현장 리서치 사진 10" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/20260804_170951.jpg" target="_blank" rel="noopener"><img src="research/20260804_170951.jpg" alt="카페 현장 리서치 사진 11" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/20260804_170747.jpg" target="_blank" rel="noopener"><img src="research/20260804_170747.jpg" alt="카페 현장 리서치 사진 12" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/20260804_170713.jpg" target="_blank" rel="noopener"><img src="research/20260804_170713.jpg" alt="카페 현장 리서치 사진 13" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/20260725_102622.jpg" target="_blank" rel="noopener"><img src="research/20260725_102622.jpg" alt="샌드위치와 음료가 진열된 카페 냉장 쇼케이스" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/20260821_191929.jpg" target="_blank" rel="noopener"><img src="research/20260821_191929.jpg" alt="카페 현장 리서치 사진 15" loading="lazy"></a></figure>
+        <figure class="research-photo"><a href="research/20260821_191610.jpg" target="_blank" rel="noopener"><img src="research/20260821_191610.jpg" alt="카페 현장 리서치 사진 16" loading="lazy"></a></figure>
       </div>
     </section>
 
