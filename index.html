@@ -277,6 +277,10 @@
 
     .feature-photo-grid { display: grid; gap: var(--space-md); margin: var(--space-2xl) 0 0; }
 
+    .feature-photo-grid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .feature-photo-grid--single { grid-template-columns: minmax(0, 1fr); max-width: 48rem; }
+
     .feature-photo { margin: 0; min-width: 0; }
 
     .feature-photo img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; filter: saturate(0.78) contrast(1.03); }
@@ -376,6 +380,8 @@
 
     @media (min-width: 40rem) {
       .feature-photo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .feature-photo-grid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .feature-photo-grid--single { grid-template-columns: minmax(0, 1fr); }
       .brunch-menu { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-3xl); }
       .next-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-2xl); }
@@ -576,9 +582,9 @@
           </ul>
         </section>
       </div>
-      <div class="feature-photo-grid" aria-label="엔보이 디저트와 베이커리 예상 이미지">
-        <figure class="feature-photo"><img src="assets/envoy-bakery-display-concept.png" width="1536" height="1024" loading="lazy" alt="엔보이 카페의 예상 크루아상과 치즈케이크 베이커리 진열"><figcaption class="localized" data-ko="예상 이미지 · 엔보이 베이커리 카운터의 크루아상·도넛·치즈케이크 구성" data-en="Concept image · croissant, doughnut, and cheesecake display for the Envoy bakery counter">예상 이미지 · 엔보이 베이커리 카운터의 크루아상·도넛·치즈케이크 구성</figcaption></figure>
-        <figure class="feature-photo"><img src="assets/envoy-cheesecake-pastry-concept.png" width="1536" height="1024" loading="lazy" alt="엔보이 카페의 예상 치즈케이크와 크루아상 디저트 플레이트"><figcaption class="localized" data-ko="예상 이미지 · 커피와 함께 제공하는 치즈케이크·크루아상 디저트 플레이트" data-en="Concept image · cheesecake and croissant dessert plate served with coffee">예상 이미지 · 커피와 함께 제공하는 치즈케이크·크루아상 디저트 플레이트</figcaption></figure>
+      <div class="feature-photo-grid feature-photo-grid--two" aria-label="엔보이 디저트와 베이커리 예상 이미지">
+        <figure class="feature-photo"><img src="assets/envoy-dessert-concept-v2.png" width="1536" height="1024" loading="lazy" alt="엔보이 카페의 예상 크루아상과 치즈케이크 디저트 플레이트"><figcaption class="localized" data-ko="예상 이미지 · 크루아상, 도넛, 바스크 치즈케이크를 단정하게 담은 디저트 플레이트" data-en="Concept image · a clean dessert plate with croissant, doughnut, and Basque cheesecake">예상 이미지 · 크루아상, 도넛, 바스크 치즈케이크를 단정하게 담은 디저트 플레이트</figcaption></figure>
+        <figure class="feature-photo"><img src="assets/envoy-bakery-counter-concept-v2.png" width="1536" height="1024" loading="lazy" alt="엔보이 카페의 예상 크루아상과 쿠키 베이커리 카운터"><figcaption class="localized" data-ko="예상 이미지 · 크루아상·쿠키 중심의 간결한 베이커리 카운터" data-en="Concept image · a simple bakery counter led by croissants and cookies">예상 이미지 · 크루아상·쿠키 중심의 간결한 베이커리 카운터</figcaption></figure>
       </div>
     </section>
 
@@ -598,8 +604,8 @@
           <div class="menu-item"><span><span class="bilingual"><span class="ko">베지테리언 조식</span><span class="en">Vegetarian Breakfast</span></span><span class="item-desc"><span class="lang-ko">토스트, 스크램블 에그, 치즈, 요거트, 호두와 꿀, 채소와 제철 과일</span><span class="lang-en">Toast, scrambled eggs, cheese, yogurt, honey and walnut, vegetables and seasonal fruit</span></span></span><span class="price">20 GEL</span></div>
         </div>
       </div>
-      <div class="feature-photo-grid" aria-label="엔보이 조식 예상 이미지">
-        <figure class="feature-photo"><img src="assets/envoy-breakfast-tray-concept.png" width="1536" height="1024" loading="lazy" alt="엔보이 카페의 예상 조식 트레이"><figcaption class="localized" data-ko="예상 이미지 · 조지아식 재료와 유러피안 조식 구성을 함께 담은 엔보이 조식 트레이" data-en="Concept image · an Envoy breakfast tray combining Georgian ingredients and a European breakfast format">예상 이미지 · 조지아식 재료와 유러피안 조식 구성을 함께 담은 엔보이 조식 트레이</figcaption></figure>
+      <div class="feature-photo-grid feature-photo-grid--single" aria-label="엔보이 조식 예상 이미지">
+        <figure class="feature-photo"><img src="assets/envoy-breakfast-tray-concept-v2.png" width="1536" height="1024" loading="lazy" alt="엔보이 카페의 예상 조식 트레이"><figcaption class="localized" data-ko="예상 이미지 · 실제 초기 운영이 가능한 단정한 엔보이 조식 트레이" data-en="Concept image · a clean, achievable Envoy breakfast tray for opening operations">예상 이미지 · 실제 초기 운영이 가능한 단정한 엔보이 조식 트레이</figcaption></figure>
       </div>
       <div class="brunch-note" id="to-go">
         <h3 class="localized" data-ko="출발 전 테이크아웃 조식" data-en="Early Departure To-Go">출발 전 테이크아웃 조식</h3>
