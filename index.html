@@ -281,6 +281,8 @@
 
     .feature-photo img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; filter: saturate(0.78) contrast(1.03); }
 
+    .feature-photo figcaption { margin-top: var(--space-2xs); color: var(--color-muted); font-size: var(--text-xs); }
+
     .breakfast {
       display: grid;
       gap: var(--space-xl);
@@ -420,6 +422,7 @@
     </div>
     <nav class="mast-nav" aria-label="문서 목차">
       <ul>
+        <li><a href="#direction"><span class="lang-ko">기획 방향</span><span class="lang-en">Direction</span></a></li>
         <li><a href="#menu"><span class="lang-ko">메뉴</span><span class="lang-en">Menu</span></a></li>
         <li><a href="#breakfast"><span class="lang-ko">조식과 브런치</span><span class="lang-en">Breakfast and Brunch</span></a></li>
         <li><a href="#next"><span class="lang-ko">다음 메뉴</span><span class="lang-en">Next Menu</span></a></li>
@@ -443,6 +446,20 @@
       </figure>
     </section>
 
+    <section class="section" id="direction" aria-labelledby="direction-title">
+      <div class="section-head">
+        <p class="section-kicker localized" data-ko="BAM 공유용" data-en="For BAM Review">BAM 공유용</p>
+        <h2 id="direction-title" class="localized" data-ko="메뉴 기획 방향과 현장 인사이트" data-en="Menu Direction and Field Insights">메뉴 기획 방향과 현장 인사이트</h2>
+        <p class="section-summary localized" data-ko="엔보이 카페는 ‘음료를 많이 파는 곳’보다, 올드타운에서 머물고 다시 찾을 이유를 만드는 작은 거점이 되어야 합니다. 현지 매장을 방문하며 메뉴·카운터·테이크아웃·좌석 사용을 관찰했고, 그 인사이트를 초기 메뉴의 범위에 반영했습니다." data-en="Envoy Café should be more than a place that sells many drinks: it should be a small Old Town anchor worth staying in and returning to. We observed menus, counters, takeaway, and seating in local cafés, then used those insights to set the opening-menu scope.">엔보이 카페는 ‘음료를 많이 파는 곳’보다, 올드타운에서 머물고 다시 찾을 이유를 만드는 작은 거점이 되어야 합니다. 현지 매장을 방문하며 메뉴·카운터·테이크아웃·좌석 사용을 관찰했고, 그 인사이트를 초기 메뉴의 범위에 반영했습니다.</p>
+      </div>
+      <div class="why-grid">
+        <article class="why-item"><h3 class="localized" data-ko="익숙한 커피, 분명한 가격" data-en="Familiar coffee, clear pricing">익숙한 커피, 분명한 가격</h3><p class="localized" data-ko="현지 고객이 바로 이해하는 커피를 기준으로 두고, 아이스 메뉴는 별도 가격으로 명확히 제시합니다." data-en="Everyday coffee gives local guests an immediate reference point, while iced drinks are priced and listed separately for clarity.">현지 고객이 바로 이해하는 커피를 기준으로 두고, 아이스 메뉴는 별도 가격으로 명확히 제시합니다.</p></article>
+        <article class="why-item"><h3 class="localized" data-ko="카운터는 메뉴판의 일부" data-en="The counter is part of the menu">카운터는 메뉴판의 일부</h3><p class="localized" data-ko="현장에서는 페이스트리·샌드위치·음료가 한눈에 보이는 쇼케이스가 즉시 구매와 테이크아웃을 만듭니다. 그래서 베이커리와 출발 전 조식을 함께 둡니다." data-en="In the field, a visible counter of pastries, sandwiches, and drinks prompted immediate purchases and takeaway. That is why bakery items and early-departure breakfast belong together.">현장에서는 페이스트리·샌드위치·음료가 한눈에 보이는 쇼케이스가 즉시 구매와 테이크아웃을 만듭니다. 그래서 베이커리와 출발 전 조식을 함께 둡니다.</p></article>
+        <article class="why-item"><h3 class="localized" data-ko="시그니처는 적게, 이유는 선명하게" data-en="Few signatures, clear reasons">시그니처는 적게, 이유는 선명하게</h3><p class="localized" data-ko="서울·트빌리시·엔보이 라프는 각각 제공 온도를 명시하고, 한국의 감각과 조지아 재료를 한 잔에서 설명할 수 있게 합니다." data-en="Seoul, Tbilisi, and Envoy RAF each state their serving temperature and give a concise, cup-by-cup expression of Korean sensibility and Georgian ingredients.">서울·트빌리시·엔보이 라프는 각각 제공 온도를 명시하고, 한국의 감각과 조지아 재료를 한 잔에서 설명할 수 있게 합니다.</p></article>
+        <article class="why-item"><h3 class="localized" data-ko="브런치는 검증 후 확정" data-en="Brunch is confirmed after testing">브런치는 검증 후 확정</h3><p class="localized" data-ko="조식은 투숙객 서비스로 우선 운영하고, 브런치 4종은 제조 시간·재고·판매 흐름을 확인한 뒤 확정합니다." data-en="Breakfast operates first as a guest service; the four brunch items are confirmed only after validating prep time, inventory, and sales flow.">조식은 투숙객 서비스로 우선 운영하고, 브런치 4종은 제조 시간·재고·판매 흐름을 확인한 뒤 확정합니다.</p></article>
+      </div>
+    </section>
+
     <section class="section" id="menu" aria-labelledby="menu-title">
       <div class="section-head">
         <p class="section-kicker localized" data-ko="오픈 메뉴" data-en="Opening Menu">오픈 메뉴</p>
@@ -451,25 +468,26 @@
       </div>
 
       <div class="menu-spread">
-        <section class="menu-group" aria-labelledby="hot-coffee">
-          <h3 id="hot-coffee" class="localized" data-ko="따뜻한 커피" data-en="Hot Coffee">따뜻한 커피</h3>
+        <section class="menu-group" aria-labelledby="coffee-title">
+          <h3 id="coffee-title" class="localized" data-ko="커피" data-en="Coffee">커피</h3>
           <ul class="menu-list">
-            <li class="menu-item"><span class="bilingual"><span class="ko">에스프레소</span><span class="en">Espresso</span></span><span class="price">6 GEL</span></li>
-            <li class="menu-item"><span class="bilingual"><span class="ko">아메리카노</span><span class="en">Americano</span></span><span class="price">8 GEL</span></li>
-            <li class="menu-item"><span class="bilingual"><span class="ko">카푸치노</span><span class="en">Cappuccino</span></span><span class="price">10 GEL</span></li>
-            <li class="menu-item"><span class="bilingual"><span class="ko">플랫 화이트</span><span class="en">Flat White</span></span><span class="price">11 GEL</span></li>
-            <li class="menu-item"><span class="bilingual"><span class="ko">카페 라떼</span><span class="en">Latte</span></span><span class="price">10 GEL</span></li>
+            <li class="menu-item"><span><span class="bilingual"><span class="ko">에스프레소</span><span class="en">Espresso</span></span><span class="item-desc"><span class="lang-ko">짧고 진한 더블 샷</span><span class="lang-en">A short, concentrated double shot</span></span></span><span class="price">6 GEL</span></li>
+            <li class="menu-item"><span><span class="bilingual"><span class="ko">아메리카노</span><span class="en">Americano</span></span><span class="item-desc"><span class="lang-ko">에스프레소에 뜨거운 물을 더한 깔끔한 커피</span><span class="lang-en">Clean espresso coffee with hot water</span></span></span><span class="price">8 GEL</span></li>
+            <li class="menu-item"><span><span class="bilingual"><span class="ko">아이스 아메리카노</span><span class="en">Iced Americano</span></span><span class="item-desc"><span class="lang-ko">얼음 위에 내린 산뜻한 에스프레소 커피</span><span class="lang-en">Fresh espresso coffee served over ice</span></span></span><span class="price">9 GEL</span></li>
+            <li class="menu-item"><span><span class="bilingual"><span class="ko">카푸치노</span><span class="en">Cappuccino</span></span><span class="item-desc"><span class="lang-ko">에스프레소와 부드러운 우유 거품</span><span class="lang-en">Espresso finished with soft milk foam</span></span></span><span class="price">10 GEL</span></li>
+            <li class="menu-item"><span><span class="bilingual"><span class="ko">플랫 화이트</span><span class="en">Flat White</span></span><span class="item-desc"><span class="lang-ko">진한 커피감과 얇은 마이크로폼</span><span class="lang-en">A stronger coffee profile with thin microfoam</span></span></span><span class="price">11 GEL</span></li>
+            <li class="menu-item"><span><span class="bilingual"><span class="ko">카페 라떼</span><span class="en">Caffè Latte</span></span><span class="item-desc"><span class="lang-ko">에스프레소와 따뜻한 우유의 균형</span><span class="lang-en">A balanced espresso-and-steamed-milk coffee</span></span></span><span class="price">10 GEL</span></li>
+            <li class="menu-item"><span><span class="bilingual"><span class="ko">아이스 라떼</span><span class="en">Iced Latte</span></span><span class="item-desc"><span class="lang-ko">우유와 에스프레소를 차갑고 부드럽게</span><span class="lang-en">Milk and espresso, cold and smooth</span></span></span><span class="price">11 GEL</span></li>
+            <li class="menu-item"><span><span class="bilingual"><span class="ko">에스프레소 토닉</span><span class="en">Espresso Tonic</span></span><span class="item-desc"><span class="lang-ko">토닉의 청량감과 에스프레소의 쌉쌀함</span><span class="lang-en">Bright tonic with the bittersweet edge of espresso</span></span></span><span class="price">12 GEL</span></li>
           </ul>
         </section>
 
-        <section class="menu-group" aria-labelledby="iced-coffee">
-          <h3 id="iced-coffee" class="localized" data-ko="차가운 커피와 시그니처" data-en="Iced Coffee and Signatures">차가운 커피와 시그니처</h3>
+        <section class="menu-group" aria-labelledby="signature-title">
+          <h3 id="signature-title" class="localized" data-ko="시그니처" data-en="Signatures">시그니처</h3>
           <ul class="menu-list">
-            <li class="menu-item"><span class="bilingual"><span class="ko">아이스 라떼</span><span class="en">Iced Latte</span></span><span class="price">11 GEL</span></li>
-            <li class="menu-item"><span class="bilingual"><span class="ko">에스프레소 토닉</span><span class="en">Espresso Tonic</span></span><span class="price">12 GEL</span></li>
-            <li class="menu-item"><span><span class="bilingual"><span class="ko">서울 라떼</span><span class="en">Seoul Latte</span></span><span class="item-desc"><span class="lang-ko">한국식 달고나 라떼 스타일</span><span class="lang-en">Korean-style dalgona latte</span></span></span><span class="price">12 GEL</span></li>
-            <li class="menu-item"><span><span class="bilingual"><span class="ko">트빌리시 라떼</span><span class="en">Tbilisi Latte</span></span><span class="item-desc"><span class="lang-ko">에스프레소, 우유, 스페셜 크림, 조지아 꿀, 호두 분태</span><span class="lang-en">Espresso, milk, special cream, Georgian honey, walnut</span></span></span><span class="price">14 GEL</span></li>
-            <li class="menu-item"><span><span class="bilingual"><span class="ko">엔보이 라프</span><span class="en">Envoy RAF</span></span><span class="item-desc"><span class="lang-ko">크림 베이스의 부드러운 커피</span><span class="lang-en">Cream-based coffee</span></span></span><span class="price">14 GEL</span></li>
+            <li class="menu-item"><span><span class="bilingual"><span class="ko">서울 라떼 · 아이스</span><span class="en">Seoul Latte · Iced</span></span><span class="item-desc"><span class="lang-ko">달고나 크림과 우유, 에스프레소로 만든 한국식 달콤한 라떼</span><span class="lang-en">A Korean-style sweet latte with dalgona cream, milk, and espresso</span></span></span><span class="price">12 GEL</span></li>
+            <li class="menu-item"><span><span class="bilingual"><span class="ko">트빌리시 라떼 · 아이스</span><span class="en">Tbilisi Latte · Iced</span></span><span class="item-desc"><span class="lang-ko">에스프레소, 우유, 스페셜 크림, 조지아 꿀과 호두 분태</span><span class="lang-en">Espresso, milk, special cream, Georgian honey, and crushed walnut</span></span></span><span class="price">14 GEL</span></li>
+            <li class="menu-item"><span><span class="bilingual"><span class="ko">엔보이 라프 · 핫 또는 아이스</span><span class="en">Envoy RAF · Hot or Iced</span></span><span class="item-desc"><span class="lang-ko">에스프레소와 크림을 부드럽게 블렌딩한 디저트 같은 커피</span><span class="lang-en">A dessert-like coffee, softly blended with espresso and cream</span></span></span><span class="price">14 GEL</span></li>
           </ul>
         </section>
       </div>
@@ -492,20 +510,20 @@
         <section class="menu-group" aria-labelledby="noncoffee-hot">
           <h3 id="noncoffee-hot" class="localized" data-ko="따뜻한 음료" data-en="Hot">따뜻한 음료</h3>
           <ul class="menu-list">
-            <li class="menu-item"><span class="bilingual"><span class="ko">말차 라떼</span><span class="en">Matcha Latte</span></span><span class="price">12 GEL</span></li>
-            <li class="menu-item"><span class="bilingual"><span class="ko">핫 초콜릿</span><span class="en">Hot Chocolate</span></span><span class="price">10 GEL</span></li>
-            <li class="menu-item"><span class="bilingual"><span class="ko">루즈 리프 티</span><span class="en">Loose Leaf Tea</span></span><span class="price">7 GEL</span></li>
-            <li class="menu-item"><span><span class="bilingual"><span class="ko">티벳 차</span><span class="en">Tibet Tea</span></span><span class="item-desc"><span class="lang-ko">시판 티백과 뜨거운 물</span><span class="lang-en">Packaged tea bag served with hot water</span></span></span><span class="price">6 GEL</span></li>
+            <li class="menu-item"><span><span class="bilingual"><span class="ko">말차 라떼</span><span class="en">Matcha Latte</span></span><span class="item-desc"><span class="lang-ko">말차의 쌉쌀함과 부드러운 우유</span><span class="lang-en">Earthy matcha balanced with smooth milk</span></span></span><span class="price">12 GEL</span></li>
+            <li class="menu-item"><span><span class="bilingual"><span class="ko">핫 초콜릿</span><span class="en">Hot Chocolate</span></span><span class="item-desc"><span class="lang-ko">진한 초콜릿과 따뜻한 우유</span><span class="lang-en">Rich chocolate with warm milk</span></span></span><span class="price">10 GEL</span></li>
+            <li class="menu-item"><span><span class="bilingual"><span class="ko">티 셀렉션</span><span class="en">Tea Selection</span></span><span class="item-desc"><span class="lang-ko">얼그레이, 카모마일, 페퍼민트 중 선택</span><span class="lang-en">Choose Earl Grey, chamomile, or peppermint</span></span></span><span class="price">7 GEL</span></li>
+            <li class="menu-item"><span><span class="bilingual"><span class="ko">티베트 차</span><span class="en">Tibetan Tea</span></span><span class="item-desc"><span class="lang-ko">향신료가 은은한 따뜻한 차</span><span class="lang-en">A warm tea with a gentle spiced character</span></span></span><span class="price">6 GEL</span></li>
           </ul>
         </section>
 
         <section class="menu-group" aria-labelledby="noncoffee-cold">
           <h3 id="noncoffee-cold" class="localized" data-ko="차가운 음료와 생과일 주스" data-en="Iced Drinks and Fresh Juice">차가운 음료와 생과일 주스</h3>
           <ul class="menu-list">
-            <li class="menu-item"><span class="bilingual"><span class="ko">아이스 말차 라떼</span><span class="en">Iced Matcha Latte</span></span><span class="price">13 GEL</span></li>
-            <li class="menu-item"><span class="bilingual"><span class="ko">생오렌지 주스</span><span class="en">Fresh Orange Juice</span></span><span class="price">12 GEL</span></li>
-            <li class="menu-item"><span class="bilingual"><span class="ko">생자몽 주스</span><span class="en">Fresh Grapefruit Juice</span></span><span class="price">14 GEL</span></li>
-            <li class="menu-item"><span class="bilingual"><span class="ko">생사과 또는 당근 주스</span><span class="en">Fresh Apple or Carrot Juice</span></span><span class="price">12 GEL</span></li>
+            <li class="menu-item"><span><span class="bilingual"><span class="ko">아이스 말차 라떼</span><span class="en">Iced Matcha Latte</span></span><span class="item-desc"><span class="lang-ko">차갑고 부드럽게 즐기는 말차와 우유</span><span class="lang-en">Matcha and milk, cold and smooth</span></span></span><span class="price">13 GEL</span></li>
+            <li class="menu-item"><span><span class="bilingual"><span class="ko">생오렌지 주스</span><span class="en">Fresh Orange Juice</span></span><span class="item-desc"><span class="lang-ko">갓 짜낸 오렌지의 산뜻한 단맛</span><span class="lang-en">Fresh-squeezed orange with bright sweetness</span></span></span><span class="price">12 GEL</span></li>
+            <li class="menu-item"><span><span class="bilingual"><span class="ko">생자몽 주스</span><span class="en">Fresh Grapefruit Juice</span></span><span class="item-desc"><span class="lang-ko">자몽의 쌉쌀함과 상큼한 향</span><span class="lang-en">Grapefruit's crisp aroma and pleasant bitterness</span></span></span><span class="price">14 GEL</span></li>
+            <li class="menu-item"><span><span class="bilingual"><span class="ko">생사과 또는 당근 주스</span><span class="en">Fresh Apple or Carrot Juice</span></span><span class="item-desc"><span class="lang-ko">당일 상태가 좋은 과일 또는 채소로 준비</span><span class="lang-en">Prepared from the best fruit or vegetables available that day</span></span></span><span class="price">12 GEL</span></li>
           </ul>
           <p class="item-desc localized" data-ko="생과일 주스는 250-300ml 기준이며, 과일 상태에 따라 당일 가능한 품목만 판매합니다. 생수, 탄산수, 시판 음료와 에너지 드링크는 카운터 리테일 상품으로 별도 운영합니다." data-en="Fresh juice is served as 250–300 ml; only fruit in good condition is offered each day. Still water, sparkling water, packaged drinks, and energy drinks are offered separately as counter retail items.">생과일 주스는 250-300ml 기준이며, 과일 상태에 따라 당일 가능한 품목만 판매합니다. 생수, 탄산수, 시판 음료와 에너지 드링크는 카운터 리테일 상품으로 별도 운영합니다.</p>
         </section>
@@ -558,6 +576,10 @@
           </ul>
         </section>
       </div>
+      <div class="feature-photo-grid" aria-label="디저트와 베이커리 현지 리서치 사진">
+        <figure class="feature-photo"><img src="research/20260821_191510.jpg" width="4000" height="2252" loading="lazy" alt="크루아상과 페이스트리가 진열된 현지 카페 쇼케이스"><figcaption class="localized" data-ko="현지 리서치 참고 · 크루아상과 페이스트리의 카운터 진열" data-en="Field reference · counter display of croissants and pastries">현지 리서치 참고 · 크루아상과 페이스트리의 카운터 진열</figcaption></figure>
+        <figure class="feature-photo"><img src="research/20260821_191500.jpg" width="4000" height="2252" loading="lazy" alt="조지아 베이커리 진열 사진"><figcaption class="localized" data-ko="현지 리서치 참고 · 즉시 구매를 부르는 베이커리 구성" data-en="Field reference · bakery presentation that prompts immediate purchase">현지 리서치 참고 · 즉시 구매를 부르는 베이커리 구성</figcaption></figure>
+      </div>
     </section>
 
     <section class="section" id="breakfast" aria-labelledby="breakfast-title">
@@ -576,6 +598,9 @@
           <div class="menu-item"><span><span class="bilingual"><span class="ko">베지테리언 조식</span><span class="en">Vegetarian Breakfast</span></span><span class="item-desc"><span class="lang-ko">토스트, 스크램블 에그, 치즈, 요거트, 호두와 꿀, 채소와 제철 과일</span><span class="lang-en">Toast, scrambled eggs, cheese, yogurt, honey and walnut, vegetables and seasonal fruit</span></span></span><span class="price">20 GEL</span></div>
         </div>
       </div>
+      <div class="feature-photo-grid" aria-label="조식과 테이크아웃 현지 리서치 사진">
+        <figure class="feature-photo"><img src="research/20260821_191434.jpg" width="4000" height="2252" loading="lazy" alt="샌드위치와 랩이 진열된 현지 카페 쇼케이스"><figcaption class="localized" data-ko="현지 리서치 참고 · 출발 전 조식과 브런치의 쇼케이스·테이크아웃 방식" data-en="Field reference · showcase and takeaway format for early breakfast and brunch">현지 리서치 참고 · 출발 전 조식과 브런치의 쇼케이스·테이크아웃 방식</figcaption></figure>
+      </div>
       <div class="brunch-note" id="to-go">
         <h3 class="localized" data-ko="출발 전 테이크아웃 조식" data-en="Early Departure To-Go">출발 전 테이크아웃 조식</h3>
         <p class="localized" data-ko="이른 투어와 체크아웃 고객을 위한 투숙객 전용 수령 메뉴입니다. 기존 조식·브런치 재료를 활용해 준비하며, 전날 22:00까지 또는 출발 30분 전 요청을 기준으로 운영합니다." data-en="A guest-only pickup menu for early tours and check-outs. It uses the same breakfast and brunch ingredients and is prepared on request by 22:00 the night before or 30 minutes before departure.">이른 투어와 체크아웃 고객을 위한 투숙객 전용 수령 메뉴입니다. 기존 조식·브런치 재료를 활용해 준비하며, 전날 22:00까지 또는 출발 30분 전 요청을 기준으로 운영합니다.</p>
@@ -589,7 +614,7 @@
       </div>
       <div class="brunch-note">
         <h3 class="localized" data-ko="브런치 메뉴" data-en="Brunch Menu">브런치 메뉴</h3>
-        <p class="localized" data-ko="최종 레시피 카드 기준으로 확정한 엔보이 브런치 4종입니다." data-en="Envoy's four-item brunch menu, confirmed from the final recipe cards.">최종 레시피 카드 기준으로 확정한 엔보이 브런치 4종입니다.</p>
+        <p class="localized" data-ko="아래 4종은 오픈 후 확정을 위한 후보입니다. 레시피·제조 시간·재고·판매 흐름을 짧게 검증한 뒤 최종 메뉴로 확정합니다." data-en="The four items below are candidates to confirm after opening. We will validate recipe, prep time, inventory, and sales flow in a short test before locking the final brunch menu.">아래 4종은 오픈 후 확정을 위한 후보입니다. 레시피·제조 시간·재고·판매 흐름을 짧게 검증한 뒤 최종 메뉴로 확정합니다.</p>
         <div class="brunch-menu">
           <div class="menu-list" role="list" aria-label="브런치 메뉴 1">
             <div class="menu-item" role="listitem"><span><span class="bilingual"><span class="ko">에그 온 토스트</span><span class="en">Egg on Toast</span></span><span class="item-desc"><span class="lang-ko">사워도우 2장, 계란 2개 · 프라이, 스크램블 또는 수란 선택</span><span class="lang-en">Two slices of sourdough and two eggs, fried, scrambled or poached</span></span></span><span class="price">12 GEL</span></div>
