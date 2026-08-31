@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Envoy Cafe and Rooftop 5-minute menu briefing">
+  <title>ENVOY | 5분 메뉴 브리핑</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#e9eee8; --muted:#a7b1a9; --faint:#6f7d74; --paper:#07140e; --paper-2:#0c1e15; --line:rgba(219,236,222,.17); --lime:#bdcf7a; --orange:#e9a764; --blue:#92c6c1; --display:"Noto Sans KR", Manrope, sans-serif; --mono:"DM Mono", monospace; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--display); line-height:1.62; }
+    a { color:inherit; }
+    .shell { width:min(1080px, calc(100% - 40px)); margin:0 auto; }
+    .topbar { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:18px 0; border-bottom:1px solid var(--line); font-size:12px; letter-spacing:.04em; }
+    .brand { font:500 12px var(--mono); letter-spacing:.04em; text-decoration:none; }
+    .tag { color:var(--lime); font:500 11px var(--mono); letter-spacing:.1em; text-transform:uppercase; }
+    header { padding:72px 0 42px; border-bottom:1px solid var(--line); }
+    .eyebrow { margin:0 0 16px; color:var(--lime); font:500 12px var(--mono); letter-spacing:.1em; text-transform:uppercase; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { max-width:15ch; margin-bottom:20px; font-size:clamp(2.4rem, 6vw, 5.3rem); line-height:1.05; letter-spacing:-.065em; }
+    .lead { max-width:760px; margin-bottom:28px; color:var(--muted); font-size:clamp(1rem, 2.1vw, 1.25rem); }
+    .link-row { display:flex; flex-wrap:wrap; gap:10px; }
+    .button { display:inline-flex; align-items:center; min-height:40px; padding:9px 13px; border:1px solid var(--line); color:var(--ink); font-size:13px; text-decoration:none; }
+    .button:hover { border-color:var(--lime); color:var(--lime); }
+    .run-of-show { display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); margin:42px 0 0; border:1px solid var(--line); }
+    .run-of-show div { min-height:94px; padding:13px; border-right:1px solid var(--line); }
+    .run-of-show div:last-child { border-right:0; }
+    .run-of-show b { display:block; color:var(--lime); font:500 11px var(--mono); }
+    .run-of-show span { display:block; margin-top:4px; font-size:13px; line-height:1.35; }
+    main { padding-bottom:86px; }
+    section { padding:52px 0; border-bottom:1px solid var(--line); }
+    .section-head { display:grid; grid-template-columns:100px minmax(0,1fr); gap:22px; align-items:start; margin-bottom:25px; }
+    .minute { padding-top:6px; color:var(--orange); font:500 11px var(--mono); letter-spacing:.08em; }
+    h2 { margin:0; font-size:clamp(1.55rem, 3.4vw, 2.5rem); letter-spacing:-.05em; line-height:1.2; }
+    .section-copy { max-width:760px; margin:0 0 25px 122px; color:var(--muted); }
+    .statement { max-width:850px; margin-left:122px; padding:20px 22px; border-left:3px solid var(--lime); background:var(--paper-2); font-size:clamp(1.05rem, 2.2vw, 1.34rem); line-height:1.5; letter-spacing:-.025em; }
+    .grid { display:grid; gap:14px; margin-left:122px; }
+    .grid.two { grid-template-columns:repeat(2, minmax(0,1fr)); }
+    .card { min-width:0; padding:18px; border:1px solid var(--line); background:rgba(255,255,255,.018); }
+    .card h3 { margin-bottom:7px; font-size:1.05rem; letter-spacing:-.025em; }
+    .card p { margin:0; color:var(--muted); font-size:14px; }
+    .card .price { display:block; margin-top:13px; color:var(--orange); font:500 12px var(--mono); }
+    .context-list { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:1px; margin-left:122px; background:var(--line); }
+    .context-list article { padding:19px; background:var(--paper); }
+    .context-list b { display:block; margin-bottom:7px; color:var(--lime); font-size:14px; }
+    .context-list p { margin:0; color:var(--muted); font-size:14px; }
+    .menu-table { margin-left:122px; border-top:1px solid var(--line); }
+    .menu-row { display:grid; grid-template-columns:180px minmax(0,1fr) 110px; gap:18px; padding:15px 0; border-bottom:1px solid var(--line); }
+    .menu-row b { font-size:15px; }
+    .menu-row p { margin:0; color:var(--muted); font-size:14px; }
+    .menu-row em { align-self:start; color:var(--orange); font:500 11px var(--mono); font-style:normal; text-align:right; }
+    .note { margin:20px 0 0 122px; color:var(--faint); font-size:13px; }
+    .operating { margin-left:122px; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; }
+    .operating div { padding-top:14px; border-top:2px solid var(--lime); }
+    .operating b { display:block; margin-bottom:5px; font-size:14px; }
+    .operating span { color:var(--muted); font-size:13px; }
+    .ask { margin-left:122px; display:grid; gap:0; border-top:1px solid var(--line); }
+    .ask article { display:grid; grid-template-columns:44px minmax(0,1fr); gap:12px; padding:17px 0; border-bottom:1px solid var(--line); }
+    .ask b { color:var(--orange); font:500 12px var(--mono); }
+    .ask h3 { margin:0 0 4px; font-size:16px; }
+    .ask p { margin:0; color:var(--muted); font-size:14px; }
+    .closing { padding:50px 0 8px; }
+    .closing p { max-width:32ch; margin:0; font-size:clamp(1.6rem, 3.7vw, 3.1rem); line-height:1.22; letter-spacing:-.055em; }
+    .closing small { display:block; max-width:760px; margin-top:20px; color:var(--muted); font-size:14px; }
+    footer { padding:22px 0 35px; border-top:1px solid var(--line); color:var(--faint); font:11px var(--mono); }
+    @media (max-width:720px) { .shell { width:min(100% - 28px, 1080px); } header { padding-top:48px; } .run-of-show { grid-template-columns:repeat(2,1fr); } .run-of-show div:nth-child(2) { border-right:0; } .run-of-show div:nth-child(n+3) { border-top:1px solid var(--line); } .run-of-show div:last-child { grid-column:span 2; } .section-head { grid-template-columns:1fr; gap:6px; } .section-copy,.statement,.grid,.context-list,.menu-table,.note,.operating,.ask { margin-left:0; } .context-list,.grid.two,.operating { grid-template-columns:1fr; } .menu-row { grid-template-columns:1fr; gap:5px; } .menu-row em { text-align:left; } }
+  </style>
+</head>
+<body>
+  <div class="shell topbar"><a class="brand" href="../">ENVOY CAFÉ + ROOFTOP</a><span class="tag">5-minute discussion brief</span></div>
+  <header class="shell">
+    <p class="eyebrow">Sydney Hosanna Team · Menu Discussion</p>
+    <h1>메뉴의 답보다,<br>함께 생각할<br>질문부터.</h1>
+    <p class="lead">이 페이지의 목적은 메뉴안을 확정하는 것이 아닙니다. 트빌리시 현장에서 본 현실과 운영 경험을 나누고, 해외에서 사업을 고민해 온 분들의 조언을 받아 엔보이에 맞는 메뉴와 공간의 방향을 함께 잡는 것입니다.</p>
+    <div class="link-row"><a class="button" href="../">카페 전체 메뉴 보기</a><a class="button" href="../rooftop/">루프탑 전체 메뉴 보기</a></div>
+    <div class="run-of-show" aria-label="5분 발표 순서">
+      <div><b>00:00</b><span>목적</span></div><div><b>00:40</b><span>입지 현실</span></div><div><b>01:30</b><span>카페 메뉴</span></div><div><b>02:30</b><span>루프탑 메뉴</span></div><div><b>03:40–05:00</b><span>운영 기준과 조언 요청</span></div>
+    </div>
+  </header>
+  <main class="shell">
+    <section>
+      <div class="section-head"><span class="minute">00:00 · PURPOSE</span><h2>오늘 나누고 싶은 것은<br>‘메뉴의 정답’이 아닙니다.</h2></div>
+      <p class="section-copy">현장을 리서치하며 느낀 점, 터키에서 장사하며 배운 점, 외식·조리 학습 경험을 바탕으로 초안을 만들었습니다. 그러나 엔보이에 가장 맞는 답은 현장의 목소리와 여러 사업 경험이 더해져야 만들어집니다.</p>
+      <p class="statement">“우리가 어떤 메뉴를 팔 것인가?”보다 먼저, “고객이 왜 언덕을 올라 엔보이에 와야 하는가?”를 함께 생각하고 싶습니다.</p>
+    </section>
+    <section>
+      <div class="section-head"><span class="minute">00:40 · CONTEXT</span><h2>관광지이지만,<br>자동으로 장사가 되는 자리는 아닙니다.</h2></div>
+      <div class="context-list">
+        <article><b>관광객 중심</b><p>올드타운에는 외국인이 많지만, 낮에는 투어·관광 일정에 따라 움직입니다. 사람이 많다는 사실이 카페·식당 방문으로 바로 이어지지는 않습니다.</p></article>
+        <article><b>언덕의 입지</b><p>엔보이는 전망·숙박·투어라는 강점이 있지만, 평지의 강한 보행 상권 한가운데는 아닙니다. 일부러 찾아올 이유가 필요합니다.</p></article>
+        <article><b>치열한 선택지</b><p>올드타운에는 이미 카페와 식당이 많습니다. 메뉴만으로는 부족하고, 공간·환대·커뮤니티가 함께 방문 이유가 되어야 합니다.</p></article>
+      </div>
+      <p class="note">이것은 결론이 아니라, 메뉴와 공간을 설계할 때 함께 두어야 할 현실입니다.</p>
+    </section>
+    <section>
+      <div class="section-head"><span class="minute">01:30 · CAFÉ</span><h2>카페는 기본을 명확히 하고,<br>짧게 머물 이유를 더합니다.</h2></div>
+      <div class="menu-table" aria-label="카페 메뉴 요약">
+        <div class="menu-row"><b>커피</b><p>에스프레소, 아메리카노·아이스 아메리카노, 카푸치노, 플랫 화이트, 라떼, 에스프레소 토닉. 현지 고객이 즉시 이해하는 기준 메뉴입니다.</p><em>6–12 GEL</em></div>
+        <div class="menu-row"><b>시그니처</b><p>서울 라떼(아이스), 트빌리시 라떼(아이스), 엔보이 라프(핫/아이스). 한국의 감각과 조지아 꿀·호두를 한 잔으로 연결합니다.</p><em>12–14 GEL</em></div>
+        <div class="menu-row"><b>논커피</b><p>말차 라떼, 핫 초콜릿, 얼그레이·카모마일·페퍼민트, 생과일 주스. 물·탄산수·기성 음료는 별도 리테일입니다.</p><em>7–14 GEL</em></div>
+        <div class="menu-row"><b>디저트·베이커리</b><p>치즈케이크, 쿠키, 크루아상, 도넛 등. 음료만 주문한 손님이 조금 더 머물고 추가 주문할 이유를 만듭니다.</p><em>6–16 GEL</em></div>
+        <div class="menu-row"><b>조식·브런치</b><p>조식은 투숙객 우선이며 외부 고객도 이용 가능합니다. 테이크아웃 조식을 포함하고, 브런치 4종은 운영 상황을 보며 확정합니다.</p><em>8–22 GEL</em></div>
+      </div>
+    </section>
+    <section>
+      <div class="section-head"><span class="minute">02:30 · ROOFTOP</span><h2>루프탑은 빠른 회전보다,<br>건배와 체류를 위한 식당입니다.</h2></div>
+      <div class="menu-table" aria-label="루프탑 메뉴 요약">
+        <div class="menu-row"><b>건배를 위한 접시</b><p>술구니 치즈 보드, 프할리, 로스트 감자, 샐러드, 마초니 볼과 치맥·와인 킨칼리 세트. 먼저 나누고, 다음 잔과 다음 접시로 이어집니다.</p><em>13–29 GEL<br>세트 원가 확인</em></div>
+        <div class="menu-row"><b>메인 식사</b><p>프라이드 치킨, 허브 로스트 치킨·포크, 치킨 버거, 엔보이 믹스드 미트 콤보, 저녁 라면. 초기에는 치킨·포크 중심으로 제한합니다.</p><em>18–65 GEL</em></div>
+        <div class="menu-row"><b>사이드와 추가</b><p>삶은 킨칼리·튀김 킨칼리, 라면용 계란·치즈. 납품 킨칼리를 활용해 조리 난이도를 낮춥니다.</p><em>2–18 GEL</em></div>
+        <div class="menu-row"><b>주류와 음료</b><p>조지아 와인, 차차, 소주, 로컬 맥주, 하이볼과 탄산·조지아식 피즈. 관광객과 20–40대 현지인이 함께 선택할 수 있는 구조입니다.</p><em>3–60 GEL</em></div>
+      </div>
+    </section>
+    <section>
+      <div class="section-head"><span class="minute">03:40 · OPERATING</span><h2>메뉴보다 먼저 지켜야 할<br>운영의 기준입니다.</h2></div>
+      <div class="operating">
+        <div><b>전기 조리</b><span>루프탑 가스를 사용할 수 없으므로, 튀김기·컨벡션 오븐·삶는 냄비로 가능한 메뉴여야 합니다.</span></div>
+        <div><b>재료 재사용</b><span>카페·조식·루프탑에서 재료가 이어져야 로스와 재고 부담이 줄어듭니다.</span></div>
+        <div><b>초기 인력</b><span>직원 수와 숙련도를 전제로, 적은 메뉴라도 안정적으로 내는 구성이 필요합니다.</span></div>
+        <div><b>체류 수익</b><span>루프탑은 빠른 테이블 회전보다 주류·추가 주문을 통해 체류시간의 가치를 만듭니다.</span></div>
+      </div>
+    </section>
+    <section>
+      <div class="section-head"><span class="minute">04:15 · ASK</span><h2>오늘 부탁드리고 싶은<br>세 가지 조언입니다.</h2></div>
+      <div class="ask">
+        <article><b>01</b><div><h3>낮에 엔보이를 찾게 할 가장 현실적인 이유는 무엇일까요?</h3><p>음료·브런치·호스텔 서비스·투어 전후·커뮤니티 가운데 무엇을 먼저 만들어야 하는지 의견이 필요합니다.</p></div></article>
+        <article><b>02</b><div><h3>초기 메뉴에서 꼭 남길 것과 과감히 뺄 것은 무엇일까요?</h3><p>주방 규모와 인건비를 감안했을 때, 매출보다 운영 복잡도를 먼저 낮춰야 하는 메뉴를 함께 골라야 합니다.</p></div></article>
+        <article><b>03</b><div><h3>관광 성수기와 비수기를 모두 생각하면 어떤 고객을 먼저 잡아야 할까요?</h3><p>투숙객, 외부 관광객, 20–40대 현지인, 러시아권 고객, 디지털 노마드 가운데 첫 우선순위를 정하고 싶습니다.</p></div></article>
+      </div>
+    </section>
+    <div class="closing"><p>이 메뉴는 완성안이 아니라, 엔보이의 공간을 함께 설계하기 위한 첫 번째 질문입니다.</p><small>오늘의 조언을 반영해 메뉴의 수, 가격, 운영 순서, 그리고 고객이 엔보이에 와야 할 이유를 다음 단계에서 정리하겠습니다.</small></div>
+  </main>
+  <footer class="shell">ENVOY · Café and Rooftop Menu Discussion · Provisional Brief</footer>
+</body>
+</html>
