@@ -1,0 +1,369 @@
+<title>ENVOY Rooftop Bistro 메뉴 기획안 · Menu Plan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500;600&family=Gowun+Batang:wght@700&display=swap">
+<style>
+/* Layout: one reading column; category ledger as the core, rooftop dusk (slate) + charcoal-ember accent */
+:root{
+  --bg:#f6f7f8; --surface:#ffffff; --ink:#1d2328; --muted:#5d6872; --line:#dde2e6;
+  --slate:#24323d; --ember:#c2551f; --ember-soft:#f6e3d8; --day:#2f6f7a; --day-soft:#dcecee;
+  --night:#3b3f6e; --night-soft:#e2e3f1; --ok:#2f7a4a;
+  --f-display:"Gowun Batang","Nanum Myeongjo",serif;
+  --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-num:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12171b; --surface:#1a2127; --ink:#e7ebee; --muted:#9aa6b0; --line:#2c363e;
+  --slate:#0d1216; --ember:#ec7a43; --ember-soft:#3a2418; --day:#6fb4bf; --day-soft:#183034;
+  --night:#9da2e0; --night-soft:#23254080; --ok:#6cc08a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12171b; --surface:#1a2127; --ink:#e7ebee; --muted:#9aa6b0; --line:#2c363e;
+  --slate:#0d1216; --ember:#ec7a43; --ember-soft:#3a2418; --day:#6fb4bf; --day-soft:#183034;
+  --night:#9da2e0; --night-soft:#23254080; --ok:#6cc08a; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.65}
+.wrap{max-width:980px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+header.hero{background:var(--slate);color:#eef1f3}
+header.hero .wrap{padding-block:44px 36px}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#f0a77f;font-weight:500}
+h1{font-family:var(--f-display);font-size:clamp(28px,5vw,42px);line-height:1.2;margin:10px 0 12px;text-wrap:balance}
+.hero p{margin:0;color:#c5ced4;max-width:64ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:18px;font-size:13px;color:#aeb9c1}
+.meta b{color:#eef1f3;font-weight:500}
+h2{font-family:var(--f-display);font-size:24px;margin:52px 0 6px;text-wrap:balance}
+.lede{color:var(--muted);margin:0 0 18px;max-width:68ch}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:-22px;position:relative}
+.stat{background:var(--surface);padding:14px 16px}
+.stat .v{font-family:var(--f-num);font-size:24px;font-weight:600;font-variant-numeric:tabular-nums}
+.stat .k{font-size:12.5px;color:var(--muted)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:680px){.two{grid-template-columns:1fr}}
+.band{border-radius:10px;padding:18px 20px;min-width:0}
+.band.day{background:var(--day-soft)} .band.night{background:var(--night-soft)}
+.band h3{margin:0 0 4px;font-size:17px}
+.band.day h3{color:var(--day)} .band.night h3{color:var(--night)}
+.band .t{font-family:var(--f-num);font-size:13px;color:var(--muted)}
+.band ul{margin:10px 0 0;padding-left:18px}
+.tablebox{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:14px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:12px;font-weight:500;color:var(--muted);letter-spacing:.04em;background:var(--bg)}
+td.n,th.n{text-align:right;font-family:var(--f-num);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.grp td{background:var(--bg);font-weight:700;font-size:13px;padding-block:7px}
+tr.total td{font-weight:700;border-bottom:0}
+.item{font-weight:700}
+.items{color:var(--muted);font-size:13.5px;margin-top:2px}
+.tag{display:inline-block;font-size:11px;font-family:var(--f-num);padding:1px 6px;border-radius:4px;border:1px solid var(--line);color:var(--muted);margin-left:6px;vertical-align:1px}
+.tag.make{color:var(--ember);border-color:var(--ember)}
+.when{font-size:11.5px;padding:1px 7px;border-radius:999px;white-space:nowrap}
+.when.d{background:var(--day-soft);color:var(--day)} .when.e{background:var(--night-soft);color:var(--night)} .when.a{background:var(--bg);color:var(--muted);border:1px solid var(--line)}
+.bar{height:8px;background:var(--line);border-radius:4px;min-width:70px;margin-top:6px}
+.bar i{display:block;height:100%;background:var(--ember);border-radius:4px}
+.mix{display:grid;gap:10px}
+.mixrow{display:grid;grid-template-columns:150px 1fr 110px;gap:12px;align-items:center;font-size:14px}
+.mixrow .track{height:14px;background:var(--line);border-radius:3px;overflow:hidden}
+.mixrow .track i{display:block;height:100%}
+.mixrow .num{font-family:var(--f-num);text-align:right;font-variant-numeric:tabular-nums}
+@media (max-width:560px){.mixrow{grid-template-columns:110px 1fr 92px;font-size:13px}}
+.split{display:flex;height:34px;border-radius:6px;overflow:hidden;margin:6px 0 8px;font-family:var(--f-num);font-size:13px;color:#fff}
+.split span{display:flex;align-items:center;padding-left:10px;white-space:nowrap}
+.note{font-size:13px;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;min-width:0}
+.card h4{margin:0 0 6px;font-size:15px}
+.card p{margin:0;font-size:14px;color:var(--muted)}
+.decide{counter-reset:q;display:grid;gap:12px}
+.q{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--ember);border-radius:8px;padding:14px 18px}
+.q h4{margin:0 0 4px;font-size:15.5px}
+.q h4::before{counter-increment:q;content:counter(q) ". ";color:var(--ember);font-family:var(--f-num)}
+.q p{margin:0;font-size:14px;color:var(--muted)}
+.prin{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.prin div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:13.5px}
+.season td,.season th{text-align:center}.season td:first-child,.season th:first-child{text-align:left}
+.on{color:var(--ok);font-weight:700}.off{color:var(--muted)}
+.sig{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media (max-width:680px){.sig{grid-template-columns:1fr}}
+.sig .card{border-top:4px solid var(--ember)}
+.prin b{display:block;font-size:12px;font-family:var(--f-num);color:var(--ember);margin-bottom:2px}
+footer{margin-top:48px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+a{color:var(--day)}
+</style>
+<style>
+.en{display:block;color:var(--muted);font-size:.86em;font-weight:400;line-height:1.5;margin-top:2px}
+h1 .en,h2 .en{font-family:var(--f-body);font-size:.52em;letter-spacing:.01em;margin-top:6px}
+.hero .en{color:#aeb9c1}
+h3 .en,h4 .en{font-size:.8em}
+th .en{font-size:.92em;letter-spacing:0}
+.items .en{font-size:.95em}
+.lede .en,.note .en{margin-top:6px}
+li .en{font-size:.9em}
+.on .en,.off .en{font-weight:400}
+</style>
+
+<style>
+html[lang="ko"] .en, html[lang="ko"] .en-i{display:none !important}
+html[lang="en"] .ko{display:none !important}
+html[lang="en"] .en{display:inline;color:inherit;font-size:inherit !important;font-family:inherit;margin:0;line-height:inherit}
+html[lang="en"] footer .en{display:inline !important}
+html[lang="en"] .tag + .en{margin-left:6px}
+.langbar{position:fixed;top:12px;right:max(16px,env(safe-area-inset-right,0px));z-index:10;display:flex;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.langbar button{border:0;background:transparent;color:var(--muted);font:500 13px var(--f-body);padding:6px 12px;border-radius:999px;cursor:pointer}
+.langbar button[aria-pressed="true"]{background:var(--slate);color:#fff}
+</style>
+<div class="langbar" role="group" aria-label="Language"><button type="button" data-l="ko">한국어</button><button type="button" data-l="en">English</button></div>
+<style>
+.pl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:10px 0 6px}
+.pl-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.pl-card img{width:100%;aspect-ratio:25/16;object-fit:cover;display:block;background:#111}
+.pl-body{padding:14px 16px 16px}
+.pl-body h4{margin:0 0 6px;font-size:15.5px}
+.pl-body p{margin:0;font-size:13.5px;color:var(--muted)}
+.pl-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin:10px 0 6px;font-family:var(--f-num)}
+.pl-price b{font-size:22px;color:var(--ember)}
+.pl-price .pl-note{font-family:var(--f-body);font-size:12px;color:var(--muted)}
+.pl-sub{font-size:12.5px !important}
+</style>
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">ENVOY Rooftop Bistro · <span class="ko">메뉴 기획안</span><span class="en-i">Menu Plan</span></div>
+  <h1>낮에는 커피와 음료, 저녁에는 오븐 로스트 치킨과 주류를 판매하는 비스트로 카페<span class="en">A bistro café — coffee and drinks by day, Korean oven-roast chicken and drinks by night</span></h1>
+  <p>ENVOY Rooftop Bistro의 컨셉 키워드는 <b>비스트로 카페</b>입니다. 재무계획 Menu 시트의 15개 카테고리를 메뉴판 구조로 옮기고, 시즌별 근무 인원에 맞춰 운영 메뉴를 나눈 <b>초기 오픈용</b> 기획안입니다. 직원 숙련도가 올라가고 판매 데이터가 쌓이면 메뉴는 추가·삭제·변경합니다.<span class="en">Our concept keyword is <b>bistro café</b>. This is the <b>opening menu plan</b>: the 15 categories of the financial plan's Menu sheet laid out as a menu, split by season to match the staff roster. Items will be added, removed or changed as the team gains experience and sales data builds up.</span></p>
+  <div class="meta"><span><span class="ko">공유: <b>BAM 미팅 · 2026년 10월 19일</b></span><span class="en-i">Shared: <b>BAM meeting · 19 Oct 2026</b></span></span><span><span class="ko">기준: <b>Menu 시트 · 2027년 성수기</b></span><span class="en-i">Basis: <b>Menu sheet · 2027 peak season</b></span></span><span><span class="ko">환율·세금: </span><span class="en-i">FX &amp; tax: </span><b>1 GEL = $0.39 · VAT 18%</b></span></div>
+</div></header>
+
+<main class="wrap">
+  <section class="stats" aria-label="핵심 숫자 Key figures">
+    <div class="stat"><div class="v">15</div><div class="k">카테고리 (8개 구분)<span class="en">categories (8 groups)</span></div></div>
+    <div class="stat"><div class="v"><span class="ko">48→60명</span><span class="en-i">48→60</span></div><div class="k">하루 손님 기본 → 목표<span class="en">guests/day, base → target</span></div></div>
+    <div class="stat"><div class="v"><span class="ko">89→130개</span><span class="en-i">89→130</span></div><div class="k">하루 판매 수량 기본 → 목표<span class="en">items sold/day, base → target</span></div></div>
+    <div class="stat"><div class="v">$552</div><div class="k">하루 매출 목표 (VAT 제외) · 기본 $388<span class="en">daily sales target (ex-VAT) · base $388</span></div></div>
+    <div class="stat"><div class="v">$9.2</div><div class="k">객단가 (VAT 제외)<span class="en">avg. spend per guest (ex-VAT)</span></div></div>
+    <div class="stat"><div class="v"><span class="ko">34석</span><span class="en-i">34</span></div><div class="k">실내 18 + 실외 16<span class="en">seats · indoor 18 + outdoor 16</span></div></div>
+  </section>
+
+  <h2>하루를 두 시간대로 나눈 메뉴<span class="en">One day, two menus</span></h2>
+  <p class="lede">같은 34석, 같은 주방이지만 시간대마다 손님의 목적이 다릅니다. 메뉴판도 시간대에 맞춰 무게중심을 옮깁니다.<span class="en">Same 34 seats, same kitchen — but guests come for different reasons at different times of day, so the menu shifts its weight accordingly.</span></p>
+  <div class="two">
+    <div class="band day">
+      <h3>낮 · 커피와 음료<span class="en">Day · Coffee &amp; drinks</span></h3><div class="t">12:00–19:00 · <span class="ko">하루 20명 · 체류 약 1시간</span><span class="en-i">20 guests/day · ~1 hr stay</span></div>
+      <ul>
+        <li>커피 · 논커피 · 베이커리 · 디저트 중심<span class="en">Coffee, non-coffee drinks, bakery and desserts</span></li>
+        <li>식사는 셀프 라면 (직원 조리 없음)<span class="en">For a meal: self-service ramyeon (no staff cooking)</span></li>
+        <li>낮은 1명 운영 — 음료·디저트에만 집중<span class="en">One staff member by day — drinks and desserts only</span></li>
+      </ul>
+    </div>
+    <div class="band night">
+      <h3>저녁 · 치킨과 주류<span class="en">Evening · Chicken &amp; drinks</span></h3><div class="t">19:00–23:00 · <span class="ko">하루 28명 · 체류 약 2시간</span><span class="en-i">28 guests/day · ~2 hr stay</span></div>
+      <ul>
+        <li>한국식 오븐 로스트 치킨 — 재료는 장각 하나, 혼자면 장각 세트, 그룹은 치맥 세트·플레이트 · 샐러드는 저녁에만<span class="en">Korean oven-roast chicken — leg quarters only; a set for solo guests, a chimaek set or platter for groups · salad in the evening only</span></li>
+        <li>치킨과 맥주의 치맥, 맥주 · 와인과 짝을 이루는 쉐어러블 플레이트<span class="en">Chimaek (chicken and beer), plus shareable plates to go with beer and wine</span></li>
+        <li>음식이 주류 판매를 끌고, 주류가 체류 시간을 늘림<span class="en">Food drives drink sales; drinks keep guests longer</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>시즌별 운영 메뉴<span class="en">Menu by season</span></h2>
+  <p class="lede">근무표(Tim Staff Roster)의 시즌별 인원에 맞춰 메뉴를 나눴습니다. 원칙은 두 가지입니다. <b>1명이 운영하는 시간에는 음료·디저트만</b>, <b>조리 메뉴는 주방 담당이 있는 저녁에만</b>. 셀프 라면은 직원이 조리하지 않아 언제든 팝니다.<span class="en">The menu follows the staffing in the Tim Staff Roster. Two rules: <b>when one person is on shift, drinks and desserts only</b>; <b>cooked food only in the evening, when kitchen staff are on</b>. Self-service ramyeon needs no staff, so it is available any time.</span></p>
+  <div class="tablebox">
+    <table class="season" style="min-width:680px">
+      <thead><tr><th style="width:32%">메뉴<span class="en">Menu</span></th><th>성수기 6~9월<span class="en">Peak · Jun–Sep</span></th><th>일반시즌 3~5월 · 10월<span class="en">Regular · Mar–May, Oct</span></th><th>비수기 · 카페 전용 11~2월<span class="en">Off-season · café only · Nov–Feb</span></th></tr></thead>
+      <tbody>
+        <tr class="grp"><td colspan="4"><span class="ko">낮 · 1명 운영 (음료·디저트만)</span><span class="en-i">Day · one staff (drinks &amp; desserts only)</span></td></tr>
+        <tr><td>커피 · 논커피 · 소프트드링크<span class="en">Coffee · non-coffee · soft drinks</span></td><td class="on">운영<span class="en">Open</span></td><td class="on">운영<span class="en">Open</span></td><td class="on">운영<span class="en">Open</span></td></tr>
+        <tr><td>베이커리 · 디저트<span class="en">Bakery · desserts</span></td><td class="on">운영<span class="en">Open</span></td><td class="on">운영<span class="en">Open</span></td><td class="on">운영<span class="en">Open</span></td></tr>
+        <tr><td>빙수 <span class="tag make"><span class="ko">시그니처</span><span class="en-i">Signature</span></span><span class="en">Bingsu</span></td><td class="on">운영<span class="en">Open</span></td><td class="on">운영<span class="en">Open</span></td><td class="on">운영<span class="en">Open</span></td></tr>
+        <tr><td>호떡 <span class="tag make"><span class="ko">겨울 시그니처</span><span class="en-i">Winter signature</span></span><span class="en">Hotteok (Korean sweet pancake)</span></td><td class="off">—</td><td class="off">—</td><td class="on">운영<span class="en">Open</span></td></tr>
+        <tr><td>셀프 라면<span class="en">Self-service ramyeon</span></td><td class="on">종일<span class="en">All day</span></td><td class="on">종일<span class="en">All day</span></td><td class="on">종일<span class="en">All day</span></td></tr>
+        <tr class="grp"><td colspan="4"><span class="ko">저녁 · 주방 담당 근무</span><span class="en-i">Evening · kitchen staff on</span></td></tr>
+        <tr><td>오븐 로스트 치킨 (장각 세트 · 추가 · 치맥 세트)<span class="en">Oven-roast chicken (leg quarter set · extra pieces · chimaek set)</span></td><td class="on">4종<span class="en">4 flavours</span></td><td class="on">4종<span class="en">4 flavours</span></td><td class="off">대체 고려<span class="en">Alternative under review</span></td></tr>
+        <tr><td>샐러드<span class="en">Salad</span></td><td class="on">운영<span class="en">Open</span></td><td class="on">운영<span class="en">Open</span></td><td class="off">대체 고려<span class="en">Alternative under review</span></td></tr>
+        <tr><td>쉐어러블 플레이트 (웨지 감자 · 치즈 플레이트)<span class="en">Shareable plates (potato wedges · cheese plate)</span></td><td class="on">2종<span class="en">2 items</span></td><td class="on">2종<span class="en">2 items</span></td><td class="off">대체 고려<span class="en">Alternative under review</span></td></tr>
+        <tr><td>맥주 · 와인 <span class="tag"><span class="ko">로스 없음</span><span class="en-i">No waste</span></span><span class="en">Beer · wine</span></td><td class="on">운영<span class="en">Open</span></td><td class="on">운영<span class="en">Open</span></td><td class="on">운영<span class="en">Open</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">오븐 로스트 치킨은 미리 양념해 둔 닭을 오븐에 굽기만 하면 되어, 일반시즌처럼 저녁 주방이 1명이어도 4종을 모두 낼 수 있습니다. 치즈 플레이트는 완제품이라 부담이 적습니다. 비수기에 손님이 늘면 인원을 조정해 저녁 메뉴를 다시 엽니다.<span class="en">Oven-roast chicken is pre-marinated and simply baked, so even with one evening cook (as in the regular season) all four flavours can be served. The cheese plate is ready-made, so it adds little work. If off-season demand grows, we adjust staffing and reopen the evening menu.</span></p>
+
+  <h2>오븐 로스트 치킨 · 저녁의 중심<span class="en">Oven-roast chicken · the heart of our evenings</span></h2>
+  <p class="lede">저녁 메뉴의 중심은 <b>한국식 오븐 로스트 치킨</b>입니다. 재료는 <b>장각 하나</b>로 정합니다. 적은 스태프로 통닭을 사 와서 매번 해체·손질하기는 어렵기 때문입니다. 장각을 기본 마리네이드로 미리 구워 두고, 주문이 들어오면 오븐에서 데우면서 손님이 고른 소스만 입힙니다. 모든 조각이 같은 부위라 굽기가 일정하고, 새 직원도 금방 배울 수 있으며, 가슴살처럼 남는 부위가 없습니다. 혼자 온 손님은 <b>장각 세트</b>에 장각을 추가하는 방식으로, 그룹은 <b>치맥 세트</b>나 <b>플레이트</b>로 나눠 먹습니다.<span class="en">The heart of the evening menu is <b>Korean oven-roast chicken</b>, made from <b>one cut only: leg quarters</b>. Buying whole birds and breaking them down every day is hard with a small team. Leg quarters are pre-roasted in the base marinade, then reheated in the oven to order and finished with the guest's choice of sauce. Every piece is the same cut, so cooking is consistent, new staff learn it quickly, and there is no leftover breast meat. Solo guests order a <b>leg quarter set</b> and add pieces; groups share a <b>chimaek set</b> or a <b>platter</b>.</span></p>
+  <h3 style="font-size:16px;margin:18px 0 8px">소스 4종 — 조각마다 고를 수 있음<span class="en">Four sauces — choose per piece</span></h3>
+  <div class="tablebox" style="margin-bottom:14px"><table style="min-width:560px"><thead><tr><th style="width:30%">소스<span class="en">Sauce</span></th><th class="n">추가 (GEL)<span class="en">Extra (GEL)</span></th><th>설명<span class="en">Description</span></th></tr></thead><tbody><tr><td>오리지널<span class="en">Original</span></td><td class="n">—</td><td>기본 마리네이드 그대로 — 담백한 오븐 로스트<span class="en">The base marinade as is — a clean oven roast</span></td></tr><tr><td>간장 마늘 <span class="tag make"><span class="ko">시그니처</span><span class="en-i">Signature</span></span><span class="en">Soy garlic</span></td><td class="n">—</td><td>달콤 짭짤한 간장 마늘 소스 — 외국인 선호도가 높은 맛<span class="en">Sweet-savoury soy garlic glaze — popular with foreign guests</span></td></tr><tr><td>매콤 양념<span class="en">Spicy yangnyeom</span></td><td class="n">—</td><td>고추장 베이스의 매콤달콤한 한국식 양념<span class="en">Sweet-and-spicy Korean gochujang glaze</span></td></tr><tr><td>치즈<span class="en">Cheese</span></td><td class="n">+1</td><td>오븐 로스트 위에 치즈 시즈닝<span class="en">Oven roast finished with cheese seasoning</span></td></tr></tbody></table></div>
+  <h3 style="font-size:16px;margin:18px 0 8px">판매 방식<span class="en">How it is sold</span></h3>
+  <div class="tablebox" style="margin-bottom:14px"><table style="min-width:720px"><thead><tr><th style="width:28%">메뉴<span class="en">Menu</span></th><th class="n">USD<span class="en">USD</span></th><th class="n">GEL<span class="en">GEL</span></th><th>구성<span class="en">What's in it</span></th><th>대상<span class="en">For</span></th></tr></thead><tbody><tr><td>장각 세트 · 소프트드링크<span class="en">Leg quarter set · soft drink</span></td><td class="n">$7.80</td><td class="n">20</td><td>장각 1조각 + 공깃밥 또는 웨지 감자 + 코울슬로 + 소프트드링크<span class="en">1 leg quarter + rice or wedges + coleslaw + soft drink</span></td><td><span class="ko">혼자 온 손님</span><span class="en-i">Solo guests</span></td></tr><tr><td>장각 세트 · 맥주<span class="en">Leg quarter set · beer</span></td><td class="n">$9.75</td><td class="n">25</td><td>장각 1조각 + 공깃밥 또는 웨지 감자 + 코울슬로 + 맥주<span class="en">1 leg quarter + rice or wedges + coleslaw + beer</span></td><td><span class="ko">혼자 온 손님</span><span class="en-i">Solo guests</span></td></tr><tr><td>장각 추가 1조각<span class="en">Extra leg quarter</span></td><td class="n">$2.73</td><td class="n">7</td><td>세트에 더하거나 단품으로 — 소스 선택<span class="en">Add to a set or order on its own — choose a sauce</span></td><td><span class="ko">누구나</span><span class="en-i">Anyone</span></td></tr><tr><td>치맥 세트<span class="en">Chimaek set</span></td><td class="n">$17.16</td><td class="n">44</td><td>장각 4조각 + 맥주 2잔 — 소스 2가지까지 섞기 가능<span class="en">4 leg quarters + 2 beers — mix up to two sauces</span></td><td><span class="ko">그룹 (2~3인)</span><span class="en-i">Groups (2–3)</span></td></tr><tr><td>치킨 플레이트<span class="en">Chicken platter</span></td><td class="n">$21.45</td><td class="n">55</td><td>장각 순살 + 사이드를 나무 보드에 — 아래 플레이트 참고<span class="en">Boneless leg meat + sides on a wooden board — see platters below</span></td><td><span class="ko">그룹 (2~3인)</span><span class="en-i">Groups (2–3)</span></td></tr></tbody></table></div>
+  <h3 style="font-size:16px;margin:18px 0 8px">치킨 사이드<span class="en">Chicken sides</span></h3>
+  <div class="tablebox" style="margin-bottom:14px"><table style="min-width:600px"><thead><tr><th style="width:36%">메뉴<span class="en">Menu</span></th><th class="n">USD<span class="en">USD</span></th><th class="n">GEL<span class="en">GEL</span></th><th>설명<span class="en">Description</span></th></tr></thead><tbody><tr><td>공깃밥<span class="en">Steamed rice</span></td><td class="n">$1.17</td><td class="n">3</td><td>세트 탄수화물 선택 · 밥솥으로 한 번에<span class="en">Set carb option · cooked in one batch in a rice cooker</span></td></tr><tr><td>오븐 웨지 감자<span class="en">Oven potato wedges</span></td><td class="n">$3.12</td><td class="n">8</td><td>세트 탄수화물 선택 · 치킨과 같은 오븐에서 함께 굽기<span class="en">Set carb option · baked in the same oven as the chicken</span></td></tr><tr><td>코울슬로<span class="en">Coleslaw</span></td><td class="n">$1.56</td><td class="n">4</td><td>세트 샐러드 · 하루 한 번 만들어 2~3일 보관<span class="en">Set salad · made once a day, keeps 2–3 days</span></td></tr><tr><td>콘치즈<span class="en">Corn cheese</span></td><td class="n">$3.12</td><td class="n">8</td><td>한국 치킨집 대표 사이드<span class="en">A classic Korean chicken-shop side</span></td></tr></tbody></table></div>
+  <p class="note"><b>객단가:</b> 혼자 온 손님이 맥주 세트(25 GEL)에 장각 1조각(7 GEL)을 더하면 32 GEL로, 장각만 팔 때(1인 약 16 GEL)의 두 배 가까이 됩니다. 세트 가격은 따로 시킬 때(장각 8 + 공깃밥·웨지 3~8 + 코울슬로 4 + 음료 5~10 GEL)보다 저렴하게 잡았습니다. <b>운영:</b> 주방이 조리하는 것은 장각뿐입니다. 공깃밥은 밥솥, 웨지 감자는 같은 오븐, 코울슬로는 하루 한 번 준비, 음료는 바에서 나갑니다. <b>가격:</b> 초안이며, 원가 확인 후 확정합니다. <b>설비:</b> 대용량 컨벡션 오븐과 밥솥이 필요합니다.<span class="en"><b>Spend per guest:</b> a solo guest who adds one leg quarter (7 GEL) to the beer set (25 GEL) spends 32 GEL — nearly twice the ~16 GEL of leg quarters alone. Sets are priced below the items bought separately (leg quarter 8 + rice or wedges 3–8 + coleslaw 4 + drink 5–10 GEL). <b>Operations:</b> the kitchen cooks only the leg quarters; rice comes from a rice cooker, wedges from the same oven, coleslaw is made once a day, and drinks come from the bar. <b>Prices:</b> draft, to be confirmed after costing. <b>Equipment:</b> a large convection oven and a rice cooker.</span></p>
+
+  <h3 style="font-size:16px;margin:26px 0 6px">치킨 플레이트 · 2~3인 쉐어<span class="en">Chicken platters · to share for 2–3</span></h3>
+  <p class="note" style="margin-top:0">치킨과 사이드를 큰 나무 보드에 한 번에 담아 내는 쉐어 플레이트입니다. 단체·그룹 손님용이고, 가격은 모두 55 GEL입니다.<span class="en">Chicken and sides served together on a large wooden board, for groups. All platters are 55 GEL.</span></p>
+  <div class="pl-grid">
+    <div class="pl-card">
+      <img src="img/platter_trio_oven.jpg" alt="Oven chicken trio platter" loading="lazy">
+      <div class="pl-body">
+        <h4>오븐 치킨 3종 플레이트 <span class="tag make"><span class="ko">대표</span><span class="en-i">Lead</span></span><span class="en">Oven chicken trio platter</span></h4>
+        <p>오븐 로스트 치킨 3가지 맛(매콤 양념 · 파채 · 마늘 간장) + 양념 감자 + 그린 샐러드<span class="en">Oven-roast chicken in three flavours (spicy yangnyeom · shredded scallion · garlic soy) + seasoned potatoes + green salad</span></p>
+        <div class="pl-price"><span><b>55</b> GEL</span><span>$21.45</span><span class="pl-note"><span class="ko">2~3인</span><span class="en-i">serves 2–3</span></span></div>
+        <p class="pl-sub">우리 컨셉(오븐)에 가장 맞는 대표 플레이트<span class="en">The platter that best fits our oven concept</span></p>
+      </div>
+    </div>
+    <div class="pl-card">
+      <img src="img/platter_roast_veg.jpg" alt="Roast chicken &amp; vegetable platter" loading="lazy">
+      <div class="pl-body">
+        <h4>로스트 치킨 & 채소 플레이트<span class="en">Roast chicken &amp; vegetable platter</span></h4>
+        <p>오븐 로스트 치킨 + 7색 채소 스틱(적양배추 · 파프리카 · 오이 · 깻잎 · 새싹 · 고추) + 소스 2종<span class="en">Oven-roast chicken + seven-colour vegetable sticks (red cabbage · peppers · cucumber · perilla · sprouts · chilli) + two sauces</span></p>
+        <div class="pl-price"><span><b>55</b> GEL</span><span>$21.45</span><span class="pl-note"><span class="ko">2~3인</span><span class="en-i">serves 2–3</span></span></div>
+        <p class="pl-sub">채소와 함께 가볍게 — 건강을 찾는 손님·여성 그룹용<span class="en">Lighter, with vegetables — for health-minded guests and groups</span></p>
+      </div>
+    </div>
+    <div class="pl-card">
+      <img src="img/platter_trio_crispy.jpg" alt="Crispy chicken trio platter" loading="lazy">
+      <div class="pl-body">
+        <h4>크리스피 치킨 3종 플레이트<span class="en">Crispy chicken trio platter</span></h4>
+        <p>크리스피 치킨 3가지 맛(매콤 양념 · 어니언 크림 · 데리야끼) + 양념 감자 + 그린 샐러드<span class="en">Crispy chicken in three flavours (spicy yangnyeom · onion cream · teriyaki) + seasoned potatoes + green salad</span></p>
+        <div class="pl-price"><span><b>55</b> GEL</span><span>$21.45</span><span class="pl-note"><span class="ko">2~3인</span><span class="en-i">serves 2–3</span></span></div>
+        <p class="pl-sub">사진은 튀김 방식 — 튀김기 없이 오븐 크리스피로 만들 수 있는지 검토 필요<span class="en">Photo shows fried chicken — needs testing as an oven-crisp version, since we have no fryer</span></p>
+      </div>
+    </div>
+  </div>
+  <p class="note"><b>사진 안내:</b> 위 사진은 한국 오빠닭의 플레이트를 구성 참고용으로 쓴 것이며 우리 메뉴 사진이 아닙니다. 메뉴판·홍보에는 쓰지 않고, 오픈 전 우리 메뉴로 직접 촬영해 교체합니다. <b>가격·원가:</b> 55 GEL(1인 18~28 GEL)은 장각 4조각(약 30 GEL)에 사이드 2개(16 GEL)를 더한 값과 비슷합니다. 장각 순살 약 700g과 사이드 재료를 합쳐 원가율 약 40~45%로 추정합니다. <b>판매량:</b> 성수기 하루 3개(보수적 기준, 매출 목표 계산에서는 4개)로 아래 매출 계산에 넣었습니다. 그룹 손님 일부가 치맥 세트 대신 플레이트를 고른다고 보고 치킨 주문은 10건에서 8건으로 줄였습니다. 호스텔 그룹 디너·주말 예약·SNS 홍보로 하루 5개를 영업 목표로 잡습니다. 일반시즌은 약 2개, 비수기(카페 전용)는 0개입니다.<span class="en"><b>About the photos:</b> these are reference images of platters from Korea's Oppadak chain, used only to show the format — they are not our dishes. They will not be used on our menu or in promotion, and will be replaced with our own photos before opening. <b>Price and cost:</b> 55 GEL (18–28 GEL per person) is close to four leg quarters (~30 GEL) plus two sides (16 GEL). With about 700 g of boneless leg meat plus sides, food cost is estimated at 40–45%. <b>Volume:</b> 3 a day in peak season (conservative; 4 in the sales-target case), included in the daily sales below. Some groups are assumed to choose a platter instead of a chimaek set, so chicken orders drop from 10 to 8. The sales target is 5 a day through hostel group dinners, weekend bookings and social media. About 2 a day in the regular season, none off-season (café only).</span></p>
+
+  <h2>카페 메뉴 (초기 구상)<span class="en">Café menu (opening draft)</span></h2>
+  <p class="lede">조지아 카페에서 일반적으로 파는 메뉴를 기본으로, 낮 1인 운영 원칙에 맞춰 바로 내는 음료·빙수·베이커리로 구성했습니다. 가격은 트빌리시 시세(로스터리 카페 기준 밀크 커피 8~10 GEL, 아메리카노는 그보다 저렴, 베이커리 3~8 GEL)에 맞췄습니다. 원가 확인 후 확정합니다.<span class="en">Built on what Georgian cafés usually sell, limited to drinks, bingsu and bakery that one person can serve quickly. Prices follow the Tbilisi market (milk coffees 8–10 GEL at roastery cafés, Americano cheaper, bakery items 3–8 GEL), to be confirmed after costing.</span></p>
+  <p class="note" style="margin-top:-8px">가격 표시: 손님에게 받는 VAT 포함 금액. GEL이 메뉴판 가격이고, USD는 1 GEL = $0.39로 환산한 값입니다.<span class="en">Prices are what the guest pays, VAT included. GEL is the menu price; USD is converted at 1 GEL = $0.39.</span></p>
+  <div class="two">
+    <div style="min-width:0"><h3 style="font-size:16px;margin:0 0 8px">커피 · 평균 약 8 GEL ($3.08)<span class="en">Coffee · avg. ~8 GEL ($3.08)</span></h3><div class="tablebox" style="margin-bottom:14px"><table style="min-width:0px"><thead><tr><th style="width:44%">메뉴<span class="en">Menu</span></th><th class="n">USD<span class="en">USD</span></th><th class="n">GEL<span class="en">GEL</span></th><th>비고<span class="en">Note</span></th></tr></thead><tbody><tr><td>에스프레소<span class="en">Espresso</span></td><td class="n">$1.95</td><td class="n">5</td><td></td></tr><tr><td>아메리카노 (Hot / Iced)<span class="en">Americano (hot / iced)</span></td><td class="n">$2.34</td><td class="n">6</td><td>인근 Chaduna 6<span class="en">Chaduna nearby: 6</span></td></tr><tr><td>마키아토<span class="en">Macchiato</span></td><td class="n">$2.34</td><td class="n">6</td><td></td></tr><tr><td>카푸치노<span class="en">Cappuccino</span></td><td class="n">$3.12</td><td class="n">8</td><td></td></tr><tr><td>카페라떼<span class="en">Caffè latte</span></td><td class="n">$3.12</td><td class="n">8</td><td></td></tr><tr><td>플랫화이트<span class="en">Flat white</span></td><td class="n">$3.51</td><td class="n">9</td><td></td></tr><tr><td>아이스라떼<span class="en">Iced latte</span></td><td class="n">$3.51</td><td class="n">9</td><td>인근 Cafe Sololaki 10<span class="en">Cafe Sololaki nearby: 10</span></td></tr><tr><td>모카<span class="en">Mocha</span></td><td class="n">$3.90</td><td class="n">10</td><td></td></tr><tr><td>라프 커피<span class="en">Raf coffee</span></td><td class="n">$3.90</td><td class="n">10</td><td>크림·바닐라 — 조지아 카페 인기 메뉴<span class="en">Cream &amp; vanilla — a Georgian café favourite</span></td></tr></tbody></table></div></div>
+    <div style="min-width:0"><h3 style="font-size:16px;margin:0 0 8px">논커피 · 평균 약 10 GEL ($3.73)<span class="en">Non-coffee · avg. ~10 GEL ($3.73)</span></h3><div class="tablebox" style="margin-bottom:14px"><table style="min-width:0px"><thead><tr><th style="width:44%">메뉴<span class="en">Menu</span></th><th class="n">USD<span class="en">USD</span></th><th class="n">GEL<span class="en">GEL</span></th><th>비고<span class="en">Note</span></th></tr></thead><tbody><tr><td>홍차 · 허브티<span class="en">Black tea · herbal tea</span></td><td class="n">$1.95</td><td class="n">5</td><td>타임 등 조지아 허브<span class="en">Georgian herbs such as thyme</span></td></tr><tr><td>핫초코<span class="en">Hot chocolate</span></td><td class="n">$3.12</td><td class="n">8</td><td></td></tr><tr><td>레몬에이드<span class="en">Lemonade</span></td><td class="n">$3.12</td><td class="n">8</td><td></td></tr><tr><td>타르후나 레몬에이드<span class="en">Tarkhuna lemonade</span></td><td class="n">$3.12</td><td class="n">8</td><td>타라곤 — 조지아식<span class="en">Tarragon, Georgian style</span></td></tr><tr><td>생오렌지 주스<span class="en">Fresh orange juice</span></td><td class="n">$4.68</td><td class="n">12</td><td></td></tr><tr><td>밀크셰이크<span class="en">Milkshake</span></td><td class="n">$4.68</td><td class="n">12</td><td></td></tr><tr><td>제철 과일 스무디<span class="en">Seasonal fruit smoothie</span></td><td class="n">$5.46</td><td class="n">14</td><td>빙수와 같은 제철 과일<span class="en">Same seasonal fruit as the bingsu</span></td></tr></tbody></table></div></div>
+  </div>
+  <h3 style="font-size:16px;margin:18px 0 8px">빙수 · 2인 쉐어 기준<span class="en">Bingsu · sized for two</span></h3>
+  <div class="tablebox" style="margin-bottom:14px"><table style="min-width:600px"><thead><tr><th style="width:36%">메뉴<span class="en">Menu</span></th><th class="n">USD<span class="en">USD</span></th><th class="n">GEL<span class="en">GEL</span></th><th>구성<span class="en">What's in it</span></th></tr></thead><tbody><tr><td>우유 눈꽃빙수<span class="en">Milk snowflake bingsu</span></td><td class="n">$8.58</td><td class="n">22</td><td>기본 · 연유 · 떡 · 견과<span class="en">Classic · condensed milk · rice cake · nuts</span></td></tr><tr><td>제철 과일 빙수 <span class="tag make"><span class="ko">시그니처</span><span class="en-i">Signature</span></span><span class="en">Seasonal fruit bingsu</span></td><td class="n">$10.92</td><td class="n">28</td><td>시즌별 과일 로테이션 (아래 표)<span class="en">Fruit changes by season (see below)</span></td></tr><tr><td>사페라비 와인 빙수 <span class="tag make"><span class="ko">시그니처</span><span class="en-i">Signature</span></span><span class="en">Saperavi wine bingsu</span></td><td class="n">$12.48</td><td class="n">32</td><td>조지아 사페라비 와인 졸임 시럽 + 베리 · 와인 셔벗 토핑<span class="en">Reduced Georgian Saperavi wine syrup + berries · wine sorbet topping</span></td></tr></tbody></table></div>
+  <p class="note" style="margin-top:-6px">빙수는 비교할 트빌리시 시세 자료가 없어, 1인당 11~16 GEL(디저트 수준)로 잡은 기존 가격을 유지했습니다. 와인 빙수는 와인을 졸여 시럽으로 쓰는 방식입니다(알코올 대부분 날아감). 주류 판매 허가와 미성년자 판매 기준은 확인이 필요합니다.<span class="en">With no Tbilisi market data for bingsu, prices stay at 11–16 GEL per person (dessert level). The wine bingsu uses wine reduced to a syrup (most of the alcohol cooks off); alcohol licensing and rules on sales to minors still need checking.</span></p>
+  <h3 style="font-size:16px;margin:18px 0 8px">제철 과일 빙수 로테이션 — 조지아 제철 과일<span class="en">Seasonal fruit rotation — Georgian produce</span></h3>
+  <div class="tablebox" style="margin-bottom:14px"><table class="season" style="min-width:560px"><thead><tr><th>봄 (3~5월)<span class="en">Spring · Mar–May</span></th><th>여름 (6~9월)<span class="en">Summer · Jun–Sep</span></th><th>가을 (10월)<span class="en">Autumn · Oct</span></th><th>겨울 (11~2월)<span class="en">Winter · Nov–Feb</span></th></tr></thead>
+  <tbody><tr><td style="text-align:center">딸기<span class="en">Strawberry</span></td><td style="text-align:center">복숭아 · 수박 · 체리<span class="en">Peach · watermelon · cherry</span></td><td style="text-align:center">포도 · 무화과<span class="en">Grape · fig</span></td><td style="text-align:center">귤 · 감 · 석류<span class="en">Mandarin · persimmon · pomegranate</span></td></tr></tbody></table></div>
+  <h3 style="font-size:16px;margin:18px 0 8px">베이커리 · 디저트 — 폐기가 적은 품목만 (생크림·치즈 케이크 제외)<span class="en">Bakery &amp; desserts — low-waste items only (no cream or cheese cakes)</span></h3>
+  <div class="tablebox" style="margin-bottom:14px"><table style="min-width:600px"><thead><tr><th style="width:36%">메뉴<span class="en">Menu</span></th><th class="n">USD<span class="en">USD</span></th><th class="n">GEL<span class="en">GEL</span></th><th>조달<span class="en">Sourcing</span></th></tr></thead><tbody><tr><td>크루아상<span class="en">Croissant</span></td><td class="n">$2.34</td><td class="n">6</td><td>Buy</td></tr><tr><td>쿠키<span class="en">Cookie</span></td><td class="n">$1.56</td><td class="n">4</td><td>Buy</td></tr><tr><td>브라우니<span class="en">Brownie</span></td><td class="n">$2.73</td><td class="n">7</td><td>Buy</td></tr><tr><td>호떡 (2개) <span class="tag make"><span class="ko">겨울 시그니처</span><span class="en-i">Winter signature</span></span><span class="en">Hotteok (2 pcs)</span></td><td class="n">$3.12</td><td class="n">8</td><td>11~2월 · 반죽 준비 후 철판<span class="en">Nov–Feb · dough prepped, cooked on the griddle</span></td></tr></tbody></table></div>
+  <p class="note">빙수는 Menu 시트에 매출로 들어가 있지 않습니다(추가 매출 처리). 카페 메뉴를 시트에 반영하려면 빙수 판매량을 따로 잡아야 합니다.<span class="en">Bingsu is not yet in the Menu sheet's sales (treated as upside). To add the café menu to the sheet, bingsu sales volume needs its own estimate.</span></p>
+
+  <h2>카테고리별 메뉴<span class="en">Menu by category</span></h2>
+  <p class="lede">가격은 트빌리시 시세에 맞춘 값으로, 손님이 내는 VAT 포함 금액을 <b>USD와 GEL로 따로</b> 적었습니다. "시트 가격"은 Menu 시트의 원래 GEL 가격입니다. 판매량은 두 가지입니다. <b>기본</b>은 Menu 시트 손님 수(하루 48명) 기준이고, <b>목표</b>는 재무 목표 하루 $550을 맞추기 위한 판매량(하루 60명)입니다. 하루 매출은 재무계획과 같이 VAT를 뺀 USD이고, 매출 비중 막대는 목표 기준입니다.<span class="en">Prices follow the Tbilisi market and are what the guest pays incl. VAT, shown <b>separately in USD and GEL</b>; "Sheet price" is the original GEL price in the Menu sheet. Volumes are shown two ways: <b>Base</b> uses the Menu sheet's 48 guests a day, and <b>Target</b> is the volume needed for the finance target of $550 a day (60 guests). Daily sales are in USD excluding VAT, and share bars use the target.</span></p>
+  <div class="tablebox">
+    <table style="min-width:900px">
+      <thead><tr><th style="width:30%">카테고리 · 세부 메뉴<span class="en">Category · items</span></th><th>시간대<span class="en">When</span></th><th class="n">USD<br>(VAT 포함)<span class="en">USD<br>(incl. VAT)</span></th><th class="n">GEL<br>(VAT 포함)<span class="en">GEL<br>(incl. VAT)</span></th><th class="n">시트 가격<br>(GEL)<span class="en">Sheet price<br>(GEL)</span></th><th class="n">판매<br>기본<span class="en">Sold<br>base</span></th><th class="n">판매<br>목표<span class="en">Sold<br>target</span></th><th class="n">매출 기본<br>(USD)<span class="en">Sales base<br>(USD)</span></th><th class="n">매출 목표<br>(USD)<span class="en">Sales target<br>(USD)</span></th><th style="width:11%">비중 (목표)<span class="en">Share (target)</span></th></tr></thead>
+      <tbody>
+        <tr class="grp"><td colspan="10"><span class="ko">식사</span><span class="en-i">Food</span></td></tr>
+        <tr><td><span class="item">오븐 로스트 치킨<span class="en">Oven-roast chicken</span></span><span class="tag make">Make</span><div class="items">장각 하나로 만드는 오븐 로스트 치킨, 소스 4종 — 장각 세트 20~25 · 장각 추가 7 · 치맥 세트 44 GEL. 주문당 평균 약 30 GEL(세트에 든 음료 포함). 기본 판매량은 플레이트로 옮겨 가는 그룹 주문 2건을 뺀 하루 8주문.<span class="en">Oven-roast chicken from leg quarters only, four sauces — leg quarter set 20–25 · extra piece 7 · chimaek set 44 GEL. ≈ 30 GEL per order on average (drinks in sets included). Base volume is 8 orders a day, after two group orders move to platters.</span></div></td><td><span class="when e"><span class="ko">저녁</span><span class="en-i">Evening</span></span></td><td class="n">$2.73–17.16</td><td class="n">7–44</td><td class="n" style="color:var(--muted)">55 <span class="ko">/ 접시</span><span class="en-i">/ plate</span></td><td class="n" style="color:var(--muted)">8</td><td class="n"><b>9</b></td><td class="n" style="color:var(--muted)">$79.32</td><td class="n"><b>$89.24</b></td><td>16.2%<div class="bar"><i style="width:100.0%"></i></div></td></tr>
+        <tr><td><span class="item">치킨 플레이트 (2~3인)<span class="en">Chicken platter (for 2–3)</span></span><span class="tag make">Make</span><div class="items">치킨 + 사이드를 나무 보드에 담은 쉐어 플레이트 3종 — 기본 하루 3개(보수적), 목표 4개.<span class="en">Three sharing platters of chicken and sides on a wooden board — base 3 a day (conservative), target 4.</span></div></td><td><span class="when e"><span class="ko">저녁</span><span class="en-i">Evening</span></span></td><td class="n">$21.45</td><td class="n">55</td><td class="n" style="color:var(--muted)">—</td><td class="n" style="color:var(--muted)">3</td><td class="n"><b>4</b></td><td class="n" style="color:var(--muted)">$54.53</td><td class="n"><b>$72.71</b></td><td>13.2%<div class="bar"><i style="width:81.5%"></i></div></td></tr>
+        <tr><td><span class="item">셀프 라면<span class="en">Self-service ramyeon</span></span><span class="tag">Self</span><div class="items">손님이 라면 조리기로 직접 끓여 먹는 무인 셀프 방식 — 직원 조리 없이 전 시즌 종일 운영 · 손님을 부르는 미끼 메뉴. 다른 한식당 시세(12 GEL)에 맞춤.<span class="en">Guests cook instant ramyeon themselves on a ramyeon cooker — no staff cooking, all day in every season · a draw item, priced to match other Korean restaurants (12 GEL).</span></div></td><td><span class="when a"><span class="ko">종일</span><span class="en-i">All day</span></span></td><td class="n">$4.68</td><td class="n">12</td><td class="n" style="color:var(--muted)">28</td><td class="n" style="color:var(--muted)">4</td><td class="n"><b>5</b></td><td class="n" style="color:var(--muted)">$15.86</td><td class="n"><b>$19.83</b></td><td>3.6%<div class="bar"><i style="width:22.2%"></i></div></td></tr>
+        <tr><td><span class="item">샐러드<span class="en">Salad</span></span><span class="tag">Prep</span><div class="items">제철 채소 메인 샐러드 1종 + 하우스 드레싱 — 주방 담당이 있는 저녁에만<span class="en">One main salad of seasonal vegetables + house dressing — evenings only</span></div></td><td><span class="when e"><span class="ko">저녁</span><span class="en-i">Evening</span></span></td><td class="n">$7.02</td><td class="n">18</td><td class="n" style="color:var(--muted)">22</td><td class="n" style="color:var(--muted)">3</td><td class="n"><b>3</b></td><td class="n" style="color:var(--muted)">$17.85</td><td class="n"><b>$17.85</b></td><td>3.2%<div class="bar"><i style="width:20.0%"></i></div></td></tr>
+        <tr class="grp"><td colspan="10"><span class="ko">사이드</span><span class="en-i">Side</span></td></tr>
+        <tr><td><span class="item">콘치즈<span class="en">Corn cheese</span></span><span class="tag">Prep</span><div class="items">한국 치킨집 대표 사이드 (시트의 공깃밥 자리)<span class="en">A classic Korean chicken-shop side (in place of steamed rice in the sheet)</span></div></td><td><span class="when e"><span class="ko">저녁</span><span class="en-i">Evening</span></span></td><td class="n">$3.12</td><td class="n">8</td><td class="n" style="color:var(--muted)">5</td><td class="n" style="color:var(--muted)">5</td><td class="n"><b>6</b></td><td class="n" style="color:var(--muted)">$13.22</td><td class="n"><b>$15.86</b></td><td>2.9%<div class="bar"><i style="width:17.8%"></i></div></td></tr>
+        <tr class="grp"><td colspan="10"><span class="ko">쉐어러블 플레이트</span><span class="en-i">Shareable plates</span></td></tr>
+        <tr><td><span class="item">오븐 웨지 감자<span class="en">Oven potato wedges</span></span><span class="tag">Prep</span><div class="items">치킨과 같은 오븐에서 함께 굽는 웨지 + 소스<span class="en">Wedges baked in the same oven as the chicken + sauce</span></div></td><td><span class="when e"><span class="ko">저녁</span><span class="en-i">Evening</span></span></td><td class="n">$3.12</td><td class="n">8</td><td class="n" style="color:var(--muted)">20</td><td class="n" style="color:var(--muted)">4</td><td class="n"><b>6</b></td><td class="n" style="color:var(--muted)">$10.58</td><td class="n"><b>$15.86</b></td><td>2.9%<div class="bar"><i style="width:17.8%"></i></div></td></tr>
+        <tr><td><span class="item">치즈 · 올리브 · 호두 플레이트<span class="en">Cheese, olive &amp; walnut plate</span></span><span class="tag">Buy</span><div class="items">치즈 · 올리브 · 호두 쉐어 플레이트 — 와인과 짝<span class="en">Cheese, olives and walnuts to share — pairs with wine</span></div></td><td><span class="when e"><span class="ko">저녁</span><span class="en-i">Evening</span></span></td><td class="n">$7.02</td><td class="n">18</td><td class="n" style="color:var(--muted)">20</td><td class="n" style="color:var(--muted)">2</td><td class="n"><b>3</b></td><td class="n" style="color:var(--muted)">$11.90</td><td class="n"><b>$17.85</b></td><td>3.2%<div class="bar"><i style="width:20.0%"></i></div></td></tr>
+        <tr class="grp"><td colspan="10"><span class="ko">베이커리 · 디저트</span><span class="en-i">Bakery &amp; desserts</span></td></tr>
+        <tr><td><span class="item">베이커리<span class="en">Bakery</span></span><span class="tag">Buy</span><span class="tag"><span class="ko">평균가</span><span class="en-i">avg. price</span></span><div class="items">쿠키 · 크루아상 · 브라우니 등<span class="en">Cookies, croissants, brownies, etc.</span></div></td><td><span class="when d"><span class="ko">낮</span><span class="en-i">Day</span></span></td><td class="n">$2.34</td><td class="n">6</td><td class="n" style="color:var(--muted)">12</td><td class="n" style="color:var(--muted)">4</td><td class="n"><b>6</b></td><td class="n" style="color:var(--muted)">$7.93</td><td class="n"><b>$11.90</b></td><td>2.2%<div class="bar"><i style="width:13.3%"></i></div></td></tr>
+        <tr><td><span class="item">디저트<span class="en">Dessert</span></span><span class="tag">Assemble</span><div class="items">빙수 · 호떡 등 디저트<span class="en">Desserts such as bingsu and hotteok</span></div></td><td><span class="when d"><span class="ko">낮</span><span class="en-i">Day</span></span></td><td class="n">$5.85</td><td class="n">15</td><td class="n" style="color:var(--muted)">15</td><td class="n" style="color:var(--muted)">4</td><td class="n"><b>8</b></td><td class="n" style="color:var(--muted)">$19.83</td><td class="n"><b>$39.66</b></td><td>7.2%<div class="bar"><i style="width:44.4%"></i></div></td></tr>
+        <tr class="grp"><td colspan="10"><span class="ko">커피 · 논커피</span><span class="en-i">Coffee &amp; non-coffee</span></td></tr>
+        <tr><td><span class="item">커피<span class="en">Coffee</span></span><span class="tag">Make</span><span class="tag"><span class="ko">평균가</span><span class="en-i">avg. price</span></span><div class="items">아메리카노 · 라떼 · 카푸치노 · 플랫화이트 · 라프 등<span class="en">Americano, latte, cappuccino, flat white, Raf, etc.</span></div></td><td><span class="when d"><span class="ko">낮</span><span class="en-i">Day</span></span></td><td class="n">$3.12</td><td class="n">8</td><td class="n" style="color:var(--muted)">10</td><td class="n" style="color:var(--muted)">18</td><td class="n"><b>25</b></td><td class="n" style="color:var(--muted)">$47.59</td><td class="n"><b>$66.10</b></td><td>12.0%<div class="bar"><i style="width:74.1%"></i></div></td></tr>
+        <tr><td><span class="item">논커피 음료<span class="en">Non-coffee drinks</span></span><span class="tag">Make</span><span class="tag"><span class="ko">평균가</span><span class="en-i">avg. price</span></span><div class="items">차 · 핫초코 · 레몬에이드 · 주스 · 스무디<span class="en">Tea, hot chocolate, lemonades, juice, smoothies</span></div></td><td><span class="when d"><span class="ko">낮</span><span class="en-i">Day</span></span></td><td class="n">$3.90</td><td class="n">10</td><td class="n" style="color:var(--muted)">15</td><td class="n" style="color:var(--muted)">6</td><td class="n"><b>9</b></td><td class="n" style="color:var(--muted)">$19.83</td><td class="n"><b>$29.75</b></td><td>5.4%<div class="bar"><i style="width:33.3%"></i></div></td></tr>
+        <tr class="grp"><td colspan="10"><span class="ko">주류</span><span class="en-i">Alcohol</span></td></tr>
+        <tr><td><span class="item">글라스 와인<span class="en">Wine by the glass</span></span><span class="tag">Buy</span><div class="items">조지아 와인 글라스 (사페라비급)<span class="en">Georgian wine by the glass (Saperavi level)</span></div></td><td><span class="when e"><span class="ko">저녁</span><span class="en-i">Evening</span></span></td><td class="n">$4.68</td><td class="n">12</td><td class="n" style="color:var(--muted)">18</td><td class="n" style="color:var(--muted)">5</td><td class="n"><b>8</b></td><td class="n" style="color:var(--muted)">$19.83</td><td class="n"><b>$31.73</b></td><td>5.7%<div class="bar"><i style="width:35.6%"></i></div></td></tr>
+        <tr><td><span class="item">보틀 와인<span class="en">Wine by the bottle</span></span><span class="tag">Buy</span><span class="tag"><span class="ko">평균가</span><span class="en-i">avg. price</span></span><div class="items">조지아 와인 보틀<span class="en">Georgian wines by the bottle</span></div></td><td><span class="when e"><span class="ko">저녁</span><span class="en-i">Evening</span></span></td><td class="n">$17.55</td><td class="n">45</td><td class="n" style="color:var(--muted)">60</td><td class="n" style="color:var(--muted)">1</td><td class="n"><b>2</b></td><td class="n" style="color:var(--muted)">$14.87</td><td class="n"><b>$29.75</b></td><td>5.4%<div class="bar"><i style="width:33.3%"></i></div></td></tr>
+        <tr><td><span class="item">맥주<span class="en">Beer</span></span><span class="tag">Buy</span><div class="items">병·캔 맥주 (생맥주는 운영이 가능하면)<span class="en">Bottled and canned beer (draught if feasible)</span></div></td><td><span class="when e"><span class="ko">저녁</span><span class="en-i">Evening</span></span></td><td class="n">$3.51</td><td class="n">9</td><td class="n" style="color:var(--muted)">15</td><td class="n" style="color:var(--muted)">14</td><td class="n"><b>26</b></td><td class="n" style="color:var(--muted)">$41.64</td><td class="n"><b>$77.34</b></td><td>14.0%<div class="bar"><i style="width:86.7%"></i></div></td></tr>
+        <tr class="grp"><td colspan="10"><span class="ko">기타 음료</span><span class="en-i">Other drinks</span></td></tr>
+        <tr><td><span class="item">탄산음료 · 생수<span class="en">Soft drinks &amp; water</span></span><span class="tag">Buy</span><div class="items">탄산음료 · 생수<span class="en">Soft drinks and bottled water</span></div></td><td><span class="when a"><span class="ko">종일</span><span class="en-i">All day</span></span></td><td class="n">$1.95</td><td class="n">5</td><td class="n" style="color:var(--muted)">9</td><td class="n" style="color:var(--muted)">8</td><td class="n"><b>10</b></td><td class="n" style="color:var(--muted)">$13.22</td><td class="n"><b>$16.53</b></td><td>3.0%<div class="bar"><i style="width:18.5%"></i></div></td></tr>
+        <tr class="total"><td><span class="ko">합계</span><span class="en-i">Total</span></td><td></td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">89</td><td class="n"><b>130</b></td><td class="n">$388.00</td><td class="n"><b>$551.96</b></td><td>100%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">매출 비중 막대는 가장 큰 오븐 로스트 치킨(16.2%)을 기준 길이로 그렸습니다.<span class="en">Share bars are scaled to the largest item, oven-roast chicken (16.2%).</span></p>
+
+  <h2>매출 목표 하루 $550 — 가능성<span class="en">Daily sales target of $550 — is it achievable?</span></h2>
+  <p class="lede">재무 담당의 목표는 성수기 하루 약 $550(VAT 제외)입니다. 시세 가격과 Menu 시트 손님 수(48명)로는 하루 $388이라, 가격을 다시 올리지 않고 목표를 맞추려면 <b>손님 수와 1인당 주문</b>이 함께 늘어야 합니다. 목표 판매량으로 계산하면 하루 $552입니다.<span class="en">Finance is targeting about $550 a day (ex-VAT) in peak season. At market prices and the Menu sheet's 48 guests, sales are $388 a day, so reaching the target without raising prices again needs <b>more guests and more spent per guest</b>. The target volumes below give $552 a day.</span></p>
+  <div class="tablebox">
+    <table style="min-width:640px">
+      <thead><tr><th style="width:34%">항목<span class="en">Measure</span></th><th class="n">기본<span class="en">Base</span></th><th class="n">목표<span class="en">Target</span></th><th>판단<span class="en">Assessment</span></th></tr></thead>
+      <tbody>
+        <tr><td>하루 매출 (USD, VAT 제외)<span class="en">Daily sales (USD ex-VAT)</span></td><td class="n">$388</td><td class="n"><b>$552</b></td><td>약 42% 증가 필요<span class="en">Needs about +42%</span></td></tr>
+        <tr><td>낮 손님 (12:00–19:00)<span class="en">Day guests (12:00–19:00)</span></td><td class="n">20</td><td class="n"><b>26</b></td><td>34석 기준 좌석 이용률 약 11% — 여유 충분<span class="en">About 11% seat use on 34 seats — plenty of room</span></td></tr>
+        <tr><td>저녁 손님 (19:00–23:00)<span class="en">Evening guests (19:00–23:00)</span></td><td class="n">28</td><td class="n"><b>34</b></td><td>34석 × 2회전의 50% — 가능하지만 영업이 필요<span class="en">50% of 34 seats × 2 turns — possible, but needs active selling</span></td></tr>
+        <tr><td>저녁 1인 결제 (GEL, VAT 포함)<span class="en">Evening spend per guest (GEL incl. VAT)</span></td><td class="n">~29</td><td class="n"><b>~34</b></td><td>치킨 나눠 먹기 + 맥주·와인 1.2잔 + 사이드 — 치맥 세트로 유도<span class="en">Shared chicken + 1.2 beers or wines + a side — driven by the chimaek set</span></td></tr>
+        <tr><td>낮 1인 결제 (GEL, VAT 포함)<span class="en">Day spend per guest (GEL incl. VAT)</span></td><td class="n">~18</td><td class="n"><b>~20</b></td><td>커피 + 디저트(빙수) 함께 주문 — 빙수 판매 4 → 8개<span class="en">Coffee with dessert (bingsu) — bingsu sales 4 → 8</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cards" style="margin-top:14px">
+    <div class="card"><h4>결론: 가능하지만 조건부<span class="en">Verdict: achievable, with conditions</span></h4><p>가격을 내리고도 $550을 맞추려면 하루 손님을 48명에서 60명으로 늘려야 합니다(+25%). 좌석은 충분하지만, 손님은 저절로 늘지 않습니다.<span class="en">Hitting $550 at market prices needs 60 guests a day instead of 48 (+25%). There are enough seats, but the guests won't come on their own.</span></p></div>
+    <div class="card"><h4>손님을 늘리는 방법<span class="en">How to bring more guests</span></h4><p>호스텔 투숙객 웰컴 드링크 쿠폰 · 투어 후 그룹 디너(플레이트 + 맥주) · 주말 그룹 예약 · 잼 나이트 같은 정기 행사 · 플레이트·빙수 사진으로 SNS 홍보<span class="en">Welcome-drink coupons for hostel guests · post-tour group dinners (platter + beer) · weekend group bookings · regular events such as jam nights · social media built on platter and bingsu photos</span></p></div>
+    <div class="card"><h4>1인 주문을 늘리는 방법<span class="en">How to raise spend per guest</span></h4><p>치맥 세트를 기본 추천 · 플레이트를 그룹에 먼저 제안 · 낮에는 커피와 빙수 함께 주문 유도<span class="en">Lead with the chimaek set · offer platters to groups first · pair coffee with bingsu by day</span></p></div>
+    <div class="card"><h4>재무계획에 쓰는 법<span class="en">How to use this in the financial plan</span></h4><p>기본($388)을 보수적 계획으로, 목표($552)를 영업 목표로 나눠 두는 것을 권합니다. 목표 숫자로만 계획을 세우면 손님이 덜 올 때 적자가 커집니다.<span class="en">We suggest keeping the base ($388) as the conservative plan and the target ($552) as the sales goal. Planning on the target alone makes losses larger if guest numbers fall short.</span></p></div>
+  </div>
+
+  <h2>매출은 어디서 나오나 (목표 기준)<span class="en">Where sales come from (target)</span></h2>
+  <p class="lede">음식이 하루 매출의 54%, 음료가 46%입니다. 매출 상위 3개(오븐 로스트 치킨 · 플레이트 · 맥주)가 전체의 43%를 차지합니다.<span class="en">Food is 54% of daily sales and drinks 46%. The top three items (oven-roast chicken, platters, beer) make up 43%.</span></p>
+  <div class="split" role="img" aria-label="Food 54.5%, drinks 45.5%">
+    <span style="width:54.5%;background:var(--ember)"><span class="ko">음식</span><span class="en-i">Food</span> $301 · 54.5%</span>
+    <span style="width:45.5%;background:var(--night)"><span class="ko">음료</span><span class="en-i">Drinks</span> $251 · 45.5%</span>
+  </div>
+  <div class="mix" style="margin-top:18px">
+    <div class="mixrow"><span><span class="ko">식사</span><span class="en-i">Food</span></span><span class="track"><i style="width:100.0%;background:var(--ember)"></i></span><span class="num">$199.63 · 36.2%</span></div>
+    <div class="mixrow"><span><span class="ko">주류</span><span class="en-i">Alcohol</span></span><span class="track"><i style="width:69.5%;background:var(--night)"></i></span><span class="num">$138.82 · 25.2%</span></div>
+    <div class="mixrow"><span><span class="ko">커피</span><span class="en-i">Coffee</span></span><span class="track"><i style="width:33.1%;background:var(--night)"></i></span><span class="num">$66.10 · 12.0%</span></div>
+    <div class="mixrow"><span><span class="ko">베이커리·디저트</span><span class="en-i">Bakery</span></span><span class="track"><i style="width:25.8%;background:var(--ember)"></i></span><span class="num">$51.56 · 9.3%</span></div>
+    <div class="mixrow"><span><span class="ko">쉐어러블</span><span class="en-i">Shareable</span></span><span class="track"><i style="width:16.9%;background:var(--ember)"></i></span><span class="num">$33.71 · 6.1%</span></div>
+    <div class="mixrow"><span><span class="ko">논커피</span><span class="en-i">Non-coffee</span></span><span class="track"><i style="width:14.9%;background:var(--night)"></i></span><span class="num">$29.75 · 5.4%</span></div>
+    <div class="mixrow"><span><span class="ko">기타 음료</span><span class="en-i">Other</span></span><span class="track"><i style="width:8.3%;background:var(--night)"></i></span><span class="num">$16.53 · 3.0%</span></div>
+    <div class="mixrow"><span><span class="ko">사이드</span><span class="en-i">Side</span></span><span class="track"><i style="width:7.9%;background:var(--ember)"></i></span><span class="num">$15.86 · 2.9%</span></div>
+  </div>
+  <p class="note" style="margin-top:14px">목표 기준 성수기 하루 매출은 $552(VAT 제외), VAT 포함 하루 약 1,670 GEL, 손님 1인당 약 28 GEL입니다. 시트는 성수기 기준이며, Revenue 시트가 일반시즌 60%, 비수기 25%를 적용합니다.<span class="en">At target, peak-season daily sales are $552 (ex-VAT) — about 1,670 GEL a day incl. VAT, or 28 GEL per guest. Figures are for the peak season; the Revenue sheet applies 60% for the regular season and 25% for the off-season.</span></p>
+
+  <h2>주방이 감당할 수 있는 구조<span class="en">A menu the kitchen can handle</span></h2>
+  <p class="lede">메뉴 수를 15개로 묶은 이유는 재료와 사람을 늘리지 않기 위해서입니다. 이번 근무표와 맞춰 보면 다음과 같습니다.<span class="en">The menu is held to 15 categories so we don't add ingredients or staff. Checked against the current roster:</span></p>
+  <div class="cards">
+    <div class="card"><h4>오븐 하나로 여러 메뉴<span class="en">One oven, several dishes</span></h4><p>치킨, 웨지 감자, 콘치즈를 같은 오븐에서 함께 굽습니다. 튀김기가 없어 설비와 기름 관리 부담이 줄어듭니다.<span class="en">Chicken, potato wedges and corn cheese all go in the same oven. With no fryer, there is less equipment and no oil to manage.</span></p></div>
+    <div class="card"><h4>재료는 장각 하나로<span class="en">One cut: leg quarters</span></h4><p>장각 한 가지 재료에 소스만 바꿔 4가지 맛을 냅니다. 손질이 필요 없고 재고가 한 갈래라, 적은 인원으로도 저녁 주방 1명이 맡을 수 있습니다.<span class="en">One cut — leg quarters — becomes four flavours by changing the sauce. No butchery and a single stock line mean one evening cook can run it with a small team.</span></p></div>
+    <div class="card"><h4>1명 운영은 음료·디저트만<span class="en">One person on shift: drinks &amp; desserts only</span></h4><p>낮과 비수기 일요일처럼 1명이 운영하는 시간에는 음료·디저트만 냅니다. 식사는 무인 셀프 라면으로 대신해 재료 손실과 운영 부담을 없앱니다.<span class="en">During the day, and on off-season Sundays, one person serves drinks and desserts only. Self-service ramyeon covers meals, avoiding waste and extra work.</span></p></div>
+    <div class="card"><h4>음료는 두 사람이 나눠서<span class="en">Drinks split between two roles</span></h4><p>낮 커피·논커피는 바리스타, 저녁 맥주·와인은 바 책임자가 맡습니다. 주류 4개 품목 중 3개가 완제품(Buy)이라 서비스가 빠릅니다.<span class="en">The barista handles daytime coffee and drinks; the bar manager handles evening beer and wine. Three of the four alcohol items are bought in, so service is quick.</span></p></div>
+  </div>
+
+  <h2>메뉴 원칙으로 본 점검<span class="en">Checked against our menu principles</span></h2>
+  <p class="lede">블루프린트의 메뉴 개발 11원칙 중 이 메뉴판과 직접 맞닿는 항목만 골랐습니다.<span class="en">The principles from the blueprint's 11 menu-development rules that apply directly to this menu.</span></p>
+  <div class="prin">
+    <div><b class="lbl">01 Beverage First</b>치킨과 맥주(치맥)가 기본 조합이고, 쉐어러블 플레이트가 맥주·와인과 짝을 이룹니다. 맥주는 하루 14잔으로 음료 중 판매량 2위입니다.<span class="en">Chicken and beer (chimaek) is the core pairing, and the shareable plates go with beer and wine. Beer, at 14 a day, is the second-best-selling drink.</span></div>
+    <div><b class="lbl">02 Sharing First</b>그룹은 치맥 세트와 치킨 플레이트를 함께 나눠 먹고, 혼자 온 손님은 장각 세트에 장각을 추가합니다. 쉐어러블 플레이트도 쉐어 구성입니다.<span class="en">Groups share a chimaek set or chicken platter, and solo guests order a leg quarter set and add pieces; shareable plates are built for sharing too.</span></div>
+    <div><b class="lbl">03 Global Friendly</b>치킨·셀프 라면·샐러드·와인 모두 국적과 관계없이 주문하기 쉬운 메뉴입니다.<span class="en">Chicken, self-service ramyeon, salad and wine are easy to order whatever your nationality.</span></div>
+    <div><b class="lbl">04 Operational Simplicity</b>셀프 라면은 직원 조리 없음, 샐러드 1종은 저녁에만, 디저트 1–2종으로 품목을 고정했습니다.<span class="en">Ramyeon needs no staff cooking, one salad in the evening only, one or two desserts — a fixed, simple range.</span></div>
+    <div><b class="lbl">08 Inventory Efficiency</b>닭 한 가지에 소스만 바꾸고, 감자·치즈·소스를 여러 메뉴에서 같이 씁니다.<span class="en">One chicken with different sauces, and potatoes, cheese and sauces shared across several dishes.</span></div>
+    <div><b class="lbl">10 Destination Menu</b>찾아올 이유는 연중 시그니처 빙수와 저녁의 시그니처 간장 마늘 오븐 치킨이 만듭니다. 겨울에는 호떡이 더해집니다.<span class="en">The reasons to visit: our year-round signature bingsu and the evening signature soy-garlic oven chicken, joined by hotteok in winter.</span></div>
+  </div>
+
+  <h2>시그니처<span class="en">Signatures</span></h2>
+  <p class="lede">찾아올 이유를 만드는 메뉴입니다. 낮은 디저트 시그니처(빙수·호떡), 저녁은 오븐 로스트 치킨 시그니처(간장 마늘)입니다.<span class="en">The dishes that give people a reason to come: dessert signatures by day (bingsu, hotteok) and the oven-roast chicken signature (soy garlic) by night.</span></p>
+  <div class="sig">
+    <div class="card"><h4>간장 마늘 오븐 치킨 · 저녁 (성수기·일반시즌)<span class="en">Soy-garlic oven chicken · evening (peak &amp; regular season)</span></h4><p>저녁 대표 시그니처. 튀기지 않고 오븐에 구운 한국식 치킨에 간장 마늘 소스를 입혀, 맥주와 함께 나눠 먹는 치맥 메뉴입니다.<span class="en">Our evening signature: Korean chicken baked, not fried, glazed in soy garlic — made for sharing over beer (chimaek).</span></p></div>
+    <div class="card"><h4>눈꽃빙수 · 연중<span class="en">Snowflake bingsu · all year</span></h4><p>ENVOY의 대표 시그니처. 여름 한정이 아니라 모든 시즌에 팝니다.<span class="en">ENVOY's main signature — sold in every season, not just summer.</span></p></div>
+    <div class="card"><h4>호떡 · 겨울 (11~2월)<span class="en">Hotteok · winter (Nov–Feb)</span></h4><p>겨울 시그니처. 반죽을 미리 준비하고 철판에 굽기만 하면 되어 1명 운영이 가능하고, 외국인 손님도 이미 좋아하는 메뉴입니다.<span class="en">Our winter signature. The dough is prepped ahead and simply griddled, so one person can run it — and foreign guests already love it.</span></p></div>
+  </div>
+
+  <footer>
+    출처: F&amp;B(Cafe Only) Business Financial Plan 2027-2029 · Menu 시트(2027년 성수기 기준), Revenue 시트(시즌별 매출 지수), Tim Staff Roster(근무 배치). 인근 가격과 TBC Capital 수치는 2026년 8월 ENVOY F&amp;B 사업계획서 조사 자료. 초기 오픈용 메뉴이며, 직원 숙련도와 판매 데이터에 따라 추가·삭제·변경합니다.<span class="en">Sources: F&amp;B (Cafe Only) Business Financial Plan 2027–2029 · Menu sheet (2027 peak season), Revenue sheet (seasonal index), Tim Staff Roster (staffing). Nearby prices and TBC Capital figures are from the August 2026 ENVOY F&amp;B business plan research. This is the opening menu; it will change with team experience and sales data.</span>
+  </footer>
+</main>
+<script>
+(function(){
+  document.querySelectorAll('.en').forEach(function(en){
+    var parent=en.parentNode, nodes=[], n=en.previousSibling;
+    while(n){var prev=n.previousSibling;
+      if(!(n.nodeType===1&&(n.classList.contains('tag')||n.classList.contains('lbl')||n.classList.contains('ko')||n.classList.contains('en-i')||n.classList.contains('en')))) nodes.unshift(n);
+      else if(n.nodeType===1&&n.classList.contains('en')) break;
+      n=prev;}
+    var has=nodes.some(function(x){return x.nodeType===1||x.textContent.trim()});
+    if(!has) return;
+    var w=document.createElement('span'); w.className='ko';
+    parent.insertBefore(w,nodes[0]); nodes.forEach(function(x){w.appendChild(x)});
+  });
+  var root=document.documentElement, btns=document.querySelectorAll('.langbar button');
+  function set(l){root.lang=l; btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l)}); try{localStorage.setItem('envoy-menu-lang',l)}catch(e){}}
+  var saved='ko'; try{saved=localStorage.getItem('envoy-menu-lang')||'ko'}catch(e){}
+  btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.l)})});
+  set(saved==='en'?'en':'ko');
+})();
+</script>
+
